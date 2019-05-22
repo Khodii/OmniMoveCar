@@ -5,12 +5,12 @@ D=25.5;
 // thickness
 T=10;
 // clearance
-tol=0.1;
+tol=0.15;
 number_of_planets=5;
 number_of_teeth_on_planets=7;
 approximate_number_of_teeth_on_sun=9;
 // pressure angle
-P=45;//[30:60]
+P=35;//[30:60]
 // number of teeth to twist across
 nTwist=1;
 // width of center hole
