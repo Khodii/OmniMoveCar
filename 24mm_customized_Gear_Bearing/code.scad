@@ -1,11 +1,11 @@
 // Planetary gear bearing (customizable)
 
 // outer diameter of ring
-D=51.7;
+D=25.5;
 // thickness
-T=15;
+T=10;
 // clearance
-tol=0.15;
+tol=0.1;
 number_of_planets=5;
 number_of_teeth_on_planets=7;
 approximate_number_of_teeth_on_sun=9;
@@ -13,8 +13,13 @@ approximate_number_of_teeth_on_sun=9;
 P=45;//[30:60]
 // number of teeth to twist across
 nTwist=1;
-// width of hexagonal hole
-w=6.7;
+// width of center hole
+w=2;
+// width of the outer holes
+wOuter = 1.5;
+//extruded socket length
+exSocket = 2;
+
 
 DR=0.5*1;// maximum depth ratio of teeth
 
@@ -41,13 +46,21 @@ translate([0,0,T/2]){
 	}
 	rotate([0,0,(np+1)*180/ns+phi*(ns+np)*2/ns])
 	difference(){
-		mirror([0,1,0])
-			herringbone(ns,pitch,P,DR,tol,helix_angle,T);
-		cylinder(r=w/sqrt(3),h=T+1,center=true,$fn=6);
+		mirror([0,1,0]) difference(){
+			herringbone(ns,pitch,P,DR,tol,helix_angle,T+exSocket*2);
+			translate([0,0,-T]) cube(10, center=true);
+		}
+		cylinder(r=w/2,h=T+exSocket*2 + 1,center=true,$fn=16);
 	}
-	for(i=[1:m])rotate([0,0,i*360/m+phi])translate([pitchD/2*(ns+np)/nr,0,0])
+	for(i=[1:m]) difference() {
+		rotate([0,0,i*360/m+phi])translate([pitchD/2*(ns+np)/nr,0,0])
 		rotate([0,0,i*ns/m*360/np-phi*(ns+np)/np-phi])
 			herringbone(np,pitch,P,DR,tol,helix_angle,T);
+		
+		rotate([0,0,i*360/m+phi])translate([pitchD/2*(ns+np)/nr,0,0])
+		rotate([0,0,i*ns/m*360/np-phi*(ns+np)/np-phi])
+		cylinder(r=wOuter/2,h=T+1,center=true,$fn=16);
+	}
 }
 
 module rack(
