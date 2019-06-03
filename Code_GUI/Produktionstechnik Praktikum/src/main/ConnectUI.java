@@ -55,13 +55,13 @@ public class ConnectUI extends JFrame {
         panel1.setLayout(null);
         
         TextFieldPort titel = new TextFieldPort();
+        titel.setEnabled(false);
+        titel.setEditable(false);
         titel.setHorizontalAlignment(SwingConstants.CENTER);
         titel.setBorderColor(new Color(102, 205, 170));
         titel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
         titel.setText("OmniMove Wlan Verbindung");
-        titel.setEnabled(false);
-        titel.setEditable(false);
-        titel.setBounds(47, 57, 250, 44);
+        titel.setBounds(68, 57, 250, 44);
         panel1.add(titel);
 
         MouseAdapter ma = new MouseAdapter() {
@@ -101,14 +101,14 @@ public class ConnectUI extends JFrame {
         separator1.setOrientation(SwingConstants.VERTICAL);
         separator1.setForeground(UIUtils.COLOR_OUTLINE);
         panel1.add(separator1);
-        separator1.setBounds(350, 41, 2, 316);
+        separator1.setBounds(387, 41, 2, 316);
     }
 
     private void addLogo(JPanel panel1) {
         JLabel label1 = new JLabel();
         //label1.setSize(300,300);
         label1.setFocusable(false);
-        label1.setBounds(37, 123, 273, 197);
+        label1.setBounds(57, 123, 273, 197);
         //ImageIcon robot = new ImageIcon(new ImageIcon("/robot.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
         //label1.setIcon(robot);
         Image robot = new ImageIcon(this.getClass().getResource("/robot.png")).getImage();
@@ -120,7 +120,7 @@ public class ConnectUI extends JFrame {
         TextFieldPort usernameField = new TextFieldPort();
         usernameField.setBorderColor(new Color(102, 205, 170));
 
-        usernameField.setBounds(423, 109, 250, 44);
+        usernameField.setBounds(473, 109, 250, 44);
         usernameField.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -148,7 +148,7 @@ public class ConnectUI extends JFrame {
         TextFieldIP passwordField = new TextFieldIP();
         passwordField.setBorderColor(new Color(102, 205, 170));
 
-        passwordField.setBounds(423, 168, 250, 44);
+        passwordField.setBounds(473, 168, 250, 44);
         passwordField.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -232,7 +232,7 @@ public class ConnectUI extends JFrame {
         });
 
         connectButton.setBackground(UIUtils.COLOR_BACKGROUND);
-        connectButton.setBounds(423, 247, 250, 44);
+        connectButton.setBounds(473, 247, 250, 44);
         connectButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         panel1.add(connectButton);
     }
