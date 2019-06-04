@@ -33,9 +33,10 @@ public class ConnectUI extends JFrame {
         addConnectButton(mainJPanel);
 
         getContentPane().add(mainJPanel);
-        this.pack();
-        this.setVisible(true);
-        this.toFront();
+
+        pack();
+        setVisible(true);
+        toFront();
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation(screenSize.width / 2 - getWidth() / 2, screenSize.height / 2 - getHeight() / 2);
@@ -44,7 +45,7 @@ public class ConnectUI extends JFrame {
     }
 
     private JPanel getMainJPanel() {
-        this.setUndecorated(true);
+        setUndecorated(true);
 
         Dimension size = new Dimension(800, 400);
 
@@ -58,11 +59,14 @@ public class ConnectUI extends JFrame {
         titel.setEnabled(false);
         titel.setEditable(false);
         titel.setHorizontalAlignment(SwingConstants.CENTER);
-        titel.setBorderColor(new Color(102, 205, 170));
+        titel.setBorderColor(UIUtils.COLOR_INTERACTIVE);
         titel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
         titel.setText("OmniMove Wlan Verbindung");
         titel.setBounds(68, 57, 250, 44);
         panel1.add(titel);
+
+        panel1.setFocusable(true);
+        panel1.requestFocus();
 
         MouseAdapter ma = new MouseAdapter() {
             int lastX, lastY;
@@ -118,7 +122,11 @@ public class ConnectUI extends JFrame {
 
     private void addIPTextField(JPanel panel1) {
         TextFieldPort usernameField = new TextFieldPort();
-        usernameField.setBorderColor(new Color(102, 205, 170));
+        //usernameField.setBorderColor(new Color(102, 205, 170));
+
+        usernameField.setText(UIUtils.PLACEHOLDER_TEXT_IP);
+        usernameField.setForeground(UIUtils.COLOR_OUTLINE);
+        usernameField.setBorderColor(UIUtils.COLOR_OUTLINE);
 
         usernameField.setBounds(473, 109, 250, 44);
         usernameField.addFocusListener(new FocusListener() {
@@ -146,7 +154,11 @@ public class ConnectUI extends JFrame {
 
     private void addPortTextField(JPanel panel1) {
         TextFieldIP passwordField = new TextFieldIP();
-        passwordField.setBorderColor(new Color(102, 205, 170));
+        //passwordField.setBorderColor(new Color(102, 205, 170));
+
+        passwordField.setText(UIUtils.PLACEHOLDER_TEXT_PORT);
+        passwordField.setForeground(UIUtils.COLOR_OUTLINE);
+        passwordField.setBorderColor(UIUtils.COLOR_OUTLINE);
 
         passwordField.setBounds(473, 168, 250, 44);
         passwordField.addFocusListener(new FocusListener() {
