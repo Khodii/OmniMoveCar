@@ -5,10 +5,10 @@ D=25.5;
 // thickness
 T=10;
 // clearance
-tol=0.15;
-number_of_planets=5;
+tol=0.11;
+number_of_planets=4;
 number_of_teeth_on_planets=7;
-approximate_number_of_teeth_on_sun=9;
+approximate_number_of_teeth_on_sun=7;
 // pressure angle
 P=35;//[30:60]
 // number of teeth to twist across
@@ -19,6 +19,10 @@ w=2;
 wOuter = 1.5;
 //extruded socket length
 exSocket = 2;
+// pin size
+wPin = 2;
+// pin amount
+cPin = 4;
 
 
 DR=0.5*1;// maximum depth ratio of teeth
@@ -60,6 +64,9 @@ translate([0,0,T/2]){
 		rotate([0,0,i*360/m+phi])translate([pitchD/2*(ns+np)/nr,0,0])
 		rotate([0,0,i*ns/m*360/np-phi*(ns+np)/np-phi])
 		cylinder(r=wOuter/2,h=T+1,center=true,$fn=16);
+	}
+	for (i = [1:cPin]) union() {
+		rotate([0,0, i*360/cPin]) translate([D/2 + wPin/2.5, 0, 0]) cube([wPin, wPin, T], center=true);
 	}
 }
 
