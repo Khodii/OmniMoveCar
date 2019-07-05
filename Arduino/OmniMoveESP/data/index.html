@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ESP32 Web Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <h1>ESP32 Web Server</h1>
+  <p>GPIO state: <strong> %STATE%</strong></p>
+  <p><a href="/on"><button class="button">ON</button></a></p>
+  <p><a href="/off"><button class="button button2">OFF</button></a></p>
+  <p><button class="button" onclick="myFunction()">Test</button></p>
+  <p><button class="button" onclick="sendSpeed()">speeds</button></p>
+</body>
+
+<script>
+  var ws = new WebSocket("ws://192.168.4.1/ws");
+  window.onload = function () {
+    setInterval(controlerFunc, 100);
+  };
+
+  window.addEventListener("gamepadconnected", (event) => {
+    console.log("A gamepad connected:");
+    console.log(event.gamepad);
+  });
+
+  window.addEventListener("gamepaddisconnected", (event) => {
+    console.log("A gamepad disconnected:");
+    console.log(event.gamepad);
+  });
+
+
+  var lastX1 = 0, lastX2 = 0, lastY1 = 0, lastY2 = 0;
+  function controlerFunc() {
+    let pads = navigator.getGamepads();
+    x1 = Math.floor(pads[2].axes[0] * 1023);
+    y1 = -Math.floor(pads[2].axes[1] * 1023);
+    x2 = Math.floor(pads[2].axes[2] * 1023);
+    y2 = -Math.floor(pads[2].axes[3] * 1023);
+
+    if (lastX1 != x1 || lastY1 != y1 || lastX2 != x2 || lastY2 != y2) {
+      console.log(x1 + ", " + y1 + " : " + x2 + ", " + y2);
+      if (ws.readyState == WebSocket.OPEN) {
+        let buf = new Int16Array([0, x1, y1, x2, y2])
+        ws.send(buf);
+      }
+      lastX1 = x1;
+      lastX2 = x2;
+      lastY1 = y1;
+      lastY2 = y2;
+    }
+
+  }
+
+  function myFunction() {
+    console.log("Test");
+    ws.send("Hallo");
+  }
+
+  function sendSpeed() {
+    console.log("speed");
+    arr = new Int16Array([0, -10, 10]);
+    ws.send(arr);
+  }
+</script>
+
+</html>

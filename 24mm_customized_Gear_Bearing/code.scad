@@ -5,7 +5,7 @@ D=24;
 // thickness
 T=10;
 // clearance
-tol=0.05;
+tol=0.1;
 number_of_planets=3;
 number_of_teeth_on_planets=11;
 approximate_number_of_teeth_on_sun=6;
