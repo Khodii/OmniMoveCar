@@ -3,6 +3,7 @@
 #include <SPIFFS.h>
 #include <WiFi.h>
 #include "communication.h"
+#include <DNSServer.h>
 
 // Replace with your network credentials
 const char* ssid = "ESP32-OmniMove";
@@ -10,10 +11,14 @@ const char* password = "123456789";
 // const char* ssid     = "moto g(6) 2970";
 // const char* password = "428d1382abf1";
 
+// const byte DNS_PORT = 53;
+const IPAddress apIP = IPAddress(192, 168, 4, 1);
+
+
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
 String ledState = "OFF";
-const IPAddress apIP = IPAddress(192, 168, 4, 1);
+DNSServer dnsServer;
 
 // Replaces placeholder with LED state value
 String processor(const String& var)
@@ -46,14 +51,21 @@ void onEvent(AsyncWebSocket* server, AsyncWebSocketClient* client, AwsEventType 
 void setup()
 {
     // enableCore1WDT();
-    delay(100);
     Serial.begin(115200);
-    delay(100);
 
+    // enable AP with dns
+    WiFi.mode(WIFI_AP);
+    //dnsServer.setTTL(300);
+    // dnsServer.setErrorReplyCode(DNSReplyCode::ServerFailure); // decrease request amount
+
+    // start DNS server for a specific domain name
+    // dnsServer.start(DNS_PORT, "www.example.com", apIP);
+    
+    // Setup websockets
     ws.onEvent(onEvent);
     server.addHandler(&ws);
     Communication::ws = &ws;
-    
+
     // Initialize SPIFFS
     if (!SPIFFS.begin(true)) {
         while (true) {
@@ -101,4 +113,5 @@ void setup()
 void loop()
 {
     // put your main code here, to run repeatedly:
+    // dnsServer.processNextRequest();
 }

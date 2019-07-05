@@ -37,6 +37,8 @@
   var lastX1 = 0, lastX2 = 0, lastY1 = 0, lastY2 = 0;
   function controlerFunc() {
     let pads = navigator.getGamepads();
+    if (pads === null || pads[2] === null)
+      return;
     x1 = Math.floor(pads[2].axes[0] * 1023);
     y1 = -Math.floor(pads[2].axes[1] * 1023);
     x2 = Math.floor(pads[2].axes[2] * 1023);
