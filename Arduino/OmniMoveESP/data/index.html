@@ -11,27 +11,104 @@
 <body>
   <h1>ESP32 Web Server</h1>
   <p>GPIO state: <strong> %STATE%</strong></p>
+  <p>WebSocked Connected: <strong id="wsState">NOPE</strong></p>
   <p><a href="/on"><button class="button">ON</button></a></p>
   <p><a href="/off"><button class="button button2">OFF</button></a></p>
   <p><button class="button" onclick="myFunction()">Test</button></p>
   <p><button class="button" onclick="sendSpeed()">speeds</button></p>
+
+  <div>
+    <h2>Messurements</h4>
+    <p>Accelleration: 0 m/s^2</p>
+    <p>Speed: 0 m/s</p>
+    <p>Rotation: 0 rad/s^2</p>
+  </div>
+
+  <div>
+    <div>
+      <progress value="22" max="100"></progress>
+      <progress value="22" max="100"></progress>
+    </div>
+    <div>
+      <progress value="22" max="100"></progress>
+      <progress value="22" max="100"></progress>
+    </div>
+  </div>
+
+  <div>
+    <h5>Select Controller</h5>
+    <button onclick="updateControllerList()">Test Controller</button>
+    <ul id="controllerList">
+      <li onclick="onControllerSelected(0)">Test</li>
+
+    </ul>
+  </div>
+
 </body>
 
 <script>
   var ws = new WebSocket("ws://192.168.4.1/ws");
+  var selectedControllerIndex = -1;
   window.onload = function () {
     setInterval(controlerFunc, 100);
+    updateControllerList();
   };
+
+
+  ws.onopen = (event) => {
+    document.getElementById("wsState").innerHTML = "OPEN";
+  }
+
+  ws.onerror = (event) => {
+    document.getElementById("wsState").innerHTML = "ERROR";
+  }
+
+  ws.onmessage = function (event) {
+    console.debug("WebSocket message received:", event);
+  };
+
 
   window.addEventListener("gamepadconnected", (event) => {
     console.log("A gamepad connected:");
     console.log(event.gamepad);
+
+    updateControllerList();
   });
 
   window.addEventListener("gamepaddisconnected", (event) => {
     console.log("A gamepad disconnected:");
     console.log(event.gamepad);
+
+
+    updateControllerList();
   });
+
+  // Lets the user select which connected controller to use
+  function updateControllerList() {
+    let inner = ""
+
+    let pads = navigator.getGamepads();
+    console.log(pads);
+
+    for (let i = 0; i < pads.length; i++) {
+      const element = pads[i];
+      if (element === null)
+        continue;
+      if (selectedControllerIndex == i) {
+        inner += "<li onclick=\"onControllerSelected(" + i + ")\"><strong>" + element.id + "</strong></li>";
+      } else {
+        inner += "<li onclick=\"onControllerSelected(" + i + ")\">" + element.id + "</li>";
+      }
+    }
+
+    document.getElementById("controllerList").innerHTML = inner;
+  }
+
+  // gets called when a Controller gets selected in the List
+  function onControllerSelected(index) {
+    selectedControllerIndex = index;
+    updateControllerList();
+  }
 
 
   var lastX1 = 0, lastX2 = 0, lastY1 = 0, lastY2 = 0;
