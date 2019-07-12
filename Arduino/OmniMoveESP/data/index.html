@@ -19,9 +19,9 @@
 
   <div>
     <h2>Messurements</h4>
-    <p>Accelleration: 0 m/s^2</p>
-    <p>Speed: 0 m/s</p>
-    <p>Rotation: 0 rad/s^2</p>
+      <p>Accelleration: 0 m/s^2</p>
+      <p>Speed: 0 m/s</p>
+      <p>Rotation: 0 rad/s^2</p>
   </div>
 
   <div>
@@ -38,6 +38,8 @@
   <div>
     <h5>Select Controller</h5>
     <button onclick="updateControllerList()">Test Controller</button>
+    <input type="checkbox" id="controllerEnabled" checked>
+    <label for="controllerEnabled">Enable Controller?</label>
     <ul id="controllerList">
       <li onclick="onControllerSelected(0)">Test</li>
 
@@ -46,105 +48,6 @@
 
 </body>
 
-<script>
-  var ws = new WebSocket("ws://192.168.4.1/ws");
-  var selectedControllerIndex = -1;
-  window.onload = function () {
-    setInterval(controlerFunc, 100);
-    updateControllerList();
-  };
-
-
-  ws.onopen = (event) => {
-    document.getElementById("wsState").innerHTML = "OPEN";
-  }
-
-  ws.onerror = (event) => {
-    document.getElementById("wsState").innerHTML = "ERROR";
-  }
-
-  ws.onmessage = function (event) {
-    console.debug("WebSocket message received:", event);
-  };
-
-
-  window.addEventListener("gamepadconnected", (event) => {
-    console.log("A gamepad connected:");
-    console.log(event.gamepad);
-
-    updateControllerList();
-  });
-
-  window.addEventListener("gamepaddisconnected", (event) => {
-    console.log("A gamepad disconnected:");
-    console.log(event.gamepad);
-
-
-    updateControllerList();
-  });
-
-  // Lets the user select which connected controller to use
-  function updateControllerList() {
-    let inner = ""
-
-    let pads = navigator.getGamepads();
-    console.log(pads);
-
-    for (let i = 0; i < pads.length; i++) {
-      const element = pads[i];
-      if (element === null)
-        continue;
-      if (selectedControllerIndex == i) {
-        inner += "<li onclick=\"onControllerSelected(" + i + ")\"><strong>" + element.id + "</strong></li>";
-      } else {
-        inner += "<li onclick=\"onControllerSelected(" + i + ")\">" + element.id + "</li>";
-      }
-    }
-
-    document.getElementById("controllerList").innerHTML = inner;
-  }
-
-  // gets called when a Controller gets selected in the List
-  function onControllerSelected(index) {
-    selectedControllerIndex = index;
-    updateControllerList();
-  }
-
-
-  var lastX1 = 0, lastX2 = 0, lastY1 = 0, lastY2 = 0;
-  function controlerFunc() {
-    let pads = navigator.getGamepads();
-    if (pads === null || pads[2] === null)
-      return;
-    x1 = Math.floor(pads[2].axes[0] * 1023);
-    y1 = -Math.floor(pads[2].axes[1] * 1023);
-    x2 = Math.floor(pads[2].axes[2] * 1023);
-    y2 = -Math.floor(pads[2].axes[3] * 1023);
-
-    if (lastX1 != x1 || lastY1 != y1 || lastX2 != x2 || lastY2 != y2) {
-      console.log(x1 + ", " + y1 + " : " + x2 + ", " + y2);
-      if (ws.readyState == WebSocket.OPEN) {
-        let buf = new Int16Array([0, x1, y1, x2, y2])
-        ws.send(buf);
-      }
-      lastX1 = x1;
-      lastX2 = x2;
-      lastY1 = y1;
-      lastY2 = y2;
-    }
-
-  }
-
-  function myFunction() {
-    console.log("Test");
-    ws.send("Hallo");
-  }
-
-  function sendSpeed() {
-    console.log("speed");
-    arr = new Int16Array([0, -10, 10]);
-    ws.send(arr);
-  }
-</script>
+<script type="text/javascript" src="code.js"></script>
 
 </html>

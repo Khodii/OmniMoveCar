@@ -1,28 +1,25 @@
+#include "communication.h"
+#include "movement.h"
 #include <Arduino.h>
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
 #include <WiFi.h>
-#include "communication.h"
-#include <DNSServer.h>
 
 // Replace with your network credentials
-const char* ssid = "ESP32-OmniMove";
-const char* password = "123456789";
+const char *ssid = "ESP32-OmniMove";
+const char *password = "123456789";
 // const char* ssid     = "moto g(6) 2970";
 // const char* password = "428d1382abf1";
 
 // const byte DNS_PORT = 53;
 const IPAddress apIP = IPAddress(192, 168, 4, 1);
 
-
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
 String ledState = "OFF";
-DNSServer dnsServer;
 
 // Replaces placeholder with LED state value
-String processor(const String& var)
-{
+String processor(const String &var) {
     Serial.println(var);
 
     if (var == "STATE") {
@@ -33,34 +30,28 @@ String processor(const String& var)
     return String();
 }
 
-void onEvent(AsyncWebSocket* server, AsyncWebSocketClient* client, AwsEventType type, void* arg, uint8_t* data, size_t len)
-{
+void onEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, void *arg, uint8_t *data, size_t len) {
     Serial.printf("client: %s type: %i\n", client->remoteIP().toString(), type, len);
     if (type == WS_EVT_DATA) {
         char c[len + 1];
-        strncpy(c, (char*)data, len);
+        strncpy(c, (char *)data, len);
         c[len] = 0;
 
         Communication::onWSData(server, client, type, data, len);
 
         Serial.printf("mesage: %s\n", c);
-        
     }
 }
 
-void setup()
-{
+void setup() {
     // enableCore1WDT();
     Serial.begin(115200);
 
+    Movement::initPWM();
+
     // enable AP with dns
     WiFi.mode(WIFI_AP);
-    //dnsServer.setTTL(300);
-    // dnsServer.setErrorReplyCode(DNSReplyCode::ServerFailure); // decrease request amount
 
-    // start DNS server for a specific domain name
-    // dnsServer.start(DNS_PORT, "www.example.com", apIP);
-    
     // Setup websockets
     ws.onEvent(onEvent);
     server.addHandler(&ws);
@@ -78,26 +69,26 @@ void setup()
     }
 
     // Route for root / web page
-    server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
+    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
         Serial.println("request on index");
         request->send(SPIFFS, "/index.html", String(), false, processor);
     });
 
     // Route to load style.css file
-    server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest* request) {
+    server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request) {
         Serial.println("request on style");
         request->send(SPIFFS, "/style.css", "text/css");
     });
 
     // Route to set GPIO to HIGH
-    server.on("/on", HTTP_GET, [](AsyncWebServerRequest* request) {
+    server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request) {
         Serial.println("Pressed on");
         ledState = "ON";
         request->send(SPIFFS, "/index.html", String(), false, processor);
     });
 
     // Route to set GPIO to LOW
-    server.on("/off", HTTP_GET, [](AsyncWebServerRequest* request) {
+    server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request) {
         Serial.println("Pressed off");
         ledState = "OFF";
         request->send(SPIFFS, "/index.html", String(), false, processor);
@@ -110,8 +101,7 @@ void setup()
     server.begin();
 }
 
-void loop()
-{
+void loop() {
     // put your main code here, to run repeatedly:
     // dnsServer.processNextRequest();
 }
