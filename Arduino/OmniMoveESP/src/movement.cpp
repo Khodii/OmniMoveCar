@@ -110,12 +110,14 @@ void Movement::drive(int controlFront, int controlSide, int controlTurn) {
     MOTOR_HL.setSpeed(speedHL);
     MOTOR_HR.setSpeed(speedHR);
 
-    // speedVL = speedVL / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
-    // speedVR = speedVR / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
-    // speedHL = speedHL / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
-    // speedHR = speedHR / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
+
+    speedVL = speedVL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedVL);
+    speedVR = speedVR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedVR);
+    speedHL = speedHL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedHL);
+    speedHR = speedHR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedHR);
 
     printf("#######\n");
     printf("%i %i\n", speedVL, speedVR);
     printf("%i %i\n", speedHL, speedHR);
+    printf("#######\n");
 }

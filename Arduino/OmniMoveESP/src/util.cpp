@@ -1,3 +1,5 @@
+#include "util.h"
+
 /*********************************************************
  * high precision sine/cosine
  *
@@ -56,3 +58,10 @@ void cossin(float x, float *outCos, float *outSin) {
     *outCos = cos;
 }
 
+
+/**
+ * Branchless signum function
+ */
+int sgn(int val) {
+    return (0 < val) - (val < 0);
+}

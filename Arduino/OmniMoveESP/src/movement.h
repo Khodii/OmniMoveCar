@@ -2,6 +2,7 @@
 
 #include <Arduino.h>
 #include <math.h>
+#include "util.h"
 
 class Motor {
 private:
