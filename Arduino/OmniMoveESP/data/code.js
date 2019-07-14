@@ -8,16 +8,18 @@ window.onload = function () {
 
 ws.onopen = (event) => {
   document.getElementById("wsState").innerHTML = "OPEN";
-}
+};
 
 ws.onerror = (event) => {
   document.getElementById("wsState").innerHTML = "ERROR";
-}
+};
 
-
+ws.onclose = (event) => {
+  document.getElementById("wsState").innerHTML = "CLOSED";
+};
 
 ws.onmessage = function (event) {
-  console.debug("WebSocket message received:", event);
+  console.debug("WebSocket message received:" + event);
 };
 
 

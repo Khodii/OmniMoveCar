@@ -102,7 +102,7 @@ void Movement::drive(int controlFront, int controlSide, int controlTurn) {
 
     double phi = atan2(controlSide, controlFront);
 
-    int vd = sqrt(controlFront * controlFront + controlSide * controlSide);
+    int vd = min((int)sqrt(controlFront * controlFront + controlSide * controlSide), 1023);
     vd -= controlTurn / 2;
     int vphi = controlTurn / 2;
 
@@ -127,7 +127,7 @@ void Movement::drive(int controlFront, int controlSide, int controlTurn) {
     Communication::sendCurrMotor(speedVL, speedVR, speedHL, speedHR);
 
     printf("#######\n");
-    printf("%f, %f", c, s);
+    printf("%f, %f\n", c, s);
     printf("%i %i\n", speedVL, speedVR);
     printf("%i %i\n", speedHL, speedHR);
     printf("#######\n");

@@ -52,7 +52,7 @@ public:
     static const char PIN_MOTOR_HL_DIR2 = 5;
 
     static const char PIN_MOTOR_HR_EN = 4;
-    static const char PIN_MOTOR_HR_DIR1 = 2;
+    static const char PIN_MOTOR_HR_DIR1 = 3;
     static const char PIN_MOTOR_HR_DIR2 = 15;
 
     static const int PWM_FREQ = 5000;

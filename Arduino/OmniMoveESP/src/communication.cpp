@@ -37,6 +37,7 @@ void Communication::sendCurrMotor(int16_t vl, int16_t vr, int16_t hl, int16_t hr
         ws_client->binary((uint8_t *)buff, 10);
     }
     ws->binaryAll((uint8_t *)buff, 10);
+    ws->printfAll("Hallo das ist ein testprint\n");
 }
 
 AsyncWebSocket *Communication::ws;

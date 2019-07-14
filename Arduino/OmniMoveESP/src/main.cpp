@@ -39,6 +39,12 @@ void onEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType 
 
         Communication::onWSData(server, client, type, data, len);
 
+        client->printf("printf to client\n");
+        client->text("Text to client\n");
+        client->_runQueue();
+        Serial.printf("Full: %i\n", server->availableForWriteAll());
+        client->ping();
+
         Serial.printf("mesage: %s\n", c);
     }
 }
@@ -56,6 +62,7 @@ void setup() {
     ws.onEvent(onEvent);
     server.addHandler(&ws);
     Communication::ws = &ws;
+    ws.enable(true);
 
     // Initialize SPIFFS
     if (!SPIFFS.begin(true)) {
