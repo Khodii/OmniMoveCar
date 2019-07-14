@@ -14,6 +14,8 @@ ws.onerror = (event) => {
   document.getElementById("wsState").innerHTML = "ERROR";
 }
 
+
+
 ws.onmessage = function (event) {
   console.debug("WebSocket message received:", event);
 };

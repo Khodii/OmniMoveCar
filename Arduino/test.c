@@ -13,7 +13,7 @@ int sgn(int val) {
 void drive(int controlFront, int controlSide, int controlTurn) {
     double phi = atan2(controlSide, controlFront);
 
-    int vd = max(controlFront + controlSide, 1023);
+    int vd = sqrt(controlFront * controlFront + controlSide * controlSide);
     vd -= controlTurn / 2;
     int vphi = controlTurn / 2;
 

@@ -1,6 +1,11 @@
 #include "communication.h"
 
+
+AsyncWebSocketClient *ws_client = nullptr;
+
 void Communication::onWSData(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, uint8_t *data, size_t len) {
+    ws_client = client;
+
     int16_t *d16 = (int16_t *)data;
     int16_t id = d16[0];
 
@@ -22,12 +27,16 @@ void Communication::onDrive(int16_t x1, int16_t y1, int16_t x2, int16_t y2) {
 
 void Communication::sendCurrGyro(XYZ speed, XYZ accel, XYZ rot) {
     int16_t buff[10] = {OmniMessageType::CURR_GYRO, speed.x, speed.y, speed.z, accel.x, accel.y, accel.z, rot.x, rot.y, rot.z};
-    ws->binaryAll((uint8_t *)buff, 10);
+    ws->binaryAll((uint8_t *)buff, 20);
 }
 
 void Communication::sendCurrMotor(int16_t vl, int16_t vr, int16_t hl, int16_t hr) {
     int16_t buff[5] = {OmniMessageType::CURR_MOTOR, vl, vr, hl, hr};
-    ws->binaryAll((uint8_t *)buff, 5);
+    Serial.println("should send now");
+    if (ws_client != nullptr) {
+        ws_client->binary((uint8_t *)buff, 10);
+    }
+    ws->binaryAll((uint8_t *)buff, 10);
 }
 
 AsyncWebSocket *Communication::ws;
