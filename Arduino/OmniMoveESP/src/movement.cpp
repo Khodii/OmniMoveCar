@@ -36,6 +36,8 @@ Motor Movement::MOTOR_HR = Motor(CH_MOTOR_HR, PIN_MOTOR_HR_DIR1, PIN_MOTOR_HR_DI
 
 // ############### Functions ####################
 void Movement::initPWM() {
+    Serial.println("Initing PWMs");
+
     // Setting all pins to output
     pinMode(PIN_LED, OUTPUT);
     pinMode(PIN_MOTOR_VL_EN, OUTPUT);
@@ -84,6 +86,8 @@ void Movement::initPWM() {
     ledcAttachPin(PIN_MOTOR_VR_EN, CH_MOTOR_VR);
     ledcAttachPin(PIN_MOTOR_HL_EN, CH_MOTOR_HL);
     ledcAttachPin(PIN_MOTOR_HR_EN, CH_MOTOR_HR);
+
+    Serial.println("Inited PWMs");
 }
 
 void Movement::drive(int controlFront, int controlSide, int controlTurn) {
@@ -106,10 +110,10 @@ void Movement::drive(int controlFront, int controlSide, int controlTurn) {
     MOTOR_HL.setSpeed(speedHL);
     MOTOR_HR.setSpeed(speedHR);
 
-    speedVL = speedVL / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
-    speedVR = speedVR / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
-    speedHL = speedHL / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
-    speedHR = speedHR / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
+    // speedVL = speedVL / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
+    // speedVR = speedVR / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
+    // speedHL = speedHL / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
+    // speedHR = speedHR / 1023.0 * USEABLE_UPPER_LIMIT + 1023 - USEABLE_UPPER_LIMIT;
 
     printf("#######\n");
     printf("%i %i\n", speedVL, speedVR);

@@ -25,4 +25,9 @@ void Communication::sendCurrGyro(XYZ speed, XYZ accel, XYZ rot) {
     ws->binaryAll((uint8_t *)buff, 10);
 }
 
+void Communication::sendCurrMotor(int16_t vl, int16_t vr, int16_t hl, int16_t hr) {
+    int16_t buff[5] = {OmniMessageType::CURR_MOTOR, vl, vr, hl, hr};
+    ws->binaryAll((uint8_t *)buff, 5);
+}
+
 AsyncWebSocket *Communication::ws;

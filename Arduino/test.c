@@ -23,7 +23,7 @@ void drive(int controlFront, int controlSide, int controlTurn) {
     int speedHL = c + vphi;
     int speedHR = s - vphi;
 
-    speedVL = speedVL / 1023.0 * 300 + 1023 - 300;
+    // speedVL = speedVL / 1023.0 * 300 + 1023 - 300;
 
     printf("#######\n");
     printf("%i %i\n", speedVL, speedVR);
