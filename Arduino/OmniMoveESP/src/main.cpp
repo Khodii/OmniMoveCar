@@ -80,6 +80,12 @@ void setup() {
         request->send(SPIFFS, "/style.css", "text/css");
     });
 
+    // Route to load code.js file
+    server.on("/code.js", HTTP_GET, [](AsyncWebServerRequest *request) {
+        Serial.println("request on code");
+        request->send(SPIFFS, "/code.js", "text/javascript");
+    });
+
     // Route to set GPIO to HIGH
     server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request) {
         Serial.println("Pressed on");
