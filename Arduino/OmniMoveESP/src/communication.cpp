@@ -17,6 +17,7 @@ void Communication::onWSData(AsyncWebSocket *server, AsyncWebSocketClient *clien
 
 void Communication::onDrive(int16_t x1, int16_t y1, int16_t x2, int16_t y2) {
     Serial.printf("Driving with speed: %i, %i and %i, %i now\n", x1, y1, x2, y2);
+    Movement::drive(y1, x1, x2);
 }
 
 void Communication::sendCurrGyro(XYZ speed, XYZ accel, XYZ rot) {

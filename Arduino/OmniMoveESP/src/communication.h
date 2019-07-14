@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ESPAsyncWebServer.h>
+#include "movement.h"
 
 /**
  * Limitations due to js:
