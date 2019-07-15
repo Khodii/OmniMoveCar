@@ -16,7 +16,7 @@ nTwist=1;
 // width of center hole
 w=2;
 // width of the outer holes
-wOuter = 1.5;
+wOuter = 2;
 //extruded socket length
 exSocket = 2;
 // pin width
@@ -27,6 +27,10 @@ lPin = 1;
 cPin = 8;
 // cut size
 wCut = .4;
+// angle where the cut is
+angleCut = 25;
+// length offset of the whole outer ring
+TlengthOffset = 2;
 
 
 DR=0.5*1;// maximum depth ratio of teeth
@@ -51,9 +55,9 @@ phi=$t*360/m;
 
 translate([0,0,T/2]){
 	difference(){
-		cylinder(r=D/2,h=T,center=true,$fn=100);
-		herringbone(nr,pitch,P,DR,-tol,helix_angle,T+0.2);
-		rotate([0,0, 45/2]) translate([D/2, 0, 0]) cube([10, wCut, T], center=true);
+		cylinder(r=D/2,h=T + TlengthOffset,center=true,$fn=100);
+		herringbone(nr,pitch,P,DR,-tol,helix_angle,T+0.2 + TlengthOffset);
+		rotate([0,0, angleCut]) translate([D/2, 0, 0]) cube([10, wCut, T + TlengthOffset], center=true);
 	}
 
 	rotate([0,0,(np+1)*180/ns+phi*(ns+np)*2/ns])
@@ -74,7 +78,7 @@ translate([0,0,T/2]){
 		cylinder(r=wOuter/2,h=T+1,center=true,$fn=16);
 	}
 	for (i = [1:cPin]) union() {
-		rotate([0,0, i*360/cPin]) translate([D/2 + lPin/2.5, 0, 0]) cube([lPin, wPin, T], center=true);
+		rotate([0,0, i*360/cPin]) translate([D/2 + lPin/2.5, 0, 0]) cube([lPin, wPin, T + TlengthOffset], center=true);
 	}
 }
 
