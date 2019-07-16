@@ -1,11 +1,14 @@
-let ws = new WebSocket("ws://192.168.4.1/ws");
+// let ws = new WebSocket("ws://192.168.4.1/ws");
+let ws = new WebSocket("ws://demos.kaazing.com/echo");
+ws.binaryType = 'arraybuffer';
+
 let selectedControllerIndex = -1;
 window.onload = function () {
   setInterval(controllerFunc, 100);
   updateControllerList();
 };
 
-
+//#region >>>> WebSocket
 ws.onopen = (event) => {
   document.getElementById("wsState").innerHTML = "OPEN";
 };
@@ -19,10 +22,41 @@ ws.onclose = (event) => {
 };
 
 ws.onmessage = function (event) {
-  console.debug("WebSocket message received:" + event);
+  // console.log("WebSocket message received:", event);
+  let dv = new DataView(event.data);
+  let id = dv.getInt16(0, true);
+
+  switch (id) {
+    case 1: //gyro
+      let a = [dv.getInt16(2, true), dv.getInt16(4, true), dv.getInt16(6, true)];
+      let s = [dv.getInt16(8, true), dv.getInt16(10, true), dv.getInt16(12, true)];
+      let r = [dv.getInt16(2, true), dv.getInt16(4, true), dv.getInt16(6, true)];
+
+      document.getElementById("valAccelTotal").innerHTML = Math.sqrt(a[0] * a[0] + a[1] * a[1] + a[2] * a[2]).toFixed(2);
+      document.getElementById("valSpeedTotal").innerHTML = Math.sqrt(a[0] * s[0] + s[1] * s[1] + s[2] * s[2]).toFixed(2);
+      document.getElementById("valRotTotal").innerHTML = Math.sqrt(r[0] * r[0] + r[1] * r[1] + r[2] * r[2]).toFixed(2);
+
+      document.getElementById("valAccel").innerHTML = "[x: " + a[0] + ", y: " + a[1] + ", z: " + a[2] + "]";
+      document.getElementById("valSpeed").innerHTML = "[x: " + s[0] + ", y: " + s[1] + ", z: " + s[2] + "]";
+      document.getElementById("valRot").innerHTML = "[x: " + r[0] + ", y: " + r[1] + ", z: " + r[2] + "]";
+      break;
+
+    case 2: //battery
+      let c1 = dv.getInt16(2, true) / 4096 * 3.3;
+      let c2 = dv.getInt16(4, true) / 4096 * 3.3;
+
+      document.getElementById("valCell1").innerHTML = c1.toFixed(2);
+      document.getElementById("valCell2").innerHTML = c2.toFixed(2);
+      break;
+
+    default:
+      break;
+  }
 };
 
+//#endregion
 
+//#region >>>> Controller
 window.addEventListener("gamepadconnected", (event) => {
   console.log("A gamepad connected:");
   console.log(event.gamepad);
@@ -39,6 +73,64 @@ window.addEventListener("gamepaddisconnected", (event) => {
 });
 
 
+
+// Lets the user select which connected controller to use
+function updateControllerList() {
+  let inner = ""
+
+  let pads = navigator.getGamepads();
+  console.log(pads);
+
+  for (let i = 0; i < pads.length; i++) {
+    const element = pads[i];
+    if (element === null)
+      continue;
+    if (selectedControllerIndex == i) {
+      inner += "<li onclick=\"onControllerSelected(" + i + ")\"><strong>" + element.id + "</strong></li>";
+    } else {
+      inner += "<li onclick=\"onControllerSelected(" + i + ")\">" + element.id + "</li>";
+    }
+  }
+
+  document.getElementById("controllerList").innerHTML = inner;
+}
+
+// gets called when a Controller gets selected in the List
+function onControllerSelected(index) {
+  selectedControllerIndex = index;
+  updateControllerList();
+}
+
+
+let lastX1 = 0, lastX2 = 0, lastY1 = 0, lastY2 = 0;
+function controllerFunc() {
+  if (!document.getElementById("controllerEnabled").checked)
+    return;
+
+  let pads = navigator.getGamepads();
+  if (pads === null || pads[2] === null)
+    return;
+  x1 = Math.floor(pads[2].axes[0] * 1023);
+  y1 = -Math.floor(pads[2].axes[1] * 1023);
+  x2 = Math.floor(pads[2].axes[2] * 1023);
+  y2 = -Math.floor(pads[2].axes[3] * 1023);
+
+  if (lastX1 != x1 || lastY1 != y1 || lastX2 != x2 || lastY2 != y2) {
+    console.log(x1 + ", " + y1 + " : " + x2 + ", " + y2);
+    if (ws.readyState == WebSocket.OPEN) {
+      let buf = new Int16Array([0, x1, y1, x2, y2])
+      ws.send(buf);
+    }
+    lastX1 = x1;
+    lastX2 = x2;
+    lastY1 = y1;
+    lastY2 = y2;
+  }
+
+}
+//#endregion
+
+//#region >>>> Keyboard Control
 let dirX = 0;
 let dirY = 0;
 let rotX = 0;
@@ -119,69 +211,15 @@ document.addEventListener('keyup', function (event) {
     lastY2 = 0;
   }
 });
-
-// Lets the user select which connected controller to use
-function updateControllerList() {
-  let inner = ""
-
-  let pads = navigator.getGamepads();
-  console.log(pads);
-
-  for (let i = 0; i < pads.length; i++) {
-    const element = pads[i];
-    if (element === null)
-      continue;
-    if (selectedControllerIndex == i) {
-      inner += "<li onclick=\"onControllerSelected(" + i + ")\"><strong>" + element.id + "</strong></li>";
-    } else {
-      inner += "<li onclick=\"onControllerSelected(" + i + ")\">" + element.id + "</li>";
-    }
-  }
-
-  document.getElementById("controllerList").innerHTML = inner;
-}
-
-// gets called when a Controller gets selected in the List
-function onControllerSelected(index) {
-  selectedControllerIndex = index;
-  updateControllerList();
-}
-
-
-let lastX1 = 0, lastX2 = 0, lastY1 = 0, lastY2 = 0;
-function controllerFunc() {
-  if (!document.getElementById("controllerEnabled").checked)
-    return;
-
-  let pads = navigator.getGamepads();
-  if (pads === null || pads[2] === null)
-    return;
-  x1 = Math.floor(pads[2].axes[0] * 1023);
-  y1 = -Math.floor(pads[2].axes[1] * 1023);
-  x2 = Math.floor(pads[2].axes[2] * 1023);
-  y2 = -Math.floor(pads[2].axes[3] * 1023);
-
-  if (lastX1 != x1 || lastY1 != y1 || lastX2 != x2 || lastY2 != y2) {
-    console.log(x1 + ", " + y1 + " : " + x2 + ", " + y2);
-    if (ws.readyState == WebSocket.OPEN) {
-      let buf = new Int16Array([0, x1, y1, x2, y2])
-      ws.send(buf);
-    }
-    lastX1 = x1;
-    lastX2 = x2;
-    lastY1 = y1;
-    lastY2 = y2;
-  }
-
-}
-
-function myFunction() {
-  console.log("Test");
-  ws.send("Hallo");
-}
+//#endregion
 
 function sendSpeed() {
   console.log("speed");
-  arr = new Int16Array([0, -10, 10]);
+  let arr = new Int16Array([2, Math.random() * 4048, Math.random() * 4048]);
+  let arr2 = new Int16Array([1,
+    Math.random() * 1023, Math.random() * 1023, Math.random() * 1023,
+    Math.random() * 1023, Math.random() * 1023, Math.random() * 1023,
+    Math.random() * 1023, Math.random() * 1023, Math.random() * 1023]);
   ws.send(arr);
+  ws.send(arr2);
 }

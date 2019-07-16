@@ -10,19 +10,34 @@
 
 <body>
   <h1>ESP32 Web Server</h1>
-  <p>GPIO state: <strong> %STATE%</strong></p>
   <p>WebSocked Connected: <strong id="wsState">CONNECTING</strong></p>
-  <p><a href="/on"><button class="button">ON</button></a></p>
-  <p><a href="/off"><button class="button button2">OFF</button></a></p>
-  <p><button class="button" onclick="myFunction()">Test</button></p>
-  <p><button class="button" onclick="sendSpeed()">speeds</button></p>
+  <p><button class="button" onclick="sendSpeed()">Test Button</button></p>
 
-  <div>
-    <h2>Messurements</h4>
-      <p>Accelleration: 0 m/s^2</p>
-      <p>Speed: 0 m/s</p>
-      <p>Rotation: 0 rad/s^2</p>
+
+  <div class="wrapper">
+    <div class="left">
+      <h2>Messurements</h2>
+      <p>Accelleration: <strong id="valAccelTotal">0</strong> m/s^2
+        <br /> <span id="valAccel">[x: 0, y: 0, z: 0]</span>
+      </p>
+
+      <p>Speed: <strong id="valSpeedTotal">0</strong> m/s
+        <br /> <span id="valSpeed"></span>[x: 0, y: 0, z: 0]</p>
+
+      <p>Rotation: <strong id="valRotTotal">0</strong> rad/s^2
+        <br /> <span id="valRot">[x: 0, y: 0, z: 0]</span></p>
+
+    </div>
+
+    <div class="right">
+      <h2>Battery</h2>
+      <progress id="progBattery" value="60" max="100"></progress>
+      <strong id="valBatteryTotal">-1</strong>%
+      <p>Cell1: <strong id="valCell1">-1</strong> V</p>
+      <p>Cell2: <strong id="valCell2">-1</strong> V</p>
+    </div>
   </div>
+
 
   <div>
     <div>
@@ -37,7 +52,7 @@
 
   <div>
     <h5>Select Controller</h5>
-    <button onclick="updateControllerList()">Test Controller</button>
+    <button class="buttonsmall" onclick="updateControllerList()">Test Controller</button>
     <input type="checkbox" id="controllerEnabled" checked>
     <label for="controllerEnabled">Enable Controller?</label>
     <ul id="controllerList">

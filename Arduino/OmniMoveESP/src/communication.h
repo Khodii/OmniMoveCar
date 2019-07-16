@@ -28,7 +28,7 @@ public:
     static void onWSData(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, uint8_t *data, size_t len);
     static void onDrive(int16_t x1, int16_t y1, int16_t x2, int16_t y2);
     static void sendCurrGyro(XYZ speed, XYZ accel, XYZ rot);
-    static void sendCurrBattery(uint16_t cell1, uint16_t cell2);
+    static void sendCurrBattery(int16_t cell1, int16_t cell2);
     static void sendCurrMotor(int16_t vl, int16_t vr, int16_t hl, int16_t hr);
 
     static AsyncWebSocket *ws;
