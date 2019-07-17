@@ -92,11 +92,13 @@ void Movement::initPWM() {
 
 void Movement::drive(int controlFront, int controlSide, int controlTurn) {
     if (abs(controlFront) < CONTROLLER_LOWER_LIMIT && abs(controlSide) < CONTROLLER_LOWER_LIMIT && abs(controlTurn) < CONTROLLER_LOWER_LIMIT) {
-        Serial.println("Stopping Motors");
+        // Serial.println("Stopping Motors");
         MOTOR_VL.stop();
         MOTOR_VR.stop();
         MOTOR_HL.stop();
         MOTOR_HR.stop();
+
+        Communication::sendCurrMotor(0, 0, 0, 0);
         return;
     }
 
@@ -126,9 +128,9 @@ void Movement::drive(int controlFront, int controlSide, int controlTurn) {
 
     Communication::sendCurrMotor(speedVL, speedVR, speedHL, speedHR);
 
-    printf("#######\n");
-    printf("%f, %f\n", c, s);
-    printf("%i %i\n", speedVL, speedVR);
-    printf("%i %i\n", speedHL, speedHR);
-    printf("#######\n");
+    // printf("#######\n");
+    // printf("%f, %f\n", c, s);
+    // printf("%i %i\n", speedVL, speedVR);
+    // printf("%i %i\n", speedHL, speedHR);
+    // printf("#######\n");
 }

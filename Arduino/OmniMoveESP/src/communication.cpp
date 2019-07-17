@@ -20,7 +20,7 @@ void Communication::onWSData(AsyncWebSocket *server, AsyncWebSocketClient *clien
 }
 
 void Communication::onDrive(int16_t x1, int16_t y1, int16_t x2, int16_t y2) {
-    Serial.printf("Driving with speed: %i, %i and %i, %i now\n", x1, y1, x2, y2);
+    // Serial.printf("Driving with speed: %i, %i and %i, %i now\n", x1, y1, x2, y2);
     Movement::drive(y1, x1, x2);
 }
 
@@ -31,13 +31,13 @@ void Communication::sendCurrGyro(XYZ speed, XYZ accel, XYZ rot) {
 
 void Communication::sendCurrMotor(int16_t vl, int16_t vr, int16_t hl, int16_t hr) {
     int16_t buff[5] = {OmniMessageType::CURR_MOTOR, vl, vr, hl, hr};
-    Serial.println("should send now");
+    // Serial.println("should send now");
     ws->binaryAll((uint8_t *)buff, 10);
 }
 
 void Communication::sendCurrBattery(int16_t cell1, int16_t cell2) {
     int16_t buff[5] = {OmniMessageType::CURR_BATTERY, cell1, cell2};
-    Serial.println("should send now");
+    // Serial.println("should send now");
     ws->binaryAll((uint8_t *)buff, 10);
 }
 

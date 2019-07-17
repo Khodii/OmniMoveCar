@@ -1,6 +1,15 @@
-// let ws = new WebSocket("ws://192.168.4.1/ws");
-let ws = new WebSocket("ws://demos.kaazing.com/echo");
+let ws = new WebSocket("ws://192.168.4.1/ws");
+// let ws = new WebSocket("ws://demos.kaazing.com/echo");
 ws.binaryType = 'arraybuffer';
+
+let barVL = new ProgressBar.Path('#pathVL', { easing: 'easeInOut', duration: 140, });
+let barVR = new ProgressBar.Path('#pathVR', { easing: 'easeInOut', duration: 140, });
+let barHL = new ProgressBar.Path('#pathHL', { easing: 'easeInOut', duration: 140, });
+let barHR = new ProgressBar.Path('#pathHR', { easing: 'easeInOut', duration: 140, });
+barVL.set(0.1)
+barVR.set(0.1)
+barHL.set(0.1)
+barHR.set(0.1)
 
 let selectedControllerIndex = -1;
 window.onload = function () {
@@ -48,6 +57,18 @@ ws.onmessage = function (event) {
       document.getElementById("valCell1").innerHTML = c1.toFixed(2);
       document.getElementById("valCell2").innerHTML = c2.toFixed(2);
       break;
+    case 3: //motors
+      const UPPER_LIMIT = 300;
+
+      let vl = dv.getInt16(2, true) / (1023 * 4);
+      let vr = dv.getInt16(4, true) / (1023 * 4);
+      let hl = dv.getInt16(6, true) / (1023 * 4);
+      let hr = dv.getInt16(8, true) / (1023 * 4);
+
+      barVL.animate(vl);
+      barVR.animate(vr);
+      barHL.animate(hl);
+      barHR.animate(hr);
 
     default:
       break;

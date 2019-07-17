@@ -4,6 +4,7 @@
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
 #include <WiFi.h>
+#include <Wire.h>
 
 // Replace with your network credentials
 const char *ssid = "ESP32-OmniMove";
@@ -16,36 +17,20 @@ const IPAddress apIP = IPAddress(192, 168, 4, 1);
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
-String ledState = "OFF";
-
-// Replaces placeholder with LED state value
-String processor(const String &var) {
-    Serial.println(var);
-
-    if (var == "STATE") {
-        Serial.println(ledState);
-        return ledState;
-    }
-
-    return String();
-}
 
 void onEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, void *arg, uint8_t *data, size_t len) {
-    Serial.printf("client: %s type: %i\n", client->remoteIP().toString(), type, len);
-    if (type == WS_EVT_DATA) {
-        char c[len + 1];
-        strncpy(c, (char *)data, len);
-        c[len] = 0;
 
+    switch (type) {
+    case WS_EVT_CONNECT:
+        Serial.printf("Client connected from %s\n", client->remoteIP().toString().c_str());
+        break;
+
+    case WS_EVT_DATA:
         Communication::onWSData(server, client, type, data, len);
+        break;
 
-        client->printf("printf to client\n");
-        client->text("Text to client\n");
-        client->_runQueue();
-        Serial.printf("Full: %i\n", server->availableForWriteAll());
-        client->ping();
-
-        Serial.printf("mesage: %s\n", c);
+    default:
+        break;
     }
 }
 
@@ -77,34 +62,26 @@ void setup() {
 
     // Route for root / web page
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-        Serial.println("request on index");
-        request->send(SPIFFS, "/index.html", String(), false, processor);
+        // Serial.println("request on index");
+        request->send(SPIFFS, "/index.html", String(), false, nullptr);
     });
 
     // Route to load style.css file
     server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request) {
-        Serial.println("request on style");
+        // Serial.println("request on style");
         request->send(SPIFFS, "/style.css", "text/css");
     });
 
     // Route to load code.js file
     server.on("/code.js", HTTP_GET, [](AsyncWebServerRequest *request) {
-        Serial.println("request on code");
+        // Serial.println("request on code");
         request->send(SPIFFS, "/code.js", "text/javascript");
     });
 
-    // Route to set GPIO to HIGH
-    server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request) {
-        Serial.println("Pressed on");
-        ledState = "ON";
-        request->send(SPIFFS, "/index.html", String(), false, processor);
-    });
-
-    // Route to set GPIO to LOW
-    server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request) {
-        Serial.println("Pressed off");
-        ledState = "OFF";
-        request->send(SPIFFS, "/index.html", String(), false, processor);
+    // Route to load code.js file
+    server.on("/progressbar.min.js", HTTP_GET, [](AsyncWebServerRequest *request) {
+        // Serial.println("request on progressbar");
+        request->send(SPIFFS, "/progressbar.min.js", "text/javascript");
     });
 
     // WiFi.softAPConfig(apIP, apIP, IPAddress(255, 255, 255, 0));
