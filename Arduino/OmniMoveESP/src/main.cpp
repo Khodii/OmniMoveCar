@@ -1,3 +1,4 @@
+#include "MPU6050.h"
 #include "communication.h"
 #include "movement.h"
 #include <Arduino.h>
@@ -17,6 +18,7 @@ const IPAddress apIP = IPAddress(192, 168, 4, 1);
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
+MPU6050 mpu;
 
 void onEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, void *arg, uint8_t *data, size_t len) {
 
@@ -38,6 +40,19 @@ void setup() {
     // enableCore1WDT();
     Serial.begin(115200);
 
+    Wire.begin();
+
+    mpu.initialize();
+
+    // mpu.CalibrateAccel_MPU6500(6);
+    // mpu.CalibrateGyro(6);
+
+    // mpu.PrintActiveOffsets_MPU6500();
+    mpu.setXGyroOffset(96);
+    mpu.setYGyroOffset(92);
+    mpu.setZGyroOffset(-20);
+
+    // Serial.printf("\n");
     Movement::initPWM();
 
     // enable AP with dns
@@ -85,9 +100,7 @@ void setup() {
     });
 
     // WiFi.softAPConfig(apIP, apIP, IPAddress(255, 255, 255, 0));
-    WiFi.softAP(ssid, password);
-    delay(10000);
-
+    WiFi.softAP(ssid, password, 6);
     server.begin();
 }
 
@@ -96,8 +109,13 @@ void loop() {
     // put your main code here, to run repeatedly:
     // dnsServer.processNextRequest();
     uint16_t v = analogRead(39);
-    // (v / 4095 * 3.1 + .1) * 3;
-    Communication::sendCurrBattery(v, v);
+    int16_t x, y, z, gx, gy, gz, temp;
 
+    temp = mpu.getTemperature();
+    mpu.getMotion6(&x, &y, &z, &gx, &gy, &gz);
+
+    // Serial.printf("x: %6.2fg, y: %6.2fg, z: %6.2fg, gx: %6.2f°/s, gy: %6.2f°/s, gz: %6.2f°/s, temp: %6.2f°C\r", x / 16384.0, y / 16384.0, z / 16384.0, gx / 250.0, gy / 250.0, gz / 250.0, temp / 340.0 + 36.53);
+    // power = (v / 4095 * 3.1 + .1) * 3;
+    Communication::sendCurrGyBatComb(0, 0, 0, x, y, z, gx, gy, gz, v, temp);
     delay(1000);
 }

@@ -52,10 +52,8 @@ ws.onmessage = function (event) {
 
     case 2: //battery
       let c1 = (dv.getInt16(2, true) / 4095 * 3.1 + .1) * 3;
-      let c2 = (dv.getInt16(4, true) / 4095 * 3.1 + .1) * 3;
 
-      document.getElementById("valCell1").innerHTML = c1.toFixed(2);
-      document.getElementById("valCell2").innerHTML = c2.toFixed(2);
+      document.getElementById("valVolt").innerHTML = c1.toFixed(2);
       break;
     case 3: //motors
       const UPPER_LIMIT = 300;
@@ -69,6 +67,28 @@ ws.onmessage = function (event) {
       barVR.animate(vr);
       barHL.animate(hl);
       barHR.animate(hr);
+      break;
+
+    case 4: //gyroBatComb
+      let s1 = [dv.getInt16(2, true), dv.getInt16(4, true), dv.getInt16(6, true)];
+      let a1 = [dv.getInt16(8, true) / 16384.0, dv.getInt16(10, true) / 16384.0, dv.getInt16(12, true) / 16384.0];
+      let r1 = [dv.getInt16(14, true) / 250.0, dv.getInt16(16, true) / 250.0, dv.getInt16(18, true) / 250.0];
+
+
+      document.getElementById("valAccelTotal").innerHTML = Math.sqrt(a1[0] * a1[0] + a1[1] * a1[1] + a1[2] * a1[2]).toFixed(2);
+      document.getElementById("valSpeedTotal").innerHTML = Math.sqrt(s1[0] * s1[0] + s1[1] * s1[1] + s1[2] * s1[2]).toFixed(2);
+      document.getElementById("valRotTotal").innerHTML = Math.sqrt(r1[0] * r1[0] + r1[1] * r1[1] + r1[2] * r1[2]).toFixed(2);
+
+      document.getElementById("valAccel").innerHTML = "[x: " + a1[0].toFixed(2) + ", y: " + a1[1].toFixed(2) + ", z: " + a1[2].toFixed(2) + "]";
+      document.getElementById("valSpeed").innerHTML = "[x: " + s1[0].toFixed(2) + ", y: " + s1[1].toFixed(2) + ", z: " + s1[2].toFixed(2) + "]";
+      document.getElementById("valRot").innerHTML = "[x: " + r1[0].toFixed(2) + ", y: " + r1[1].toFixed(2) + ", z: " + r1[2].toFixed(2) + "]";
+
+      let bat = (dv.getInt16(20, true) / 4095 * 3.1 + .1) * 3;
+      let temp = dv.getInt16(22, true) / 340.0 + 36.53;
+
+      document.getElementById("valVolt").innerHTML = bat.toFixed(2);
+      document.getElementById("valTemp").innerHTML = temp.toFixed(2);
+      break;
 
     default:
       break;

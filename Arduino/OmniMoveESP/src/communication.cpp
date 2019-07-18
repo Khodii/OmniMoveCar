@@ -29,6 +29,11 @@ void Communication::sendCurrGyro(XYZ speed, XYZ accel, XYZ rot) {
     ws->binaryAll((uint8_t *)buff, 20);
 }
 
+void Communication::sendCurrGyBatComb(int16_t sX, int16_t sY, int16_t sZ, int16_t aX, int16_t aY, int16_t aZ, int16_t rX, int16_t rY, int16_t rZ, int16_t bat, int16_t temp) {
+    int16_t buff[12] = {OmniMessageType::CURR_GY_BAT_COMB, sX, sY, sZ, aX, aY, aZ, rX, rY, rZ, bat, temp};
+    ws->binaryAll((uint8_t *)buff, 24);
+}
+
 void Communication::sendCurrMotor(int16_t vl, int16_t vr, int16_t hl, int16_t hr) {
     int16_t buff[5] = {OmniMessageType::CURR_MOTOR, vl, vr, hl, hr};
     // Serial.println("should send now");

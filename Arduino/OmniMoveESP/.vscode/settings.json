@@ -7,6 +7,11 @@
     "files.associations": {
         "*.h": "cpp",
         "cmath": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "initializer_list": "cpp"
     }
 }
