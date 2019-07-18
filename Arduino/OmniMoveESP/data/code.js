@@ -51,8 +51,8 @@ ws.onmessage = function (event) {
       break;
 
     case 2: //battery
-      let c1 = dv.getInt16(2, true) / 4096 * 3.3;
-      let c2 = dv.getInt16(4, true) / 4096 * 3.3;
+      let c1 = (dv.getInt16(2, true) / 4095 * 3.1 + .1) * 3;
+      let c2 = (dv.getInt16(4, true) / 4095 * 3.1 + .1) * 3;
 
       document.getElementById("valCell1").innerHTML = c1.toFixed(2);
       document.getElementById("valCell2").innerHTML = c2.toFixed(2);

@@ -92,6 +92,12 @@ void setup() {
 }
 
 void loop() {
+
     // put your main code here, to run repeatedly:
     // dnsServer.processNextRequest();
+    uint16_t v = analogRead(39);
+    // (v / 4095 * 3.1 + .1) * 3;
+    Communication::sendCurrBattery(v, v);
+
+    delay(1000);
 }

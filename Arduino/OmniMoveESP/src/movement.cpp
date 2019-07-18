@@ -90,6 +90,25 @@ void Movement::initPWM() {
     Serial.println("Inited PWMs");
 }
 
+/* void Movement::drive(int controlFront, int controlSide, int controlTurn) {
+    if (abs(controlFront) < CONTROLLER_LOWER_LIMIT && abs(controlSide) < CONTROLLER_LOWER_LIMIT && abs(controlTurn) < CONTROLLER_LOWER_LIMIT) {
+        // Serial.println("Stopping Motors");
+        MOTOR_VL.stop();
+        MOTOR_VR.stop();
+        MOTOR_HL.stop();
+        MOTOR_HR.stop();
+
+        Communication::sendCurrMotor(0, 0, 0, 0);
+        return;
+    }
+
+    double phi = atan2(controlSide, controlFront);
+
+    int vd = min((int)sqrt(controlFront * controlFront + controlSide * controlSide), 1023);
+    vd -= controlTurn / 2;
+    int vphi = controlTurn / 2;
+}*/
+
 void Movement::drive(int controlFront, int controlSide, int controlTurn) {
     if (abs(controlFront) < CONTROLLER_LOWER_LIMIT && abs(controlSide) < CONTROLLER_LOWER_LIMIT && abs(controlTurn) < CONTROLLER_LOWER_LIMIT) {
         // Serial.println("Stopping Motors");
@@ -116,15 +135,15 @@ void Movement::drive(int controlFront, int controlSide, int controlTurn) {
     int speedHL = c + vphi;
     int speedHR = s - vphi;
 
-    MOTOR_VL.setSpeed(speedVL);
-    MOTOR_VR.setSpeed(speedVR);
-    MOTOR_HL.setSpeed(speedHL);
-    MOTOR_HR.setSpeed(speedHR);
-
     speedVL = speedVL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedVL);
     speedVR = speedVR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedVR);
     speedHL = speedHL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedHL);
     speedHR = speedHR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedHR);
+
+    MOTOR_VL.setSpeed(speedVL);
+    MOTOR_VR.setSpeed(speedVR);
+    MOTOR_HL.setSpeed(speedHL);
+    MOTOR_HR.setSpeed(speedHR);
 
     Communication::sendCurrMotor(speedVL, speedVR, speedHL, speedHR);
 
