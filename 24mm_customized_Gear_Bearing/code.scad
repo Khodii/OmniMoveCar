@@ -30,7 +30,7 @@ wCut = .4;
 // angle where the cut is
 angleCut = 25;
 // length offset of the whole outer ring
-TlengthOffset = 2;
+TlengthOffset = 5;
 
 
 DR=0.5*1;// maximum depth ratio of teeth
