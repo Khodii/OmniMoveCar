@@ -100,7 +100,10 @@ void setup() {
     });
 
     // WiFi.softAPConfig(apIP, apIP, IPAddress(255, 255, 255, 0));
-    WiFi.softAP(ssid, password, 6);
+    WiFi.setSleep(false);
+    WiFi.softAP(ssid, password, 6, 1);
+    delay(1000);
+
     server.begin();
 }
 
