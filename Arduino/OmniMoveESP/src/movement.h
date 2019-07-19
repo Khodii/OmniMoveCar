@@ -1,9 +1,9 @@
 #pragma once
 
+#include "communication.h"
+#include "util.h"
 #include <Arduino.h>
 #include <math.h>
-#include "util.h"
-#include "communication.h"
 
 class Motor {
 private:
@@ -72,4 +72,7 @@ public:
       * Alogrithm source: http://eprints.utem.edu.my/16543/1/Omni%20Directional%20Control%20Algorithm%20For%20Mecanum%20Wheel%2024%20Pages.pdf
       */
     static void drive(int controlFront, int controlSide, int controlTurn);
+
+private:
+    static void driveAlgorithm(int controlFront, int controlSide, int controlTurn, int *speedVL, int *speedVR, int *speedHL, int *speedHR);
 };
