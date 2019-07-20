@@ -92,14 +92,49 @@ void Movement::initPWM() {
 
 void Movement::drive(int controlFront, int controlSide, int controlTurn) {
     if (abs(controlFront) < CONTROLLER_LOWER_LIMIT && abs(controlSide) < CONTROLLER_LOWER_LIMIT && abs(controlTurn) < CONTROLLER_LOWER_LIMIT) {
-        Serial.println("Stopping Motors");
+        // Serial.println("Stopping Motors");
         MOTOR_VL.stop();
         MOTOR_VR.stop();
         MOTOR_HL.stop();
         MOTOR_HR.stop();
+
+        Communication::sendCurrMotor(0, 0, 0, 0);
         return;
     }
 
+    int speedVL = 0;
+    int speedVR = 0;
+    int speedHL = 0;
+    int speedHR = 0;
+
+    if (abs(controlFront) > 0 && controlSide == 0) {
+        speedVL = controlFront;
+        speedVR = controlFront;
+        speedHL = controlFront;
+        speedHR = controlFront;
+    } else if (abs(controlSide) > 0 && controlFront == 0) {
+        speedVL = controlSide;
+        speedVR = -controlSide;
+        speedHL = -controlSide;
+        speedHR = controlSide;
+    } else if (controlSide == 0 && controlFront == 0 && abs(controlTurn) > 0) {
+        speedVL = controlTurn;
+        speedVR = -controlTurn;
+        speedHL = controlTurn;
+        speedHR = -controlTurn;
+    } else {
+        driveAlgorithm(controlFront,  controlSide,  controlTurn, &speedVL, &speedVR, &speedHL, &speedHR);
+    }
+
+    MOTOR_VL.setSpeed(speedVL);
+    MOTOR_VR.setSpeed(speedVR);
+    MOTOR_HL.setSpeed(speedHL);
+    MOTOR_HR.setSpeed(speedHR);
+
+    Communication::sendCurrMotor(speedVL, speedVR, speedHL, speedHR);
+}
+
+void Movement::driveAlgorithm(int controlFront, int controlSide, int controlTurn, int *speedVL, int *speedVR, int *speedHL, int *speedHR) {
     double phi = atan2(controlSide, controlFront);
 
     int vd = min((int)sqrt(controlFront * controlFront + controlSide * controlSide), 1023);
@@ -109,26 +144,13 @@ void Movement::drive(int controlFront, int controlSide, int controlTurn) {
     double s = vd * sin(phi + PI / 4);
     double c = vd * cos(phi + PI / 4);
 
-    int speedVL = s + vphi;
-    int speedVR = c - vphi;
-    int speedHL = c + vphi;
-    int speedHR = s - vphi;
+    *speedVL = s + vphi;
+    *speedVR = c - vphi;
+    *speedHL = c + vphi;
+    *speedHR = s - vphi;
 
-    MOTOR_VL.setSpeed(speedVL);
-    MOTOR_VR.setSpeed(speedVR);
-    MOTOR_HL.setSpeed(speedHL);
-    MOTOR_HR.setSpeed(speedHR);
-
-    speedVL = speedVL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedVL);
-    speedVR = speedVR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedVR);
-    speedHL = speedHL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedHL);
-    speedHR = speedHR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedHR);
-
-    Communication::sendCurrMotor(speedVL, speedVR, speedHL, speedHR);
-
-    printf("#######\n");
-    printf("%f, %f\n", c, s);
-    printf("%i %i\n", speedVL, speedVR);
-    printf("%i %i\n", speedHL, speedHR);
-    printf("#######\n");
+    *speedVL = *speedVL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(*speedVL);
+    *speedVR = *speedVR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(*speedVR);
+    *speedHL = *speedHL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(*speedHL);
+    *speedHR = *speedHR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(*speedHR);
 }

@@ -1,6 +1,5 @@
 #include "communication.h"
 
-
 AsyncWebSocketClient *ws_client = nullptr;
 
 void Communication::onWSData(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, uint8_t *data, size_t len) {
@@ -21,7 +20,7 @@ void Communication::onWSData(AsyncWebSocket *server, AsyncWebSocketClient *clien
 }
 
 void Communication::onDrive(int16_t x1, int16_t y1, int16_t x2, int16_t y2) {
-    Serial.printf("Driving with speed: %i, %i and %i, %i now\n", x1, y1, x2, y2);
+    // Serial.printf("Driving with speed: %i, %i and %i, %i now\n", x1, y1, x2, y2);
     Movement::drive(y1, x1, x2);
 }
 
@@ -30,14 +29,21 @@ void Communication::sendCurrGyro(XYZ speed, XYZ accel, XYZ rot) {
     ws->binaryAll((uint8_t *)buff, 20);
 }
 
+void Communication::sendCurrGyBatComb(int16_t sX, int16_t sY, int16_t sZ, int16_t aX, int16_t aY, int16_t aZ, int16_t rX, int16_t rY, int16_t rZ, int16_t bat, int16_t temp) {
+    int16_t buff[12] = {OmniMessageType::CURR_GY_BAT_COMB, sX, sY, sZ, aX, aY, aZ, rX, rY, rZ, bat, temp};
+    ws->binaryAll((uint8_t *)buff, 24);
+}
+
 void Communication::sendCurrMotor(int16_t vl, int16_t vr, int16_t hl, int16_t hr) {
     int16_t buff[5] = {OmniMessageType::CURR_MOTOR, vl, vr, hl, hr};
-    Serial.println("should send now");
-    if (ws_client != nullptr) {
-        ws_client->binary((uint8_t *)buff, 10);
-    }
+    // Serial.println("should send now");
     ws->binaryAll((uint8_t *)buff, 10);
-    ws->printfAll("Hallo das ist ein testprint\n");
+}
+
+void Communication::sendCurrBattery(int16_t cell1, int16_t cell2) {
+    int16_t buff[5] = {OmniMessageType::CURR_BATTERY, cell1, cell2};
+    // Serial.println("should send now");
+    ws->binaryAll((uint8_t *)buff, 10);
 }
 
 AsyncWebSocket *Communication::ws;
