@@ -161,6 +161,16 @@ function controllerFunc() {
   x2 = Math.floor(pads[2].axes[2] * 1023);
   y2 = -Math.floor(pads[2].axes[3] * 1023);
 
+  if (abs(x1) < 100)
+    x1 -= x1;
+  if (abs(y1) < 100)
+    y1 -= y1;
+  if (abs(x2) < 100)
+    x2 -= x2;
+  if (abs(y2) < 100)
+    y2 -= y2;
+
+
   if (lastX1 != x1 || lastY1 != y1 || lastX2 != x2 || lastY2 != y2) {
     console.log(x1 + ", " + y1 + " : " + x2 + ", " + y2);
     if (ws.readyState == WebSocket.OPEN) {
