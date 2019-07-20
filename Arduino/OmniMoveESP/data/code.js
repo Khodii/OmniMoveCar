@@ -90,7 +90,7 @@ ws.onmessage = function (event) {
       document.getElementById("valVolt").innerHTML = bat.toFixed(2);
       document.getElementById("progBattery").value = batPercent.toFixed(2);
       document.getElementById("valBatteryTotal").innerHTML = batPercent.toFixed(0);
-      
+
       document.getElementById("valTemp").innerHTML = temp.toFixed(2);
       break;
 
@@ -153,12 +153,22 @@ function controllerFunc() {
     return;
 
   let pads = navigator.getGamepads();
-  if (pads === null || pads[2] === null)
+  if (pads === null || pads === undefined|| pads[selectedControllerIndex] === null || pads[selectedControllerIndex] === undefined)
     return;
-  x1 = Math.floor(pads[2].axes[0] * 1023);
-  y1 = -Math.floor(pads[2].axes[1] * 1023);
-  x2 = Math.floor(pads[2].axes[2] * 1023);
-  y2 = -Math.floor(pads[2].axes[3] * 1023);
+  x1 = Math.floor(pads[selectedControllerIndex].axes[0] * 1023);
+  y1 = -Math.floor(pads[selectedControllerIndex].axes[1] * 1023);
+  x2 = Math.floor(pads[selectedControllerIndex].axes[2] * 1023);
+  y2 = -Math.floor(pads[selectedControllerIndex].axes[3] * 1023);
+
+
+  if (Math.abs(x1) < 200)
+    x1 -= x1;
+  if (Math.abs(y1) < 200)
+    y1 -= y1;
+  if (Math.abs(x2) < 200)
+    x2 -= x2;
+  if (Math.abs(y2) < 200)
+    y2 -= y2;
 
   if (lastX1 != x1 || lastY1 != y1 || lastX2 != x2 || lastY2 != y2) {
     console.log(x1 + ", " + y1 + " : " + x2 + ", " + y2);
@@ -257,14 +267,6 @@ document.addEventListener('keyup', function (event) {
   }
 });
 //#endregion
-  if (abs(x1) < 100)
-    x1 -= x1;
-  if (abs(y1) < 100)
-    y1 -= y1;
-  if (abs(x2) < 100)
-    x2 -= x2;
-  if (abs(y2) < 100)
-    y2 -= y2;
 
 
 

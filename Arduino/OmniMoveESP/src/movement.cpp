@@ -107,12 +107,12 @@ void Movement::drive(int controlFront, int controlSide, int controlTurn) {
     int speedHL = 0;
     int speedHR = 0;
 
-    if (abs(controlFront) > 0 && controlSide == 0) {
+    if (abs(controlFront) > 0 && controlSide == 0 && controlTurn == 0) {
         speedVL = controlFront;
         speedVR = controlFront;
         speedHL = controlFront;
         speedHR = controlFront;
-    } else if (abs(controlSide) > 0 && controlFront == 0) {
+    } else if (abs(controlSide) > 0 && controlFront == 0 && controlTurn == 0) {
         speedVL = controlSide;
         speedVR = -controlSide;
         speedHL = -controlSide;
@@ -123,7 +123,7 @@ void Movement::drive(int controlFront, int controlSide, int controlTurn) {
         speedHL = controlTurn;
         speedHR = -controlTurn;
     } else {
-        driveAlgorithm(controlFront,  controlSide,  controlTurn, &speedVL, &speedVR, &speedHL, &speedHR);
+        driveAlgorithm(controlFront, controlSide, controlTurn, &speedVL, &speedVR, &speedHL, &speedHR);
     }
 
     MOTOR_VL.setSpeed(speedVL);
