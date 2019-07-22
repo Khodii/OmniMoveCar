@@ -1,14 +1,14 @@
 // Planetary gear bearing (customizable)
 
 // outer diameter of ring
-D=25.5;
+D=24;
 // thickness
 T=10;
 // clearance
-tol=0.11;
-number_of_planets=4;
-number_of_teeth_on_planets=7;
-approximate_number_of_teeth_on_sun=7;
+tol=0.1;
+number_of_planets=3;
+number_of_teeth_on_planets=11;
+approximate_number_of_teeth_on_sun=6;
 // pressure angle
 P=35;//[30:60]
 // number of teeth to twist across
@@ -16,13 +16,21 @@ nTwist=1;
 // width of center hole
 w=2;
 // width of the outer holes
-wOuter = 1.5;
+wOuter = 2;
 //extruded socket length
 exSocket = 2;
-// pin size
+// pin width
 wPin = 2;
+// pin height
+lPin = 1;
 // pin amount
-cPin = 4;
+cPin = 8;
+// cut size
+wCut = .4;
+// angle where the cut is
+angleCut = 25;
+// length offset of the whole outer ring
+TlengthOffset = 5;
 
 
 DR=0.5*1;// maximum depth ratio of teeth
@@ -33,8 +41,10 @@ ns1=approximate_number_of_teeth_on_sun;
 k1=round(2/m*(ns1+np));
 k= k1*m%2!=0 ? k1+1 : k1;
 ns=k*m/2-np;
-echo(ns);
+echo(str("Sonne: ", ns));
 nr=ns+2*np;
+echo(str("Ring:", nr));
+echo(str("Translation: ", nr/ns));
 pitchD=0.9*D/(1+min(PI/(2*nr*tan(P)),PI*DR/nr));
 pitch=pitchD*PI/nr;
 echo(pitch);
@@ -45,9 +55,11 @@ phi=$t*360/m;
 
 translate([0,0,T/2]){
 	difference(){
-		cylinder(r=D/2,h=T,center=true,$fn=100);
-		herringbone(nr,pitch,P,DR,-tol,helix_angle,T+0.2);
+		cylinder(r=D/2,h=T + TlengthOffset,center=true,$fn=100);
+		herringbone(nr,pitch,P,DR,-tol,helix_angle,T+0.2 + TlengthOffset);
+		rotate([0,0, angleCut]) translate([D/2, 0, 0]) cube([10, wCut, T + TlengthOffset], center=true);
 	}
+
 	rotate([0,0,(np+1)*180/ns+phi*(ns+np)*2/ns])
 	difference(){
 		mirror([0,1,0]) difference(){
@@ -66,7 +78,7 @@ translate([0,0,T/2]){
 		cylinder(r=wOuter/2,h=T+1,center=true,$fn=16);
 	}
 	for (i = [1:cPin]) union() {
-		rotate([0,0, i*360/cPin]) translate([D/2 + wPin/2.5, 0, 0]) cube([wPin, wPin, T], center=true);
+		rotate([0,0, i*360/cPin]) translate([D/2 + lPin/2.5, 0, 0]) cube([lPin, wPin, T + TlengthOffset], center=true);
 	}
 }
 
@@ -139,9 +151,9 @@ flat_extrude(h=gear_thickness,twist=twist,flat=flat)
 
 module flat_extrude(h,twist,flat){
 	if(flat==false)
-		linear_extrude(height=h,twist=twist,slices=twist/6)child(0);
+		linear_extrude(height=h,twist=twist,slices=twist/6)children(0);
 	else
-		child(0);
+		children(0);
 }
 
 module gear2D (

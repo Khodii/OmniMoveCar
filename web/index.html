@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ESP32 Web Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <h1>ESP32 Web Server</h1>
+  <p>GPIO state: <strong> %STATE%</strong></p>
+  <p><a href="/on"><button class="button">ON</button></a></p>
+  <p><a href="/off"><button class="button button2">OFF</button></a></p>
+  <p><button class="button" onclick="myFunction()">Test</button></p>
+  <p><button class="button" onclick="sendSpeed()">speeds</button></p>
+</body>
+
+<script>
+  var ws = new WebSocket("ws://192.168.4.1/ws");
+
+  function myFunction() {
+    console.log("Test");
+    ws.send("Hallo");
+  }
+
+  function sendSpeed() {
+    console.log("speed");
+    arr = new Int16Array([0, -10, 10]);
+    ws.send(arr);
+  }
+</script>
+
+</html>

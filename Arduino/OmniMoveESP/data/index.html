@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ESP32 Web Server</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <h1>ESP32 Web Server</h1>
+  <p>WebSocked Connected: <strong id="wsState">CONNECTING</strong></p>
+  <p><button class="button" onclick="sendSpeed()">Test Button</button></p>
+
+
+  <div class="wrapper">
+    <div class="left">
+      <h2>Messurements</h2>
+      <p>Accelleration: <strong id="valAccelTotal">0</strong> m/s^2
+        <br /> <span id="valAccel">[x: 0, y: 0, z: 0]</span>
+      </p>
+
+      <p>Speed: <strong id="valSpeedTotal">0</strong> m/s
+        <br /> <span id="valSpeed"></span>[x: 0, y: 0, z: 0]</p>
+
+      <p>Rotation: <strong id="valRotTotal">0</strong> rad/s^2
+        <br /> <span id="valRot">[x: 0, y: 0, z: 0]</span></p>
+
+    </div>
+
+    <div class="right">
+      <h2>Battery</h2>
+      <progress id="progBattery" value="60" max="100"></progress>
+
+      <strong id="valBatteryTotal">-1</strong>%
+      <p>Voltage <strong id="valVolt">-1</strong> V</p>
+
+      <h2>Temprature</h2>
+      <p><strong id="valTemp">-1</strong> °C</p>
+    </div>
+  </div>
+
+
+  <div>
+    <svg viewBox="0 0 205 10" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+      <path id="pathVL" d="M50,2 L100,2 0,2 50,2" stroke="#FFEA82" stroke-width="4" fill-opacity="0"
+        style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+      <path id="pathHL" d="M50,8 L100,8 0,8 50,8" stroke="#FFEA82" stroke-width="4" fill-opacity="0"
+        style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+
+      <path id="pathVR" d="M155,2 L205,2 105,2 155,2" stroke="#FFEA82" stroke-width="4" fill-opacity="0"
+        style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+      <path id="pathHR" d="M155,8 L205,8 105,8 155,8" stroke="#FFEA82" stroke-width="4" fill-opacity="0"
+        style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+
+      <path d="M 50 0 L 50 4" stroke="black" stroke-width="0.5" fill="none" />
+      <path d="M 50 6 L 50 10" stroke="black" stroke-width="0.5" fill="none" />
+      <path d="M 155 0 L 155 4" stroke="black" stroke-width="0.5" fill="none" />
+      <path d="M 155 6 L 155 10" stroke="black" stroke-width="0.5" fill="none" />
+    </svg>
+  </div>
+
+  <div>
+    <h5>Select Controller</h5>
+    <button class="buttonsmall" onclick="updateControllerList()">Test Controller</button>
+    <input type="checkbox" id="controllerEnabled" checked>
+    <label for="controllerEnabled">Enable Controller?</label>
+    <ul id="controllerList">
+      <li onclick="onControllerSelected(0)">Test</li>
+
+    </ul>
+  </div>
+
+</body>
+
+
+<script type="text/javascript" src="progressbar.min.js"></script>
+<script type="text/javascript" src="code.js"></script>
+
+</html>
