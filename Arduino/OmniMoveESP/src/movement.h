@@ -35,7 +35,7 @@ public:
     static Motor MOTOR_HR;
 
     /** Amount of values down from 1023 which can be used */
-    static const int USEABLE_UPPER_LIMIT = 400;
+    static const int USEABLE_UPPER_LIMIT = 700;
     /** Wont move below this limit */
     static const int CONTROLLER_LOWER_LIMIT = 50;
 
@@ -55,7 +55,7 @@ public:
     static const char PIN_MOTOR_HR_DIR1 = 3;
     static const char PIN_MOTOR_HR_DIR2 = 15;
 
-    static const int PWM_FREQ = 5000;
+    static const int PWM_FREQ = 500;
     static const char CH_LED = 0;
     static const char CH_MOTOR_VL = 1;
     static const char CH_MOTOR_VR = 2;
