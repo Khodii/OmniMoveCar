@@ -84,7 +84,7 @@ ws.onmessage = function (event) {
       document.getElementById("valRot").innerHTML = "[x: " + r1[0].toFixed(2) + ", y: " + r1[1].toFixed(2) + ", z: " + r1[2].toFixed(2) + "]";
 
       let bat = (dv.getInt16(20, true) / 4095 * 3.1 + .1) * 3;
-      let batPercent = (bat - 6.5) / (8.4 - 6.5) * 100;
+      let batPercent = (bat - 6.5) / (7.8 - 6.5) * 100;
       let temp = dv.getInt16(22, true) / 340.0 + 36.53;
 
       document.getElementById("valVolt").innerHTML = bat.toFixed(2);

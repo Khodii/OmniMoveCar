@@ -126,6 +126,11 @@ void Movement::drive(int controlFront, int controlSide, int controlTurn) {
         driveAlgorithm(controlFront, controlSide, controlTurn, &speedVL, &speedVR, &speedHL, &speedHR);
     }
 
+    speedVL = speedVL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedVL);
+    speedVR = speedVR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedVR);
+    speedHL = speedHL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedHL);
+    speedHR = speedHR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(speedHR);
+
     MOTOR_VL.setSpeed(speedVL);
     MOTOR_VR.setSpeed(speedVR);
     MOTOR_HL.setSpeed(speedHL);
@@ -148,9 +153,4 @@ void Movement::driveAlgorithm(int controlFront, int controlSide, int controlTurn
     *speedVR = c - vphi;
     *speedHL = c + vphi;
     *speedHR = s - vphi;
-
-    *speedVL = *speedVL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(*speedVL);
-    *speedVR = *speedVR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(*speedVR);
-    *speedHL = *speedHL / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(*speedHL);
-    *speedHR = *speedHR / 1023.0 * USEABLE_UPPER_LIMIT + (1023 - USEABLE_UPPER_LIMIT) * sgn(*speedHR);
 }

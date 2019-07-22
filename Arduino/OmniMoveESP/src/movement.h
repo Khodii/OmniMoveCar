@@ -35,7 +35,7 @@ public:
     static Motor MOTOR_HR;
 
     /** Amount of values down from 1023 which can be used */
-    static const int USEABLE_UPPER_LIMIT = 300;
+    static const int USEABLE_UPPER_LIMIT = 400;
     /** Wont move below this limit */
     static const int CONTROLLER_LOWER_LIMIT = 50;
 
