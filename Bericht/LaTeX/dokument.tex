@@ -1,0 +1,234 @@
+%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%% Hauptdatei, Wurzel des Dokuments
+%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%
+%  Gerüst:
+%  * Version 0.2
+%  * Dipl.-Ing. Florian Evers, florian.evers@tu-ilmenau.de
+%  * Fachgebiet Kommunikationsnetze, TU Ilmenau
+%  * Dipl.-Ing. Christian Tolks, christian.tolks@informatik.uni-augsburg.de
+%  * Lehrstuhl für Regelungstechnik, Universität Augsburg
+%
+%  Für Hauptseminare, Studienarbeiten, Diplomarbeiten
+%
+%  Autor           : Max Mustermann
+%  Letzte Änderung : 31.12.2015
+%
+
+% Headerfeld, Typ des Dokumentes, einzubindende Packages.
+% Hier bei Bedarf Änderungen vornehmen.
+\documentclass
+[   oneside,         % oneside/twoside : Einseitiger oder zweiseitiger Druck?
+    12pt,            % Bezug: 12-Punkt Schriftgröße
+    DIV=15,          % Randaufteilung, siehe Dokumentation "KOMA"-Script
+    BCOR=17mm,       % Bindekorrektur: Innen 17mm Platz lassen. Copyshop-getestet.
+    headsepline,     % Unter Kopfzeile Trennlinie (aus: headnosepline)
+    footsepline,     % Über Fußzeile Trennlinie (aus: footnosepline)
+    openright,       % Neue Kapitel im zweiseitigen Druck rechts beginnen lassen
+    a4paper,         % Seitenformat A4
+    abstracton,      % Abstract einbinden
+    listof=totoc,      % Div. Verzeichnisse ins Inhaltsverzeichnis aufnehmen
+    bibliography=totoc,        % Literaturverzeichnis ins Inhaltsverzeichnis aufnehmen
+    titlepage,       % Titelseite aktivieren
+    headinclude,     % Seiten-Head in die Satzspiegelberechnung mit einbeziehen
+    footinclude=false,     % Seiten-Foot nicht in die Satzspiegelberechnung mit einbeziehen
+    numbers=noenddot % Gliederungsnummern ohne abschließenden Punkt darstellen
+%    draft,					 % Vorschauversion ohne Bilder [draft|final]
+]   {scrreprt}       % Dokumentenstil: "Report" aus dem KOMA-Skript-Paket
+
+\usepackage[active]{srcltx}
+\usepackage[activate=normal]{pdfcprot} % Optischer Randausgleich -> pdflatex!
+\usepackage{ifthen}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[T1]{url}
+\usepackage{ae}
+\usepackage[final]{graphicx}
+\usepackage[automark]{scrpage2}
+\usepackage{setspace}
+%\usepackage[first,light]{draftcopy} % Für Probedruck
+\usepackage[plainpages=false,pdfpagelabels,hypertexnames=false]{hyperref}
+%\usepackage{amsmath} % mathematischer Zeichensatz
+%\usepackage{amssymb}
+%\usepackage{siunitx}	% SI Einheiten Package
+%\usepackage{makeidx} % ermöglicht Stichwortverzeichnisse
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+
+% Definitions for Code inclusion
+\lstdefinestyle{customstyle}{
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	backgroundcolor=\color{white},
+	basicstyle={\footnotesize\ttfamily},
+	numberstyle={\tiny},
+	numbers=left,
+	keywordstyle=\bfseries,
+	commentstyle=\itshape\color{black!50},
+	identifierstyle=\color{black!70},
+	stringstyle=\itshape,
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=4,
+	xleftmargin=\parindent,
+	belowcaptionskip=1\baselineskip,
+	frame=L,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=6pt,
+	rulecolor=\color{black},
+	numberstyle=\tiny\color{black!80},
+	xleftmargin=\parindent,
+	frame=single
+}
+
+\newcommand{\includeC}[2]{\lstinputlisting[escapechar=, language=C++, style=customstyle, caption=#2]{#1} \bigskip}
+
+\newcommand{\includeLang}[3]{\lstinputlisting[escapechar=, language=#3, style=customstyle, caption=#2]{#1} \bigskip}
+
+% Verhindert Einrücken von Text nach Absatz
+\parindent 0pt
+% Update Dokument auf pdflatex v1.6, verhinder Fehlermeldung "`pdf inclusion..."'
+\pdfminorversion=6
+% Tiefe der Kapitelnummerierung beeinflussen
+\setcounter{secnumdepth}{3} % Tiefe der Nummerierung
+\setcounter{tocdepth}{3}    % Tiefe des Inhaltsverzeichnisses
+
+% Hier in die zweite geschweifte Klammer jeweils
+% die persönlichen Daten eintragen:
+% \newcommand{\artderausarbeitung}{Abschlussarbeit}
+% \newcommand{\namedesautors}{Max Mustermann}
+% \newcommand{\titelderarbeit}{Anfertigung einer Ausarbeitung mit \LaTeX}
+% \newcommand{\inventarisierungsnummer}{AA / BB / CC / DD}
+
+% Alternativ: Eine Hauptseminararbeit hat keine Inventarisierungsnummer:
+\newcommand{\artderausarbeitung}{Praktikum für Produktionstechnik}
+\newcommand{\titelderarbeit}{Entwicklungsprozess eines lenkbaren Fahrzeuges\\ TEGGLA}
+\newcommand{\namedesautors}{Wilfert, Paprotta, Evertz, Khodabakhsh}
+\newcommand{\inventarisierungsnummer}{}
+
+% Abkürzungsverzeichnis beeinflussen. Hier nichts ändern!
+\usepackage[intoc]{nomencl}
+  \let\abbrev\nomenclature
+  \renewcommand{\nomname}{Abkürzungsverzeichnis und Formelzeichen}
+  \setlength{\nomlabelwidth}{.25\hsize}
+  \renewcommand{\nomlabel}[1]{#1 \dotfill}
+  \setlength{\nomitemsep}{-\parsep}
+  \makenomenclature
+\usepackage[normalem]{ulem}
+  \newcommand{\markup}[1]{\textbf{#1}}
+
+% Seitenlayout festlegen. Hier nichts ändern!
+\pagestyle{scrplain}
+\ihead[]{\headmark}
+\ohead[]{\pagemark}
+\chead[]{}
+\ifoot[]{\scriptsize \artderausarbeitung}
+\ofoot[]{\scriptsize \namedesautors}
+\cfoot[]{}
+\renewcommand{\titlepagestyle}{scrheadings}
+\renewcommand{\partpagestyle}{scrheadings}
+\renewcommand{\chapterpagestyle}{scrheadings}
+\renewcommand{\indexpagestyle}{scrheadings}
+
+% Abschnittsweise Nummerierung anstatt fortlaufend. Hier nichts ändern!
+\makeatletter
+\@addtoreset{equation}{chapter}
+\@addtoreset{figure}{chapter}
+\@addtoreset{table}{chapter}
+\renewcommand\theequation{\thechapter.\@arabic\c@equation}
+\renewcommand\thefigure{\thechapter.\@arabic\c@figure}
+\renewcommand\thetable{\thechapter.\@arabic\c@table}
+\makeatother
+
+% Quelltextrahmen, klein. Hier nichts ändern!
+\newsavebox{\inhaltkl}
+\def\rahmenkl{\sbox{\inhaltkl}\bgroup\small\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
+\def\endrahmenkl{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
+\framebox[\textwidth][l]{\usebox{\inhaltkl}}}
+
+% Quelltextrahmen, normale Groesse. Hier nichts ändern!
+\newsavebox{\inhalt}
+\def\rahmen{\sbox{\inhalt}\bgroup\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
+\def\endrahmen{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
+\framebox[\textwidth][l]{\usebox{\inhalt}}}
+
+% Trennvorschläge für falsch getrennte Wörter.
+% Wird häufig bei eingedeutschen Wörtern benötigt, da LaTeX hierbei
+% gerne falsch trennt. Alternativ kann auch im Fliesstext ein
+% Trennvorschlag per "\-" hinterlegt werden, bspw.:
+% Die Hard\-ware besteht aus A und B.
+\hyphenation{
+Hard-ware
+}
+
+% Sonstige Befehlsdefinitionen hier ablegen.
+\newcommand{\entspricht}{\stackrel{\wedge}{=}}
+\clubpenalty = 10000 \widowpenalty = 10000 \displaywidowpenalty = 10000 % Strafpunkte bei schlechten Absätzen
+
+\begin{document}
+\onehalfspacing
+\input{titelblatt.tex}
+\input{vorwort.tex}
+\input{kurzfassung.tex}
+
+% Inhaltsverzeichnis
+\cleardoublepage % Seitenumbruch erzwingen vor Änderung des Nummerierungsstils
+\pagenumbering{roman} % Nummerierung der Seiten ab hier: i, ii, iii, iv...
+\pagestyle{scrheadings} % Ab hier mit Kopf- und Fusszeile
+\tableofcontents
+
+% Die einzelnen Kapitel
+\cleardoublepage % Seitenumbruch erzwingen vor Änderung des Nummerierungsstils
+\pagenumbering{arabic} % Nummerierung der Seiten ab hier: 1, 2, 3, 4...
+\input{kapitel1.tex}
+\input{kapitel2.tex}
+\input{kapitel3.tex}
+%\input{kapitel4.tex}
+%\input{kapitel5.tex}
+%\input{kapitel6.tex}
+
+
+
+\appendix
+\part*{Anhang}
+\input{anhang_quellcode.tex}
+\input{anhang_techzeichnungen.tex}
+
+\chapter{Software und Konfigurationsdateien}
+Beispieltext
+
+\input{anhang_programm_a.tex}
+\input{anhang_programm_b.tex}
+
+
+
+% Literaturverzeichnis einbinden
+\input{anhang_literaturverzeichnis.tex}
+
+
+% Abbildungsverzeichnis einbinden
+\input{anhang_listings.tex}
+
+% Abbildungsverzeichnis einbinden
+\input{anhang_abbildungsverzeichnis.tex}
+
+% Tabellenverzeichnis einbinden
+\input{anhang_tabellenverzeichnis.tex}
+
+% Abkürzungsverzeichnis einbinden
+% \input{anhang_abkuerzungsverzeichnis.tex}
+
+% Thesen
+% \input{thesen.tex}
+
+% Abschlusserklärung
+% \input{abschlusserklaerung.tex}
+
+\end{document}
+

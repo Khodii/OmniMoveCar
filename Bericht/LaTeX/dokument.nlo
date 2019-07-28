@@ -1,0 +1,5 @@
+\nomenclatureentry{aWWW@[{WWW}]\begingroup \markup{W}orld \markup{W}ide \markup{W}eb\nomeqref {0.0}|nompageref}{1}
+\nomenclatureentry{aDVI@[{DVI}]\begingroup \markup{D}e\markup{v}ice                    \markup{I}ndependent, Dateiendung\nomeqref {3.0}|nompageref}{6}
+\nomenclatureentry{aEPS@[{EPS}]\begingroup \markup{E}ncapsulated                    \markup{P}ost\markup{s}cript, Dateiendung\nomeqref {3.0}|nompageref}{8}
+\nomenclatureentry{aPDF@[{PDF}]\begingroup \markup{P}ortable                    \markup{D}ocument                    \markup{F}ormat, Dateiendung\nomeqref {3.0}|nompageref}{8}
+\nomenclatureentry{aPS@[{PS}]\begingroup \markup{P}ost\markup{s}cript, Dateiendung\nomeqref {3.0}|nompageref}{8}

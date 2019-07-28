@@ -1,0 +1,53 @@
+%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%% Thesenpapier, als Handout
+%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%
+%  Gerüst:
+%  * Version 0.10
+%  * Dipl.-Ing. Florian Evers, florian.evers@tu-ilmenau.de
+%  * Fachgebiet Kommunikationsnetze, TU Ilmenau
+%
+%  Für Hauptseminare, Studienarbeiten, Diplomarbeiten
+%
+%  Autor           : Max Mustermann
+%  Letzte Änderung : 31.12.2004
+%
+
+% Headerfeld, Typ des Dokumentes, einzubindende Packages.
+% Hier bei Bedarf Änderungen vornehmen.
+\documentclass
+[   12pt,           % Bezug: 12-Punkt Schriftgröße
+    DIV15,          % Randaufteilung, siehe Dokumentation ``KOMA''-Script
+    a4paper         % Seitenformat A4
+]   {scrreprt}      % Verwende ``Report'' aus KOMA-Skript-Paket
+
+\usepackage[active]{srcltx}
+%\usepackage[activate=normal]{pdfcprot} % Optischer Randausgleich -> pdflatex!
+\usepackage{ifthen}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[T1]{url}
+\usepackage{ae}
+\usepackage[final]{graphicx}
+\usepackage{scrpage2}
+
+% Seitenlayout festlegen. Hier nichts ändern!
+\pagestyle{scrplain}
+\ihead[]{}
+\ohead[]{}
+\chead[]{}
+\ifoot[]{}
+\ofoot[]{}
+\cfoot[]{}
+
+% Hier in die zweite geschweifte Klammer jeweils
+% die persönlichen Daten eintragen:
+\newcommand{\artderausarbeitung}{Diplomarbeit}
+\newcommand{\namedesautors}{Max Mustermann}
+
+\begin{document}
+\input{thesen.tex}
+\end{document}
+
+
