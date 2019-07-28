@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.16)  28 JUL 2019 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.16)  28 JUL 2019 16:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -744,17 +744,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 {c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./bilder/Uni_Au
-g_Logo_Basis_pos_A.pdf>]) (./vorwort.tex)
-(./kurzfassung.tex [2] [3
+g_Logo_Basis_pos_A.pdf>]) (./kurzfassung.tex [2
 
 
-] [4
-
-
-]) (./dokument.toc
+])
+(./dokument.toc
 LaTeX Font Info:    Try loading font information for T1+aett on input line 20.
-
-(c:/texlive/2017/texmf-dist/tex/latex/ae/t1aett.fd
+ (c:/texlive/2017/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 ) [1
 
@@ -765,7 +761,8 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 \tf@toc=\write5
 \openout5 = `dokument.toc'.
 
- [2] (./kapitel1.tex
+
+[2] (./kapitel1.tex
 chapter 1.
 
 Class scrreprt Warning: \float@addtolists detected!
@@ -817,12 +814,12 @@ LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
 (Font)              using `T1/aett/m/n' instead on input line 163.
 
 [7] [8]
-<bilder/kile.pdf, id=329, 890.32625pt x 691.58376pt>
+<bilder/kile.pdf, id=319, 890.32625pt x 691.58376pt>
 File: bilder/kile.pdf Graphic file (type pdf)
 <use bilder/kile.pdf>
 Package pdftex.def Info: bilder/kile.pdf  used on input line 303.
 (pdftex.def)             Requested size: 369.88582pt x 287.31848pt.
-<bilder/texniccenter.pdf, id=331, 1157.32375pt x 862.22125pt>
+<bilder/texniccenter.pdf, id=321, 1157.32375pt x 862.22125pt>
 File: bilder/texniccenter.pdf Graphic file (type pdf)
 <use bilder/texniccenter.pdf>
 Package pdftex.def Info: bilder/texniccenter.pdf  used on input line 326.
@@ -881,77 +878,77 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (../../Arduino/OmniMoveESP/data/style.css [39])) (./anhang_techzeichnungen.tex
 [40]
 chapter B.
-<../techzeich/00.PDF, id=1450, 1195.46625pt x 845.1575pt>
+<../techzeich/00.PDF, id=1441, 1195.46625pt x 845.1575pt>
 File: ../techzeich/00.PDF Graphic file (type pdf)
 <use ../techzeich/00.PDF>
 Package pdftex.def Info: ../techzeich/00.PDF  used on input line 4.
 (pdftex.def)             Requested size: 439.31064pt x 310.57553pt.
-<../techzeich/01.PDF, id=1451, 1195.46625pt x 845.1575pt>
+<../techzeich/01.PDF, id=1442, 1195.46625pt x 845.1575pt>
 File: ../techzeich/01.PDF Graphic file (type pdf)
 <use ../techzeich/01.PDF>
 Package pdftex.def Info: ../techzeich/01.PDF  used on input line 9.
 (pdftex.def)             Requested size: 439.31064pt x 310.57553pt.
-<../techzeich/1.PDF, id=1452, 1690.315pt x 1195.46625pt>
+<../techzeich/1.PDF, id=1443, 1690.315pt x 1195.46625pt>
 File: ../techzeich/1.PDF Graphic file (type pdf)
 <use ../techzeich/1.PDF>
 Package pdftex.def Info: ../techzeich/1.PDF  used on input line 14.
 (pdftex.def)             Requested size: 439.31064pt x 310.70444pt.
-<../techzeich/1iso.PDF, id=1453, 845.1575pt x 597.23125pt>
+<../techzeich/1iso.PDF, id=1444, 845.1575pt x 597.23125pt>
 File: ../techzeich/1iso.PDF Graphic file (type pdf)
 <use ../techzeich/1iso.PDF>
 Package pdftex.def Info: ../techzeich/1iso.PDF  used on input line 19.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/2.PDF, id=1454, 845.1575pt x 597.23125pt>
+<../techzeich/2.PDF, id=1445, 845.1575pt x 597.23125pt>
 File: ../techzeich/2.PDF Graphic file (type pdf)
 <use ../techzeich/2.PDF>
 Package pdftex.def Info: ../techzeich/2.PDF  used on input line 24.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/3.PDF, id=1455, 845.1575pt x 597.23125pt>
+<../techzeich/3.PDF, id=1446, 845.1575pt x 597.23125pt>
 File: ../techzeich/3.PDF Graphic file (type pdf)
 <use ../techzeich/3.PDF>
 Package pdftex.def Info: ../techzeich/3.PDF  used on input line 29.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/4.PDF, id=1456, 845.1575pt x 597.23125pt>
+<../techzeich/4.PDF, id=1447, 845.1575pt x 597.23125pt>
 File: ../techzeich/4.PDF Graphic file (type pdf)
 <use ../techzeich/4.PDF>
 Package pdftex.def Info: ../techzeich/4.PDF  used on input line 33.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/5.PDF, id=1457, 845.1575pt x 597.23125pt>
+<../techzeich/5.PDF, id=1448, 845.1575pt x 597.23125pt>
 File: ../techzeich/5.PDF Graphic file (type pdf)
 <use ../techzeich/5.PDF>
 Package pdftex.def Info: ../techzeich/5.PDF  used on input line 37.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/6.PDF, id=1458, 845.1575pt x 597.23125pt>
+<../techzeich/6.PDF, id=1449, 845.1575pt x 597.23125pt>
 File: ../techzeich/6.PDF Graphic file (type pdf)
 <use ../techzeich/6.PDF>
 Package pdftex.def Info: ../techzeich/6.PDF  used on input line 41.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/7.PDF, id=1459, 845.1575pt x 597.23125pt>
+<../techzeich/7.PDF, id=1450, 845.1575pt x 597.23125pt>
 File: ../techzeich/7.PDF Graphic file (type pdf)
 <use ../techzeich/7.PDF>
 Package pdftex.def Info: ../techzeich/7.PDF  used on input line 45.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/8.PDF, id=1460, 845.1575pt x 597.23125pt>
+<../techzeich/8.PDF, id=1451, 845.1575pt x 597.23125pt>
 File: ../techzeich/8.PDF Graphic file (type pdf)
 <use ../techzeich/8.PDF>
 Package pdftex.def Info: ../techzeich/8.PDF  used on input line 49.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/9.PDF, id=1461, 845.1575pt x 597.23125pt>
+<../techzeich/9.PDF, id=1452, 845.1575pt x 597.23125pt>
 File: ../techzeich/9.PDF Graphic file (type pdf)
 <use ../techzeich/9.PDF>
 Package pdftex.def Info: ../techzeich/9.PDF  used on input line 53.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/10.PDF, id=1462, 845.1575pt x 597.23125pt>
+<../techzeich/10.PDF, id=1453, 845.1575pt x 597.23125pt>
 File: ../techzeich/10.PDF Graphic file (type pdf)
 <use ../techzeich/10.PDF>
 Package pdftex.def Info: ../techzeich/10.PDF  used on input line 57.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/11.PDF, id=1463, 845.1575pt x 597.23125pt>
+<../techzeich/11.PDF, id=1454, 845.1575pt x 597.23125pt>
 File: ../techzeich/11.PDF Graphic file (type pdf)
 <use ../techzeich/11.PDF>
 Package pdftex.def Info: ../techzeich/11.PDF  used on input line 61.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/12.PDF, id=1464, 845.1575pt x 597.23125pt>
+<../techzeich/12.PDF, id=1455, 845.1575pt x 597.23125pt>
 File: ../techzeich/12.PDF Graphic file (type pdf)
 <use ../techzeich/12.PDF>
 Package pdftex.def Info: ../techzeich/12.PDF  used on input line 65.
@@ -1064,7 +1061,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 233.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 233.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 233.
 Package rerunfilecheck Info: File `dokument.out' has not changed.
-(rerunfilecheck)             Checksum: 9663D97E5628FBAD85D363C3F5B18CEC;2388.
+(rerunfilecheck)             Checksum: 050E039ABEC14690AAF5F88EED0CDB6A;2388.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1072,10 +1069,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 233.
  ) 
 Here is how much of TeX's memory you used:
- 13735 strings out of 492980
- 207363 string characters out of 6136207
- 534264 words of memory out of 5000000
- 15859 multiletter control sequences out of 15000+600000
+ 13726 strings out of 492980
+ 207250 string characters out of 6136207
+ 534267 words of memory out of 5000000
+ 15856 multiletter control sequences out of 15000+600000
  78537 words of font info for 120 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  42i,11n,66p,8821b,2144s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1097,10 +1094,10 @@ msy7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texliv
 e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2017/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on dokument.pdf (67 pages, 4580273 bytes).
+Output written on dokument.pdf (65 pages, 4579698 bytes).
 PDF statistics:
- 2049 PDF objects out of 2073 (max. 8388607)
- 1886 compressed objects within 19 object streams
- 1107 named destinations out of 1200 (max. 500000)
+ 2038 PDF objects out of 2073 (max. 8388607)
+ 1877 compressed objects within 19 object streams
+ 1104 named destinations out of 1200 (max. 500000)
  12675 words of extra memory for PDF output out of 14400 (max. 10000000)
 
