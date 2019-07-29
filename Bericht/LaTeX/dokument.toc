@@ -1,39 +1,45 @@
-\contentsline {chapter}{\numberline {1}Problemstellung}{1}{chapter.2}
-\contentsline {section}{\numberline {1.1}Anheben eines Objektes mithilfe von Ultraschall}{1}{section.3}
-\contentsline {section}{\numberline {1.2}lalala}{1}{section.4}
-\contentsline {section}{\numberline {1.3}Beispiele zur Gliederung: section}{2}{section.6}
-\contentsline {subsection}{\numberline {1.3.1}Unterkapitel subsection}{2}{subsection.7}
-\contentsline {subsubsection}{\numberline {1.3.1.1}Unterkapitel subsubsection}{2}{subsubsection.8}
-\contentsline {paragraph}{\nonumberline Paragraph}{2}{section*.9}
-\contentsline {subparagraph}{\nonumberline Subparagraph}{2}{section*.10}
-\contentsline {subsection}{\numberline {1.3.2}Ein weiteres Unterkapitel}{2}{subsection.12}
-\contentsline {section}{\numberline {1.4}Formeln}{2}{section.13}
-\contentsline {section}{\numberline {1.5}Listen und Aufz\"ahlungen}{3}{section.17}
-\contentsline {section}{\numberline {1.6}Querverweise}{4}{section.26}
-\contentsline {chapter}{\numberline {2}Vergleich der Technologien}{5}{chapter.27}
-\contentsline {section}{\numberline {2.1}Smartphone als Augmented Reality Ger\"at}{5}{section.28}
-\contentsline {chapter}{\numberline {3}Software}{6}{chapter.29}
-\contentsline {section}{\numberline {3.1}Installation des Basissystems}{6}{section.30}
-\contentsline {subsection}{\numberline {3.1.1}Windows}{6}{subsection.31}
-\contentsline {subsection}{\numberline {3.1.2}Linux}{7}{subsection.33}
-\contentsline {section}{\numberline {3.2}\"Ubersetzung}{8}{section.35}
-\contentsline {subsection}{\numberline {3.2.1}{\ttfamily latex} vs. {\ttfamily pdflatex}}{8}{subsection.36}
-\contentsline {subsection}{\numberline {3.2.2}\"Uberblick \"uber die Kommandos}{8}{subsection.37}
-\contentsline {section}{\numberline {3.3}Verwendung von Entwicklungsumgebungen}{9}{section.41}
-\contentsline {subsection}{\numberline {3.3.1}{\ttfamily Kile} -- GNU/Linux}{9}{subsection.42}
-\contentsline {subsection}{\numberline {3.3.2}{\ttfamily TeXnicCenter} -- Windows}{10}{subsection.44}
-\contentsline {section}{\numberline {3.4}Dateien dieser Formatvorlage}{10}{section.46}
-\contentsline {chapter}{\numberline {4}Allgemeine Hinweise}{13}{chapter.48}
-\contentsline {section}{\numberline {4.1}\LaTeX -bezogen}{13}{section.49}
-\contentsline {section}{\numberline {4.2}Inhaltlich}{14}{section.50}
-\contentsline {chapter}{\numberline {A}Quellcode}{16}{appendix.59}
-\contentsline {section}{\numberline {A.1}ESP32}{16}{section.60}
-\contentsline {section}{\numberline {A.2}Webpage}{29}{section.584}
-\contentsline {chapter}{\numberline {B}Technische Zeichnungen}{41}{appendix.1006}
-\contentsline {chapter}{\numberline {C}Software und Konfigurationsdateien}{56}{appendix.1022}
-\contentsline {section}{\numberline {C.1}Software A}{56}{section.1023}
-\contentsline {section}{\numberline {C.2}Software B}{56}{section.1024}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{57}{chapter*.1025}
-\contentsline {chapter}{\nonumberline Listings}{59}{chapter*.1026}
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{60}{chapter*.1027}
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{61}{chapter*.1028}
+\contentsline {chapter}{\numberline {1}Einleitung \& Motivation}{1}{chapter.2}
+\contentsline {chapter}{\numberline {2}Anforderungen}{2}{chapter.3}
+\contentsline {section}{\numberline {2.1}Lastenheft}{2}{section.4}
+\contentsline {chapter}{\numberline {3}Planung}{3}{chapter.5}
+\contentsline {section}{\numberline {3.1}Entw\"urfe}{3}{section.6}
+\contentsline {subsection}{\numberline {3.1.1}Seggway}{3}{subsection.7}
+\contentsline {subsection}{\numberline {3.1.2}Weggchair}{3}{subsection.8}
+\contentsline {subsection}{\numberline {3.1.3}TEGGLA}{3}{subsection.9}
+\contentsline {section}{\numberline {3.2}Morphologischer Kasten}{3}{section.10}
+\contentsline {section}{\numberline {3.3}Online Bestellungen}{3}{section.11}
+\contentsline {section}{\numberline {3.4}Verwendete Technologien}{3}{section.12}
+\contentsline {subsection}{\numberline {3.4.1}Git}{3}{subsection.13}
+\contentsline {subsection}{\numberline {3.4.2}Creo}{3}{subsection.14}
+\contentsline {subsection}{\numberline {3.4.3}PlatformIO}{3}{subsection.15}
+\contentsline {chapter}{\numberline {4}Entwicklung der Schl\"usselelemente}{4}{chapter.16}
+\contentsline {section}{\numberline {4.1}\"Ubersicht des gesamten Modells}{4}{section.17}
+\contentsline {section}{\numberline {4.2}Schaltplan}{4}{section.18}
+\contentsline {section}{\numberline {4.3}BMS und Laden}{4}{section.19}
+\contentsline {section}{\numberline {4.4}Mecanum}{4}{section.20}
+\contentsline {section}{\numberline {4.5}Planetengetriebe}{4}{section.21}
+\contentsline {section}{\numberline {4.6}ESP-32 vs. ESP-8266}{4}{section.22}
+\contentsline {section}{\numberline {4.7}User-Interface}{4}{section.23}
+\contentsline {subsection}{\numberline {4.7.1}Java (obsolet)}{4}{subsection.24}
+\contentsline {subsection}{\numberline {4.7.2}HTML5 und Controller-Anbindung}{4}{subsection.25}
+\contentsline {subsection}{\numberline {4.7.3}Protokoll}{4}{subsection.26}
+\contentsline {section}{\numberline {4.8}Steuerung per (XBox) Controller}{4}{section.27}
+\contentsline {section}{\numberline {4.9}PLA vs. TPU}{4}{section.28}
+\contentsline {section}{\numberline {4.10}Eierhalter}{4}{section.29}
+\contentsline {section}{\numberline {4.11}Leichtbau}{4}{section.30}
+\contentsline {chapter}{\numberline {5}Zuk\"unftige Entwicklungsm\"oglichkeiten}{5}{chapter.31}
+\contentsline {section}{\numberline {5.1}Regler}{5}{section.32}
+\contentsline {section}{\numberline {5.2}Verbesserungen}{5}{section.33}
+\contentsline {subsection}{\numberline {5.2.1}Hardware}{5}{subsection.34}
+\contentsline {subsection}{\numberline {5.2.2}Software}{5}{subsection.35}
+\contentsline {chapter}{\numberline {A}Quellcode}{7}{appendix.38}
+\contentsline {section}{\numberline {A.1}ESP32}{7}{section.39}
+\contentsline {section}{\numberline {A.2}Webpage}{20}{section.563}
+\contentsline {chapter}{\numberline {B}Technische Zeichnungen}{32}{appendix.985}
+\contentsline {chapter}{\numberline {C}Software und Konfigurationsdateien}{47}{appendix.1001}
+\contentsline {section}{\numberline {C.1}Software A}{47}{section.1002}
+\contentsline {section}{\numberline {C.2}Software B}{47}{section.1003}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{48}{chapter*.1004}
+\contentsline {chapter}{\nonumberline Listings}{50}{chapter*.1005}
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{51}{chapter*.1006}
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{52}{chapter*.1007}

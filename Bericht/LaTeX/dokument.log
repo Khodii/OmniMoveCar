@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.16)  28 JUL 2019 16:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.16)  29 JUL 2019 16:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -727,7 +727,7 @@ Package scrbase Warning: \ifpdftex was redefined
 (scrbase)                the manual of every package you are using.
 
 (./titelblatt.tex
-<bilder/Uni_Aug_Logo_Basis_pos_A.pdf, id=152, 357.78581pt x 215.29033pt>
+<bilder/Uni_Aug_Logo_Basis_pos_A.pdf, id=184, 357.78581pt x 215.29033pt>
 File: bilder/Uni_Aug_Logo_Basis_pos_A.pdf Graphic file (type pdf)
 <use bilder/Uni_Aug_Logo_Basis_pos_A.pdf>
 Package pdftex.def Info: bilder/Uni_Aug_Logo_Basis_pos_A.pdf  used on input lin
@@ -748,11 +748,7 @@ g_Logo_Basis_pos_A.pdf>]) (./kurzfassung.tex [2
 
 
 ])
-(./dokument.toc
-LaTeX Font Info:    Try loading font information for T1+aett on input line 20.
- (c:/texlive/2017/texmf-dist/tex/latex/ae/t1aett.fd
-File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-) [1
+(./dokument.toc [1
 
 
 
@@ -761,8 +757,7 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 \tf@toc=\write5
 \openout5 = `dokument.toc'.
 
-
-[2] (./kapitel1.tex
+ [2] (./kapitel1.tex
 chapter 1.
 
 Class scrreprt Warning: \float@addtolists detected!
@@ -779,60 +774,32 @@ Class scrreprt Warning: \float@addtolists detected!
 (scrreprt)              a package that still implements the
 (scrreprt)              deprecated \float@addtolist interface .
 
-[1
+) (./kapitel2.tex [1
 
 
 
 
 ]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 59.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 59.
- [2]
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 136.
-
- (c:/texlive/2017/texmf-dist/tex/latex/ae/omsaer.fd
-File: omsaer.fd 1999/12/27
-)
-LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 136.
- [3])
-(./kapitel2.tex [4]
 chapter 2.
-[5
+) (./kapitel3.tex [2
 
 
 ]
 chapter 3.
-[6
+) (./kapitel4.tex [3
 
 
 ]
-
-LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
-(Font)              using `T1/aett/m/n' instead on input line 163.
-
-[7] [8]
-<bilder/kile.pdf, id=319, 890.32625pt x 691.58376pt>
-File: bilder/kile.pdf Graphic file (type pdf)
-<use bilder/kile.pdf>
-Package pdftex.def Info: bilder/kile.pdf  used on input line 303.
-(pdftex.def)             Requested size: 369.88582pt x 287.31848pt.
-<bilder/texniccenter.pdf, id=321, 1157.32375pt x 862.22125pt>
-File: bilder/texniccenter.pdf Graphic file (type pdf)
-<use bilder/texniccenter.pdf>
-Package pdftex.def Info: bilder/texniccenter.pdf  used on input line 326.
-(pdftex.def)             Requested size: 369.88582pt x 275.56122pt.
- [9]) (./kapitel3.tex [10 <./bilder/kile.pdf>] [11 <./bilder/texniccenter.pdf>]
- [12]
 chapter 4.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 17.
-[13
+) (./kapitel5.tex [4
 
 
-]) [14] [15
+]
+chapter 5.
+) (./kapitel6.tex) [5
+
+
+] [6
 
 
 ] (./anhang_quellcode.tex
@@ -848,122 +815,135 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 4.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 4.
 
-(../../Arduino/OmniMoveESP/src/communication.cpp [16
+(c:/texlive/2017/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
+(../../Arduino/OmniMoveESP/src/communication.cpp
+
+LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
+(Font)              using `T1/aett/m/n' instead on input line 1.
+
+[7
 
 
-])
-(../../Arduino/OmniMoveESP/src/communication.h [17])
-(../../Arduino/OmniMoveESP/src/movement.cpp [18] [19] [20] [21])
-(../../Arduino/OmniMoveESP/src/movement.h [22] [23]
+]) (../../Arduino/OmniMoveESP/src/communication.h [8])
+(../../Arduino/OmniMoveESP/src/movement.cpp [9] [10] [11] [12])
+(../../Arduino/OmniMoveESP/src/movement.h [13] [14]
 Overfull \hbox (188.52823pt too wide) in paragraph at lines 72--73
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][]  
  []
 
-) (../../Arduino/OmniMoveESP/src/util.cpp [24] [25])
+) (../../Arduino/OmniMoveESP/src/util.cpp [15] [16])
 (../../Arduino/OmniMoveESP/src/util.h) (../../Arduino/OmniMoveESP/src/main.cpp
-[26] [27] [28]) (c:/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
+[17] [18] [19]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 120.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 120.
+) (c:/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (c:/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
-(../../Arduino/OmniMoveESP/data/index.html [29] [30]) [31]
+(../../Arduino/OmniMoveESP/data/index.html [20] [21]) [22]
 (c:/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-(../../Arduino/OmniMoveESP/data/code.js [32] [33] [34] [35] [36] [37] [38])
-(../../Arduino/OmniMoveESP/data/style.css [39])) (./anhang_techzeichnungen.tex
-[40]
+(../../Arduino/OmniMoveESP/data/code.js [23] [24] [25] [26] [27] [28] [29])
+(../../Arduino/OmniMoveESP/data/style.css [30])) (./anhang_techzeichnungen.tex
+[31]
 chapter B.
-<../techzeich/00.PDF, id=1441, 1195.46625pt x 845.1575pt>
+<../techzeich/00.PDF, id=1348, 1195.46625pt x 845.1575pt>
 File: ../techzeich/00.PDF Graphic file (type pdf)
 <use ../techzeich/00.PDF>
 Package pdftex.def Info: ../techzeich/00.PDF  used on input line 4.
 (pdftex.def)             Requested size: 439.31064pt x 310.57553pt.
-<../techzeich/01.PDF, id=1442, 1195.46625pt x 845.1575pt>
+<../techzeich/01.PDF, id=1349, 1195.46625pt x 845.1575pt>
 File: ../techzeich/01.PDF Graphic file (type pdf)
 <use ../techzeich/01.PDF>
 Package pdftex.def Info: ../techzeich/01.PDF  used on input line 9.
 (pdftex.def)             Requested size: 439.31064pt x 310.57553pt.
-<../techzeich/1.PDF, id=1443, 1690.315pt x 1195.46625pt>
+<../techzeich/1.PDF, id=1350, 1690.315pt x 1195.46625pt>
 File: ../techzeich/1.PDF Graphic file (type pdf)
 <use ../techzeich/1.PDF>
 Package pdftex.def Info: ../techzeich/1.PDF  used on input line 14.
 (pdftex.def)             Requested size: 439.31064pt x 310.70444pt.
-<../techzeich/1iso.PDF, id=1444, 845.1575pt x 597.23125pt>
+<../techzeich/1iso.PDF, id=1351, 845.1575pt x 597.23125pt>
 File: ../techzeich/1iso.PDF Graphic file (type pdf)
 <use ../techzeich/1iso.PDF>
 Package pdftex.def Info: ../techzeich/1iso.PDF  used on input line 19.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/2.PDF, id=1445, 845.1575pt x 597.23125pt>
+<../techzeich/2.PDF, id=1352, 845.1575pt x 597.23125pt>
 File: ../techzeich/2.PDF Graphic file (type pdf)
 <use ../techzeich/2.PDF>
 Package pdftex.def Info: ../techzeich/2.PDF  used on input line 24.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/3.PDF, id=1446, 845.1575pt x 597.23125pt>
+<../techzeich/3.PDF, id=1353, 845.1575pt x 597.23125pt>
 File: ../techzeich/3.PDF Graphic file (type pdf)
 <use ../techzeich/3.PDF>
 Package pdftex.def Info: ../techzeich/3.PDF  used on input line 29.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/4.PDF, id=1447, 845.1575pt x 597.23125pt>
+<../techzeich/4.PDF, id=1354, 845.1575pt x 597.23125pt>
 File: ../techzeich/4.PDF Graphic file (type pdf)
 <use ../techzeich/4.PDF>
 Package pdftex.def Info: ../techzeich/4.PDF  used on input line 33.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/5.PDF, id=1448, 845.1575pt x 597.23125pt>
+<../techzeich/5.PDF, id=1355, 845.1575pt x 597.23125pt>
 File: ../techzeich/5.PDF Graphic file (type pdf)
 <use ../techzeich/5.PDF>
 Package pdftex.def Info: ../techzeich/5.PDF  used on input line 37.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/6.PDF, id=1449, 845.1575pt x 597.23125pt>
+<../techzeich/6.PDF, id=1356, 845.1575pt x 597.23125pt>
 File: ../techzeich/6.PDF Graphic file (type pdf)
 <use ../techzeich/6.PDF>
 Package pdftex.def Info: ../techzeich/6.PDF  used on input line 41.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/7.PDF, id=1450, 845.1575pt x 597.23125pt>
+<../techzeich/7.PDF, id=1357, 845.1575pt x 597.23125pt>
 File: ../techzeich/7.PDF Graphic file (type pdf)
 <use ../techzeich/7.PDF>
 Package pdftex.def Info: ../techzeich/7.PDF  used on input line 45.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/8.PDF, id=1451, 845.1575pt x 597.23125pt>
+<../techzeich/8.PDF, id=1358, 845.1575pt x 597.23125pt>
 File: ../techzeich/8.PDF Graphic file (type pdf)
 <use ../techzeich/8.PDF>
 Package pdftex.def Info: ../techzeich/8.PDF  used on input line 49.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/9.PDF, id=1452, 845.1575pt x 597.23125pt>
+<../techzeich/9.PDF, id=1359, 845.1575pt x 597.23125pt>
 File: ../techzeich/9.PDF Graphic file (type pdf)
 <use ../techzeich/9.PDF>
 Package pdftex.def Info: ../techzeich/9.PDF  used on input line 53.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/10.PDF, id=1453, 845.1575pt x 597.23125pt>
+<../techzeich/10.PDF, id=1360, 845.1575pt x 597.23125pt>
 File: ../techzeich/10.PDF Graphic file (type pdf)
 <use ../techzeich/10.PDF>
 Package pdftex.def Info: ../techzeich/10.PDF  used on input line 57.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/11.PDF, id=1454, 845.1575pt x 597.23125pt>
+<../techzeich/11.PDF, id=1361, 845.1575pt x 597.23125pt>
 File: ../techzeich/11.PDF Graphic file (type pdf)
 <use ../techzeich/11.PDF>
 Package pdftex.def Info: ../techzeich/11.PDF  used on input line 61.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-<../techzeich/12.PDF, id=1455, 845.1575pt x 597.23125pt>
+<../techzeich/12.PDF, id=1362, 845.1575pt x 597.23125pt>
 File: ../techzeich/12.PDF Graphic file (type pdf)
 <use ../techzeich/12.PDF>
 Package pdftex.def Info: ../techzeich/12.PDF  used on input line 65.
 (pdftex.def)             Requested size: 439.31064pt x 310.44356pt.
-) [41
+) [32
 
 
- <../techzeich/00.PDF>] [42 <../techzeich/01.PDF>] [43 <../techzeich/1.PDF>] [4
-4 <../techzeich/1iso.PDF>] [45 <../techzeich/2.PDF>] [46 <../techzeich/3.PDF>] 
-[47 <../techzeich/4.PDF>] [48 <../techzeich/5.PDF>] [49 <../techzeich/6.PDF>] [
-50 <../techzeich/7.PDF>] [51 <../techzeich/8.PDF>] [52 <../techzeich/9.PDF>] [5
-3 <../techzeich/10.PDF>] [54 <../techzeich/11.PDF>] [55 <../techzeich/12.PDF>]
+ <../techzeich/00.PDF>] [33 <../techzeich/01.PDF>] [34 <../techzeich/1.PDF>] [3
+5 <../techzeich/1iso.PDF>] [36 <../techzeich/2.PDF>] [37 <../techzeich/3.PDF>] 
+[38 <../techzeich/4.PDF>] [39 <../techzeich/5.PDF>] [40 <../techzeich/6.PDF>] [
+41 <../techzeich/7.PDF>] [42 <../techzeich/8.PDF>] [43 <../techzeich/9.PDF>] [4
+4 <../techzeich/10.PDF>] [45 <../techzeich/11.PDF>] [46 <../techzeich/12.PDF>]
 chapter C.
 (./anhang_programm_a.tex) (./anhang_programm_b.tex)
-(./anhang_literaturverzeichnis.tex [56
+(./anhang_literaturverzeichnis.tex [47
 
 
 ]
@@ -996,7 +976,7 @@ ct: TeX-nic-Cen-ter: Sum-ma-ry\T1/aer/m/n/12 .  []$[]\T1/aett/m/n/12 http : / /
 
  []
 
-[57
+[48
 
 
 
@@ -1009,7 +989,7 @@ Underfull \hbox (badness 3158) in paragraph at lines 69--74
 
 )
 :<-
-) (./anhang_listings.tex [58]
+) (./anhang_listings.tex [49]
 
 Class scrreprt Warning: \float@listhead detected!
 (scrreprt)              Implementation of \float@listhead became
@@ -1029,7 +1009,7 @@ chapter without number
 \tf@lol=\write6
 \openout6 = `dokument.lol'.
 
-) (./anhang_abbildungsverzeichnis.tex [59
+) (./anhang_abbildungsverzeichnis.tex [50
 
 
 
@@ -1039,7 +1019,7 @@ chapter without number
 \openout7 = `dokument.lof'.
 
 )
-(./anhang_tabellenverzeichnis.tex [60
+(./anhang_tabellenverzeichnis.tex [51
 
 
 
@@ -1050,7 +1030,7 @@ chapter without number
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 233.
- [61
+ [52
 
 
 
@@ -1061,7 +1041,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 233.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 233.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 233.
 Package rerunfilecheck Info: File `dokument.out' has not changed.
-(rerunfilecheck)             Checksum: 050E039ABEC14690AAF5F88EED0CDB6A;2388.
+(rerunfilecheck)             Checksum: 1AA456C4E61A0A7A3C8458648074631F;2713.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1069,35 +1049,29 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 233.
  ) 
 Here is how much of TeX's memory you used:
- 13726 strings out of 492980
- 207250 string characters out of 6136207
- 534267 words of memory out of 5000000
- 15856 multiletter control sequences out of 15000+600000
- 78537 words of font info for 120 fonts, out of 8000000 for 9000
+ 13659 strings out of 492980
+ 206288 string characters out of 6136207
+ 533056 words of memory out of 5000000
+ 15825 multiletter control sequences out of 15000+600000
+ 72779 words of font info for 109 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  42i,11n,66p,8821b,2144s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/tex
 live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/201
-7/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2017/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmitt10.pfb><c:/texlive/2017/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/20
-17/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2017/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsl8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmssbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
-c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texliv
-e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2017/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on dokument.pdf (65 pages, 4579698 bytes).
+7/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb><c:/texlive/2017/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsl12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl
+8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><
+c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive
+/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2017/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2017/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on dokument.pdf (56 pages, 4323336 bytes).
 PDF statistics:
- 2038 PDF objects out of 2073 (max. 8388607)
- 1877 compressed objects within 19 object streams
- 1104 named destinations out of 1200 (max. 500000)
- 12675 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 1921 PDF objects out of 2073 (max. 8388607)
+ 1783 compressed objects within 18 object streams
+ 1074 named destinations out of 1200 (max. 500000)
+ 12729 words of extra memory for PDF output out of 14400 (max. 10000000)
 

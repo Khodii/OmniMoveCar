@@ -1,101 +1,17 @@
-%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-%% Kapitel 3: Allgemeine Hinweise
-%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-%
-%  Gerüst:
-%  * Version 0.10
-%  * Dipl.-Ing. Florian Evers, florian.evers@tu-ilmenau.de
-%  * Fachgebiet Kommunikationsnetze, TU Ilmenau
-%
-%  Für Hauptseminare, Studienarbeiten, Diplomarbeiten
-%
-%  Autor           : Max Mustermann
-%  Letzte Änderung : 31.12.2015
-%
+\chapter{Planung}
+\section{Entwürfe}
+\subsection{Seggway}
 
-\chapter{Allgemeine Hinweise}
-\section{\LaTeX-bezogen}
-\begin{description}
-\item[Abkürzungsverzeichnis]
-      Sollte das Abkürzungsverzeichnis nach dem Hinzufügen eines
-      {\ttfamily nomenclature}"=Kommandos nicht aktualisiert werden,
-      muss der {\ttfamily makeindex}"=Aufruf
-      manuell in der Konsole gestartet werden. Manche
-      Entwicklungsumgebungen machen dies aber schon automatisch.
-      Bitte die genannten Parameter nicht vergessen!
+\subsection{Weggchair}
 
-      Bei Benutzern der GUI \texttt{Kile} kann es vorkommen,
-      dass der \texttt{makeindex}-Befehl nicht automatisch ausgeführt
-      wird, scheint ein Bug zu sein. In diesem Fall kann der Index
-      auch manuell durch Aufruf von \texttt{makeindex} aktualisiert
-      werden.
-\item[Thesenpapier]
-      Für die Thesen wurde mit der Version 0.8 an ein eigenständiges
-      Dokument namens {\ttfamily thesen-handout.tex} hinzugefügt.
-      Es bindet ebenso wie das Hauptdokument die Datei
-      {\ttfamily thesen.tex} ein, erzeugt aber eben nur dieses
-      eine Blatt ohne eine Seitenzahl.
-\item[Beidseitiger Druck]
-      Im Zentraldokument {\ttfamily dokument.tex} kann das Layout
-      auf doppelseitigen Druck umgeschaltet werden (Option
-      {\ttfamily twoside} statt {\ttfamily oneside}). Allerdings
-      verlangen manche Prüfungsämter explizit einen einseitigen
-      Druck! Neue Kapitel ({\ttfamily chapter}) beginnen dabei
-      automatisch auf einer Vorderseite (\(\to \) rechte Seite).
-      Die Ränder sind dabei innen nur halb so breit wie außen, was
-      aber Absicht ist: Zusammen ergeben die linke und die rechte
-      Seite innen einen "`weißen Streifen"', der genauso breit ist wie die
-      äußeren Ränder.
-\item[Überlange Kapitelüberschriften]
-      Manchmal müssen Überschriften sehr lang sein, sodass sie von \LaTeX\ 
-      umgebrochen werden. Dieses Verhalten ist aber weder im Inhaltsverzeichnis
-      noch in der Kopfzeile erwünscht! Daher kann man zu einer überlangen
-      Überschrift auch eine Kurzform mit angeben, welche dann im Inhaltsverzeichnis
-      und im Dokumentenkopf verwendet wird:\\
-      {\ttfamily \textbackslash chapter[Kurzform]\{Langform\}}
-\item[Einzüge]
-      Bitte \emph{nicht!} die Einzüge ändern oder abschalten. Das ist
-      so gewollt und verbessert den Lesefluss! (Stichwort
-      \texttt{\textbackslash setlength\textbackslash parindent\{0pt\}})!
-\item[BibTeX-Einträge mit mehreren Autoren]
-      Sollen mehrere Autoren angegeben erden, so sind diese einzeln
-      als \emph{Vorname Nachname} anzugeben und durch \texttt{and}
-      voneinander zu trennen. BibTeX ersetzt das \texttt{and} dann
-      durch das deutsche "`und"':\\
-      \texttt{author = \{Adam Riese and Eva Zwerg\},}
-\end{description}
+\subsection{TEGGLA}
 
+\section{Morphologischer Kasten}
 
+\section{Online Bestellungen}
 
+\section{Verwendete Technologien}
 
-\section{Inhaltlich}
-\begin{itemize}
-\item Überschriften im Inhaltsverzeichnis nie tiefer als
-      vier Ebenen. Dies geht mit \LaTeX\ auch gar nicht anders,
-      da {\ttfamily subsubsection} bereits die niedrigste
-      Schachtelungstiefe darstellt, welche noch im
-      Inhaltsverzeichnis aufgeführt wird.
-\item Die Kapitel sollten in der späteren Ausarbeitung anders
-      benannt werden als in dieser Formatvorlage. Eine Diplomarbeit
-      \emph{kann} beispielsweise aus der folgenden Aufteilung bestehen:
-
-      \begin{enumerate}
-      \item Problemstellung
-      \item Theoretische Grundlagen
-      \item Herleitung
-      \item Der Prototyp
-      \item Zusammenfassung
-      \item Ausblick
-      \end{enumerate}
-\item Eine Inventarisierungsnummer ist nicht bei jeder Art der
-      Ausarbeitung gegeben. Dazu kann im Zentraldokument
-      (\(\to \) {\ttfamily dokument.tex}) eine leere Zeichenfolge
-      hinterlegt werden.
-\item Es empfiehlt sich, ein Programm zur Rechtschreibprüfung zu
-      installieren. Alternativ zu einer \LaTeX"=fähigen
-      Rechtschreibkorrektursoftware kann ein Abschnitt auch
-      in bspw. Microsoft Word getippt und geprüft werden, bevor
-      er dann in das \LaTeX"=Dokument eingefügt wird.
-\item Für Diplomarbeiten wird generell ein englischer "`Abstract"'
-      benötigt!
-\end{itemize}
+\subsection{Git}
+\subsection{Creo}
+\subsection{PlatformIO}
