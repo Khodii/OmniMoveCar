@@ -32,7 +32,7 @@
     titlepage,       % Titelseite aktivieren
     headinclude,     % Seiten-Head in die Satzspiegelberechnung mit einbeziehen
     footinclude=false,     % Seiten-Foot nicht in die Satzspiegelberechnung mit einbeziehen
-    numbers=noenddot % Gliederungsnummern ohne abschließenden Punkt darstellen
+    numbers=noenddot, % Gliederungsnummern ohne abschließenden Punkt darstellen
 %    draft,					 % Vorschauversion ohne Bilder [draft|final]
 ]   {scrreprt}       % Dokumentenstil: "Report" aus dem KOMA-Skript-Paket
 
@@ -54,7 +54,7 @@
 %\usepackage{siunitx}	% SI Einheiten Package
 %\usepackage{makeidx} % ermöglicht Stichwortverzeichnisse
 \usepackage{listings}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{pdfpages}
 
 % Definitions for Code inclusion
@@ -67,10 +67,10 @@
 	basicstyle={\footnotesize\ttfamily},
 	numberstyle={\tiny},
 	numbers=left,
-	keywordstyle=\bfseries,
+	keywordstyle=\bfseries\color{BurntOrange},
 	commentstyle=\itshape\color{black!50},
-	identifierstyle=\color{black!70},
-	stringstyle=\itshape,
+	identifierstyle=\color{BlueViolet},
+	stringstyle=\itshape\color{ForestGreen},
 	breaklines=true,
 	breakatwhitespace=true,
 	tabsize=4,

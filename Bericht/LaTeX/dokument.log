@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.16)  29 JUL 2019 16:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.16)  29 JUL 2019 16:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -402,7 +402,10 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-)
+
+(c:/texlive/2017/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
 (c:/texlive/2017/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
 
@@ -1049,10 +1052,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 233.
  ) 
 Here is how much of TeX's memory you used:
- 13659 strings out of 492980
- 206288 string characters out of 6136207
- 533056 words of memory out of 5000000
- 15825 multiletter control sequences out of 15000+600000
+ 13736 strings out of 492980
+ 207533 string characters out of 6136207
+ 539172 words of memory out of 5000000
+ 15899 multiletter control sequences out of 15000+600000
  72779 words of font info for 109 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  42i,11n,66p,8821b,2144s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1068,7 +1071,7 @@ c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive
 /2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2017/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2017/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on dokument.pdf (56 pages, 4323336 bytes).
+Output written on dokument.pdf (56 pages, 4326147 bytes).
 PDF statistics:
  1921 PDF objects out of 2073 (max. 8388607)
  1783 compressed objects within 18 object streams
