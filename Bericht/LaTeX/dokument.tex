@@ -2,28 +2,28 @@
 %% Hauptdatei, Wurzel des Dokuments
 %% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 %
-%  Gerüst:
+%  GerÃ¼st:
 %  * Version 0.2
 %  * Dipl.-Ing. Florian Evers, florian.evers@tu-ilmenau.de
 %  * Fachgebiet Kommunikationsnetze, TU Ilmenau
 %  * Dipl.-Ing. Christian Tolks, christian.tolks@informatik.uni-augsburg.de
-%  * Lehrstuhl für Regelungstechnik, Universität Augsburg
+%  * Lehrstuhl fÃ¼r Regelungstechnik, UniversitÃ¤t Augsburg
 %
-%  Für Hauptseminare, Studienarbeiten, Diplomarbeiten
+%  FÃ¼r Hauptseminare, Studienarbeiten, Diplomarbeiten
 %
 %  Autor           : Max Mustermann
-%  Letzte Änderung : 31.12.2015
+%  Letzte Ã„nderung : 31.12.2015
 %
 
 % Headerfeld, Typ des Dokumentes, einzubindende Packages.
-% Hier bei Bedarf Änderungen vornehmen.
+% Hier bei Bedarf Ã„nderungen vornehmen.
 \documentclass
 [   oneside,         % oneside/twoside : Einseitiger oder zweiseitiger Druck?
-    12pt,            % Bezug: 12-Punkt Schriftgröße
+    12pt,            % Bezug: 12-Punkt SchriftgrÃ¶ÃŸe
     DIV=15,          % Randaufteilung, siehe Dokumentation "KOMA"-Script
     BCOR=17mm,       % Bindekorrektur: Innen 17mm Platz lassen. Copyshop-getestet.
     headsepline,     % Unter Kopfzeile Trennlinie (aus: headnosepline)
-    footsepline,     % Über Fußzeile Trennlinie (aus: footnosepline)
+    footsepline,     % Ãœber FuÃŸzeile Trennlinie (aus: footnosepline)
     openright,       % Neue Kapitel im zweiseitigen Druck rechts beginnen lassen
     a4paper,         % Seitenformat A4
     abstracton,      % Abstract einbinden
@@ -32,7 +32,7 @@
     titlepage,       % Titelseite aktivieren
     headinclude,     % Seiten-Head in die Satzspiegelberechnung mit einbeziehen
     footinclude=false,     % Seiten-Foot nicht in die Satzspiegelberechnung mit einbeziehen
-    numbers=noenddot, % Gliederungsnummern ohne abschließenden Punkt darstellen
+    numbers=noenddot, % Gliederungsnummern ohne abschlieÃŸenden Punkt darstellen
 %    draft,					 % Vorschauversion ohne Bilder [draft|final]
 ]   {scrreprt}       % Dokumentenstil: "Report" aus dem KOMA-Skript-Paket
 
@@ -40,19 +40,19 @@
 \usepackage[activate=normal]{pdfcprot} % Optischer Randausgleich -> pdflatex!
 \usepackage{ifthen}
 \usepackage{ngerman}
-\usepackage[latin1]{inputenc}
+\usepackage[utf-8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[T1]{url}
 \usepackage{ae}
 \usepackage[final]{graphicx}
 \usepackage[automark]{scrpage2}
 \usepackage{setspace}
-%\usepackage[first,light]{draftcopy} % Für Probedruck
+%\usepackage[first,light]{draftcopy} % FÃ¼r Probedruck
 \usepackage[plainpages=false,pdfpagelabels,hypertexnames=false]{hyperref}
 %\usepackage{amsmath} % mathematischer Zeichensatz
 %\usepackage{amssymb}
 %\usepackage{siunitx}	% SI Einheiten Package
-%\usepackage{makeidx} % ermöglicht Stichwortverzeichnisse
+%\usepackage{makeidx} % ermÃ¶glicht Stichwortverzeichnisse
 \usepackage{listings}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{pdfpages}
@@ -91,7 +91,7 @@
 
 \newcommand{\includeLang}[3]{\lstinputlisting[escapechar=, language=#3, style=customstyle, caption=#2]{#1} \bigskip}
 
-% Verhindert Einrücken von Text nach Absatz
+% Verhindert EinrÃ¼cken von Text nach Absatz
 \parindent 0pt
 % Update Dokument auf pdflatex v1.6, verhinder Fehlermeldung "`pdf inclusion..."'
 \pdfminorversion=6
@@ -100,22 +100,22 @@
 \setcounter{tocdepth}{3}    % Tiefe des Inhaltsverzeichnisses
 
 % Hier in die zweite geschweifte Klammer jeweils
-% die persönlichen Daten eintragen:
+% die persÃ¶nlichen Daten eintragen:
 % \newcommand{\artderausarbeitung}{Abschlussarbeit}
 % \newcommand{\namedesautors}{Max Mustermann}
 % \newcommand{\titelderarbeit}{Anfertigung einer Ausarbeitung mit \LaTeX}
 % \newcommand{\inventarisierungsnummer}{AA / BB / CC / DD}
 
 % Alternativ: Eine Hauptseminararbeit hat keine Inventarisierungsnummer:
-\newcommand{\artderausarbeitung}{Praktikum für Produktionstechnik}
+\newcommand{\artderausarbeitung}{Praktikum fÃ¼r Produktionstechnik}
 \newcommand{\titelderarbeit}{Entwicklungsprozess eines lenkbaren Fahrzeuges\\ TEGGLA}
 \newcommand{\namedesautors}{Wilfert, Paprotta, Evertz, Khodabakhsh}
 \newcommand{\inventarisierungsnummer}{}
 
-% Abkürzungsverzeichnis beeinflussen. Hier nichts ändern!
+% AbkÃ¼rzungsverzeichnis beeinflussen. Hier nichts Ã¤ndern!
 \usepackage[intoc]{nomencl}
   \let\abbrev\nomenclature
-  \renewcommand{\nomname}{Abkürzungsverzeichnis und Formelzeichen}
+  \renewcommand{\nomname}{AbkÃ¼rzungsverzeichnis und Formelzeichen}
   \setlength{\nomlabelwidth}{.25\hsize}
   \renewcommand{\nomlabel}[1]{#1 \dotfill}
   \setlength{\nomitemsep}{-\parsep}
@@ -123,7 +123,7 @@
 \usepackage[normalem]{ulem}
   \newcommand{\markup}[1]{\textbf{#1}}
 
-% Seitenlayout festlegen. Hier nichts ändern!
+% Seitenlayout festlegen. Hier nichts Ã¤ndern!
 \pagestyle{scrplain}
 \ihead[]{\headmark}
 \ohead[]{\pagemark}
@@ -136,7 +136,7 @@
 \renewcommand{\chapterpagestyle}{scrheadings}
 \renewcommand{\indexpagestyle}{scrheadings}
 
-% Abschnittsweise Nummerierung anstatt fortlaufend. Hier nichts ändern!
+% Abschnittsweise Nummerierung anstatt fortlaufend. Hier nichts Ã¤ndern!
 \makeatletter
 \@addtoreset{equation}{chapter}
 \@addtoreset{figure}{chapter}
@@ -146,20 +146,20 @@
 \renewcommand\thetable{\thechapter.\@arabic\c@table}
 \makeatother
 
-% Quelltextrahmen, klein. Hier nichts ändern!
+% Quelltextrahmen, klein. Hier nichts Ã¤ndern!
 \newsavebox{\inhaltkl}
 \def\rahmenkl{\sbox{\inhaltkl}\bgroup\small\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
 \def\endrahmenkl{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
 \framebox[\textwidth][l]{\usebox{\inhaltkl}}}
 
-% Quelltextrahmen, normale Groesse. Hier nichts ändern!
+% Quelltextrahmen, normale Groesse. Hier nichts Ã¤ndern!
 \newsavebox{\inhalt}
 \def\rahmen{\sbox{\inhalt}\bgroup\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
 \def\endrahmen{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
 \framebox[\textwidth][l]{\usebox{\inhalt}}}
 
-% Trennvorschläge für falsch getrennte Wörter.
-% Wird häufig bei eingedeutschen Wörtern benötigt, da LaTeX hierbei
+% TrennvorschlÃ¤ge fÃ¼r falsch getrennte WÃ¶rter.
+% Wird hÃ¤ufig bei eingedeutschen WÃ¶rtern benÃ¶tigt, da LaTeX hierbei
 % gerne falsch trennt. Alternativ kann auch im Fliesstext ein
 % Trennvorschlag per "\-" hinterlegt werden, bspw.:
 % Die Hard\-ware besteht aus A und B.
@@ -169,7 +169,7 @@ Hard-ware
 
 % Sonstige Befehlsdefinitionen hier ablegen.
 \newcommand{\entspricht}{\stackrel{\wedge}{=}}
-\clubpenalty = 10000 \widowpenalty = 10000 \displaywidowpenalty = 10000 % Strafpunkte bei schlechten Absätzen
+\clubpenalty = 10000 \widowpenalty = 10000 \displaywidowpenalty = 10000 % Strafpunkte bei schlechten AbsÃ¤tzen
 
 \begin{document}
 \onehalfspacing
@@ -178,13 +178,13 @@ Hard-ware
 \input{kurzfassung.tex}
 
 % Inhaltsverzeichnis
-\cleardoublepage % Seitenumbruch erzwingen vor Änderung des Nummerierungsstils
+\cleardoublepage % Seitenumbruch erzwingen vor Ã„nderung des Nummerierungsstils
 \pagenumbering{roman} % Nummerierung der Seiten ab hier: i, ii, iii, iv...
 \pagestyle{scrheadings} % Ab hier mit Kopf- und Fusszeile
 \tableofcontents
 
 % Die einzelnen Kapitel
-\cleardoublepage % Seitenumbruch erzwingen vor Änderung des Nummerierungsstils
+\cleardoublepage % Seitenumbruch erzwingen vor Ã„nderung des Nummerierungsstils
 \pagenumbering{arabic} % Nummerierung der Seiten ab hier: 1, 2, 3, 4...
 \input{kapitel1.tex}
 \input{kapitel2.tex}
@@ -213,13 +213,13 @@ Hard-ware
 % Tabellenverzeichnis einbinden
 \input{anhang_tabellenverzeichnis.tex}
 
-% Abkürzungsverzeichnis einbinden
+% AbkÃ¼rzungsverzeichnis einbinden
 % \input{anhang_abkuerzungsverzeichnis.tex}
 
 % Thesen
 % \input{thesen.tex}
 
-% Abschlusserklärung
+% AbschlusserklÃ¤rung
 % \input{abschlusserklaerung.tex}
 
 \end{document}
