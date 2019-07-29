@@ -22,20 +22,20 @@
 \BOOKMARK [1][-]{section.23}{User-Interface}{chapter.16}% 22
 \BOOKMARK [2][-]{subsection.24}{Java \(obsolet\)}{section.23}% 23
 \BOOKMARK [2][-]{subsection.25}{HTML5 und Controller-Anbindung}{section.23}% 24
-\BOOKMARK [2][-]{subsection.26}{Protokoll}{section.23}% 25
-\BOOKMARK [1][-]{section.27}{Steuerung per \(XBox\) Controller}{chapter.16}% 26
-\BOOKMARK [1][-]{section.28}{PLA vs. TPU}{chapter.16}% 27
-\BOOKMARK [1][-]{section.29}{Eierhalter}{chapter.16}% 28
-\BOOKMARK [1][-]{section.30}{Leichtbau}{chapter.16}% 29
-\BOOKMARK [0][-]{chapter.31}{Zuk\374nftige Entwicklungsm\366glichkeiten}{}% 30
-\BOOKMARK [1][-]{section.32}{Regler}{chapter.31}% 31
-\BOOKMARK [1][-]{section.33}{Verbesserungen}{chapter.31}% 32
-\BOOKMARK [2][-]{subsection.34}{Hardware}{section.33}% 33
-\BOOKMARK [2][-]{subsection.35}{Software}{section.33}% 34
-\BOOKMARK [0][-]{appendix.38}{Quellcode}{}% 35
-\BOOKMARK [1][-]{section.39}{ESP32}{appendix.38}% 36
-\BOOKMARK [1][-]{section.563}{Webpage}{appendix.38}% 37
-\BOOKMARK [0][-]{appendix.985}{Technische Zeichnungen}{}% 38
-\BOOKMARK [0][-]{chapter*.1001}{Listings}{}% 39
-\BOOKMARK [0][-]{chapter*.1002}{Abbildungsverzeichnis}{}% 40
-\BOOKMARK [0][-]{chapter*.1003}{Tabellenverzeichnis}{}% 41
+\BOOKMARK [2][-]{subsection.27}{Protokoll}{section.23}% 25
+\BOOKMARK [1][-]{section.29}{Steuerung per \(XBox\) Controller}{chapter.16}% 26
+\BOOKMARK [1][-]{section.30}{PLA vs. TPU}{chapter.16}% 27
+\BOOKMARK [1][-]{section.31}{Eierhalter}{chapter.16}% 28
+\BOOKMARK [1][-]{section.32}{Leichtbau}{chapter.16}% 29
+\BOOKMARK [0][-]{chapter.33}{Zuk\374nftige Entwicklungsm\366glichkeiten}{}% 30
+\BOOKMARK [1][-]{section.34}{Regler}{chapter.33}% 31
+\BOOKMARK [1][-]{section.35}{Verbesserungen}{chapter.33}% 32
+\BOOKMARK [2][-]{subsection.36}{Hardware}{section.35}% 33
+\BOOKMARK [2][-]{subsection.37}{Software}{section.35}% 34
+\BOOKMARK [0][-]{appendix.40}{Quellcode}{}% 35
+\BOOKMARK [1][-]{section.41}{ESP32}{appendix.40}% 36
+\BOOKMARK [1][-]{section.565}{Webpage}{appendix.40}% 37
+\BOOKMARK [0][-]{appendix.987}{Technische Zeichnungen}{}% 38
+\BOOKMARK [0][-]{chapter*.1003}{Listings}{}% 39
+\BOOKMARK [0][-]{chapter*.1004}{Abbildungsverzeichnis}{}% 40
+\BOOKMARK [0][-]{chapter*.1005}{Tabellenverzeichnis}{}% 41

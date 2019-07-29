@@ -22,20 +22,20 @@
 \contentsline {section}{\numberline {4.7}User-Interface}{4}{section.23}
 \contentsline {subsection}{\numberline {4.7.1}Java (obsolet)}{4}{subsection.24}
 \contentsline {subsection}{\numberline {4.7.2}HTML5 und Controller-Anbindung}{4}{subsection.25}
-\contentsline {subsection}{\numberline {4.7.3}Protokoll}{4}{subsection.26}
-\contentsline {section}{\numberline {4.8}Steuerung per (XBox) Controller}{4}{section.27}
-\contentsline {section}{\numberline {4.9}PLA vs. TPU}{4}{section.28}
-\contentsline {section}{\numberline {4.10}Eierhalter}{4}{section.29}
-\contentsline {section}{\numberline {4.11}Leichtbau}{4}{section.30}
-\contentsline {chapter}{\numberline {5}Zuk\"unftige Entwicklungsm\"oglichkeiten}{5}{chapter.31}
-\contentsline {section}{\numberline {5.1}Regler}{5}{section.32}
-\contentsline {section}{\numberline {5.2}Verbesserungen}{5}{section.33}
-\contentsline {subsection}{\numberline {5.2.1}Hardware}{5}{subsection.34}
-\contentsline {subsection}{\numberline {5.2.2}Software}{5}{subsection.35}
-\contentsline {chapter}{\numberline {A}Quellcode}{7}{appendix.38}
-\contentsline {section}{\numberline {A.1}ESP32}{7}{section.39}
-\contentsline {section}{\numberline {A.2}Webpage}{20}{section.563}
-\contentsline {chapter}{\numberline {B}Technische Zeichnungen}{32}{appendix.985}
-\contentsline {chapter}{\nonumberline Listings}{47}{chapter*.1001}
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{48}{chapter*.1002}
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{49}{chapter*.1003}
+\contentsline {subsection}{\numberline {4.7.3}Protokoll}{6}{subsection.27}
+\contentsline {section}{\numberline {4.8}Steuerung per (XBox) Controller}{7}{section.29}
+\contentsline {section}{\numberline {4.9}PLA vs. TPU}{7}{section.30}
+\contentsline {section}{\numberline {4.10}Eierhalter}{7}{section.31}
+\contentsline {section}{\numberline {4.11}Leichtbau}{7}{section.32}
+\contentsline {chapter}{\numberline {5}Zuk\"unftige Entwicklungsm\"oglichkeiten}{8}{chapter.33}
+\contentsline {section}{\numberline {5.1}Regler}{8}{section.34}
+\contentsline {section}{\numberline {5.2}Verbesserungen}{8}{section.35}
+\contentsline {subsection}{\numberline {5.2.1}Hardware}{8}{subsection.36}
+\contentsline {subsection}{\numberline {5.2.2}Software}{8}{subsection.37}
+\contentsline {chapter}{\numberline {A}Quellcode}{10}{appendix.40}
+\contentsline {section}{\numberline {A.1}ESP32}{10}{section.41}
+\contentsline {section}{\numberline {A.2}Webpage}{23}{section.565}
+\contentsline {chapter}{\numberline {B}Technische Zeichnungen}{35}{appendix.987}
+\contentsline {chapter}{\nonumberline Listings}{50}{chapter*.1003}
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{51}{chapter*.1004}
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{52}{chapter*.1005}
