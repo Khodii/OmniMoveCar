@@ -36,10 +36,6 @@
 \contentsline {section}{\numberline {A.1}ESP32}{7}{section.39}
 \contentsline {section}{\numberline {A.2}Webpage}{20}{section.563}
 \contentsline {chapter}{\numberline {B}Technische Zeichnungen}{32}{appendix.985}
-\contentsline {chapter}{\numberline {C}Software und Konfigurationsdateien}{47}{appendix.1001}
-\contentsline {section}{\numberline {C.1}Software A}{47}{section.1002}
-\contentsline {section}{\numberline {C.2}Software B}{47}{section.1003}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{48}{chapter*.1004}
-\contentsline {chapter}{\nonumberline Listings}{50}{chapter*.1005}
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{51}{chapter*.1006}
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{52}{chapter*.1007}
+\contentsline {chapter}{\nonumberline Listings}{47}{chapter*.1001}
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{48}{chapter*.1002}
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{49}{chapter*.1003}

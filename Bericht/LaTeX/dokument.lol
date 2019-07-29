@@ -16,5 +16,3 @@
 \contentsline {lstlisting}{\numberline {A.10}style.css}{30}{lstlisting.930}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
