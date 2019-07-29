@@ -40,7 +40,7 @@
 \usepackage[activate=normal]{pdfcprot} % Optischer Randausgleich -> pdflatex!
 \usepackage{ifthen}
 \usepackage{ngerman}
-\usepackage[utf-8]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[T1]{url}
 \usepackage{ae}
@@ -54,8 +54,11 @@
 %\usepackage{siunitx}	% SI Einheiten Package
 %\usepackage{makeidx} % ermöglicht Stichwortverzeichnisse
 \usepackage{listings}
+\usepackage{listingsutf8}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{pdfpages}
+\usepackage{gensymb}
+\usepackage{eurosym}
 
 % Definitions for Code inclusion
 \lstdefinestyle{customstyle}{
@@ -85,6 +88,18 @@
 	numberstyle=\tiny\color{black!80},
 	xleftmargin=\parindent,
 	frame=single
+}
+
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+	{~}{{\textasciitilde}}1
+	{°}{{\degree}}1
 }
 
 \newcommand{\includeC}[2]{\lstinputlisting[escapechar=, language=C++, style=customstyle, caption=#2]{#1} \bigskip}
