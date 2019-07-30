@@ -1,5 +1,36 @@
 \chapter{Entwicklung der Schlüsselelemente}
 \section{Übersicht des gesamten Modells}
+Wie in Abbildung \ref{bild:tegglaoverview} erkennt besteht aus vielen Einzelteilen. 
+Auf die wichtigsten Komponenten, die in der Stückliste (Tabelle \ref{table:tegglaoverview}) genannt werden, wird in den folgenden Kapiteln genauer eingegangen.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{bilder/overview.png}
+	\caption{Überischt der TEGGLA-Komponenten}
+	\label{bild:tegglaoverview}
+\end{figure}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{lr}
+	Bezeichnung & Anzahl \\ 
+	\midrule[3pt] 
+	4x PWM & Motor Enable \\ 
+	\midrule 
+	8x Output & Motor Richtung \\ 
+	\midrule 
+	2x I$^2$C & Gyroskop \\ 
+	\midrule 
+	1x ADC & Batteriespannung \\ 
+	\midrule
+	\midrule 
+	\multicolumn{2}{c}{15 Pins} \\ 
+	 
+\end{tabular} 
+\caption{Stückliste der TEGGLA-Komponenten} 
+\label{table:tegglaoverview}
+\end{table} 
+
+
 
 \section{Schaltplan}
 \begin{figure}[!ht]
@@ -259,9 +290,9 @@ $controlFront$ Auslenkung des linken Sticks in Y Richtung (nach vorne) und
 $controlTurn$ Auslenkung des rechten Sticks in X Richtung (nach rechts), 
 
 \begin{align}
-	\phi = atan2(controlSide, controlFront)\\
-	vd = min(\sqrt{controlFront^2 + controlSide^2}, 1023) - \frac{controlTurn}{2}\\
-	vphi = \frac{controlTurn}{2}
+	\theta &= atan2(controlSide, controlFront)\\
+	V_d &= min(\sqrt{controlFront^2 + controlSide^2}, 1023) - \frac{controlTurn}{2}\\
+	V_\theta &= \frac{controlTurn}{2}
 \end{align}
 
 
