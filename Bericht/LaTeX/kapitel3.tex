@@ -22,7 +22,7 @@ Das Gyroskop dient dem Messen von Geschwindigkeit, Beschleunigung und aktuellem 
 
 Der Eierhalter ist genau so konzipiert wie in dem realisierten TEGGLA Modell, nämlich werden mehrere einzelne Segmente verbunden um möglichst wenig Gewicht mit möglichst viel Stabilität zu verbinden.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{bilder/seggway.png}
 	\caption{Skizze Seggway}
@@ -32,7 +32,7 @@ Der Eierhalter ist genau so konzipiert wie in dem realisierten TEGGLA Modell, n�
 Siehe Tabelle~\ref{table:seggway} für eine genaue Aufzählung der benötigten Komponenten. 
 Alle restlichen Bauteile wie die Stangen, Ebenen und Reifen könnten problemlos via 3D-Druck mit PLA hergestellt werden.
 
-\begin{table}[!ht]
+\begin{table}[H]
 	\centering
 \begin{tabular}{lc}
 	Bezeichnung & Anzahl \\
@@ -75,9 +75,9 @@ Da die verwendeten DC-Motoren unter Volllast über 7000 Umdrehungen schaffen, da
 
 Das Ei wäre beim Weggchair an der Stelle befestigt, wo normalerweise der Rollstuhlfahrer sitzt. Dafür wäre eine Federung und Halterung an dieser Stelle gewesen. Vermutlich wäre ein mit Watte oder einem ähnlichen elastischen, polsternden Material ausgestatteter Eierbecher zum Einsatz gekommen.
 
-\begin{figure}[!ht]
+\begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=\textwidth]{bilder/weggchair.jpg}
+	\includegraphics[width=.9\textwidth]{bilder/weggchair.jpg}
 	\caption{Skizze Weggchair}
 	\label{bild:weggchair}
 \end{figure}
@@ -186,10 +186,12 @@ Vereinzelt wurde hier auf ``Git Extensions'' oder meist eher ``GitKraken'' (Abb.
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth]{bilder/CreoParametrics.png}
-	\caption{CAD Programm ``Creo Parametrics''}
-	\label{bild:creo}
+	\includegraphics[width=.7\textwidth]{bilder/GitKrakenUebersicht.png}
+	\caption{Graphische Oberfläche für Git (GitKraken)}
+	\label{bild:gitkraken}
 \end{figure}
+
+
 
 \subsection{Creo}
 Bei der CAD-Software standen mehrere unterschiedliche Programme unterschiedlicher Hersteller zur Auswahl.
@@ -197,11 +199,12 @@ Diese waren ``Catia'' von Dassault Systemes, ``Sketchup'' von Trimble Inc., ``Cr
 Nach längerem Abwägen fiel die Entscheidung auf das Programm Creo Parametrics (Abb.~\ref{bild:gitkraken}), da dieses vergleichbar einfach zu bedienen ist, aber trotzdem einen sehr großen Funktionsumfang bieten kann.
 Des Weiteren bietet Creo eine gute 3D-Maus Unterstützung, was das Modellieren deutlich vereinfacht.
 Trotz des großen Funktionsumfangs reichten die Möglichkeiten, die Creo bietet, nicht immer aus, weshalb in Einzelfällen auf andere CAD-Programme zurückgegriffen wurde. Diese werden allerdings an den betroffenen Stellen extra erwähnt. 
+
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth]{bilder/GitKrakenUebersicht.png}
-	\caption{Graphische Oberfläche für Git (GitKraken)}
-	\label{bild:gitkraken}
+	\includegraphics[width=\textwidth]{bilder/CreoParametrics.png}
+	\caption{CAD Programm ``Creo Parametrics''}
+	\label{bild:creo}
 \end{figure}
 
 \subsection{PlatformIO}
