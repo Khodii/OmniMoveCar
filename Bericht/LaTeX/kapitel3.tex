@@ -6,6 +6,56 @@ Die übrigen zwei Gruppenmitglieder haben jeweils eine eigene Idee behandelt, bl
 Insgesamt sind dabei die drei im Folgenden vorgestellte Konzepte entwickelt worden.
 
 \subsection{Seggway}
+Das Konzept des (S)Eggways (Abb.~\ref{bild:seggway}) ist, wie der Name schon verrät, inspiriert durch die immer populärer werdende Fortbewegungsart des Segways. 
+Dieses Konzept würde viele Vorteile mit sich bringen: Das Gesamtgewicht des Seggways ist relativ gering, da es keine massiven Bauteile gibt und technische Bauteile wie das Breadboard gleichzeitig mehrere Zwecke erfüllen (Stabilisierung und Verbindung). 
+
+Zusätzlich könnte der Seggway einen sicheren Ei Transport durch eine passende Regelung sicherstellen, da diese ermöglicht, dass auch bei starken Steigungen und unebenen Strecken immer das Gleichgewicht beibehalten beziehungsweise wiederhergestellt werden kann. 
+Das gelingt durch das Prinzip des inversen Pendels. 
+
+Die Steuerung des Fahrzeugs erfolgt über das eingezeichnete Bluetooth-Modul, welches die erhaltenen Daten an den Arduino weitergibt. 
+Der Arduino verarbeitet die Daten und steuert anschließend (falls nötig) die zwei Stepper Motoren an. 
+
+Die Stepper Motoren sind für diese Anwendung ideal geeignet und können auch direkt ohne Getriebe mit den zwei Reifen verbunden werden. 
+Das Gyroscope dient dem Messen von Geschwindigkeit, Beschleunigung und aktuellem Winkel. 
+
+Der Eierhalter ist genau so konzipiert wie in dem realisierten Teggla Modell, nämlich mehrere einzelne Elemente um möglichst wenig Gewicht mit möglichst viel Stabilität zu verbinden.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{bilder/seggway.png}
+	\caption{Skizze Seggway}
+	\label{bild:seggway}
+\end{figure}
+
+Siehe Tabelle~\ref{table:seggway} für eine genaue Aufzählung der benötigten Komponenten. 
+Alle restlichen Bauteile wie die Stangen, Ebenen und Reifen könnten problemlos via 3D-Druck mit PLA hergestellt werden.
+
+\begin{table}[!ht]
+	\centering
+\begin{tabular}{lc}
+	Bezeichnung & Anzahl \\
+	\midrule[2pt]
+	Bluetooth-Modul & 1\\
+	\midrule
+	Arduino & 1 \\
+	\midrule
+	Motor Driver & 2 \\
+	\midrule
+	Stepper Motor & 2 \\
+	\midrule
+	12V Li-Po Akku & 1 \\
+	\midrule
+	Gyroscope & 1 \\
+	\midrule
+	Breadboard & 1 \\
+	\midrule
+	Schraube + Mutter & 8 \\
+
+\end{tabular} 
+\caption{Stückliste Seggway} 
+\label{table:seggway}
+\end{table} 
+
 
 \subsection{Weggchair}
 Beim Weggchair ist die Namensgebung leider ein wenig misslungen. 
@@ -59,6 +109,13 @@ Mithilfe des Morphologischen Kasten (Abb.~\ref{bild:morphkasten}) lassen sich di
 	\caption{Morphologischer Kasten}
 	\label{bild:morphkasten}
 \end{figure}
+Der Seggway bräuchte, um sich aufrecht zu halten auf jeden Fall Step-Motoren statt der DC-Motoren. Dadurch könnte das Getriebe gespart werden. Allerdings braucht der Seggway auf jeden Fall ein Gyroskop (und eine gute Regelung) um aufrecht stehen zu bleiben und zu fahren. Bei der Steuerung setzen alle Konzepte auf einen Spiele-Controller, da es keine leichtere und intuitivere Steuerung gibt.
+
+Der Weggchair würde, wie oben angemerkt, mit den vom Lehrstuhl bereitgestellten Materialien auskommen. Für die Übersetzung wäre ein Planetengetriebe im Rad zuständig. 
+
+Der Teggla braucht, leider ein ESP-32, da das ESP-8266 zu wenig Anschlüsse hat. Das Highlight, die Räder, sind bei diesem Konzept die Mecanum-Wheels. Als Energiespeicher kommt ein zweizelliger LiPo in Kombination mit einem BMS (Battery Management System) zum Einsatz. Hier ist der Einsatz des Spiele Controllers besonders wichtig, da damit alle drei Achsen (X-Achse, Y-Achse und Rotation) analog gesteuert werden können. Für die Sicherheit des Eies sorgt eine Federung aus TPU. Zum Teggla werden alle Teile und Entscheidungen in diesem Bericht noch näher beleuchtet. 
+
+
 
 \section{Online Bestellungen}
 Um das Fahrzeug nach dem Praktikum behalten zu können, war eine Voraussetzung, dass nur Teile verbaut werden, die nicht Eigentum des Lehrstuhls sind.
@@ -66,6 +123,8 @@ Aus diesem wurden die nötigen Bauteile bei unterschiedlichen Onlineshops heraus
 Hierbei fiel die Entscheidung auf Pollin, einem deutschen Elektronik Händler und AliExpress, einem chinesischen Großhändler.
 In der ursprünglichen Planung wurden die Kosten pro Fahrzeug auf circa \EUR{20} -- \EUR{25} überschlagen.
 In der finalen Bestellung beliefen sich die Kosten auf insgesamt etwa \EUR{32}.
+
+Da die Bauteile in Sammelbestellungen für insgesamt 4 Fahrzeuge getätigt wurden, verteilen sich die Versandkosten auf die Fahrzeuge, wodurch sich er Preis nach unten hin anpasst. 
 
 Siehe Tabelle~\ref{table:Kosten} für eine genaue Aufteilung der Kosten.
 \begin{table}[!ht]
