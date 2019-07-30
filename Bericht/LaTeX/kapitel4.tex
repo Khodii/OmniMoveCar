@@ -10,6 +10,61 @@
 \section{Planetengetriebe}
 
 \section{ESP-32 vs. ESP-8266}
+Bei dem vom Lehrstuhl gestellten ESP-8266 handelt es sich um ein WiFi-fähigen Microcontroller der chinesischen Firma ``espressif''.
+Dieser besitzt 17 GPIO Pins, wovon jedoch lediglich 11 Pins nutzbar sind, da 6 an den externen SPI Flash angeschlossen sind.
+Da dies wie in Tabelle~\ref{table:pins} aufgezeigt nicht für unsere Zwecke reicht, musste auf den leistungsstärkeren ESP-32 ausgewichen werden.
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{lr}
+	\multicolumn{2}{c}{Benötigte Pins} \\ 
+	\midrule[3pt] 
+	4x PWM & Motor Enable \\ 
+	\midrule 
+	8x Output & Motor Richtung \\ 
+	\midrule 
+	2x I$^2$C & Gyroskop \\ 
+	\midrule 
+	1x ADC & Batteriespannung \\ 
+	\midrule
+	\midrule 
+	\multicolumn{2}{c}{15 Pins} \\ 
+	 
+\end{tabular} 
+\caption{Aufzählung benötigter Pins} 
+\label{table:pins}
+\end{table} 
+
+Obwohl die Anzahl der Pins das ausschlaggebenede Argument für einen Austausch des MicroControllers war, bringt dieser natürlich weitere Vorteile mit sich.
+
+Beispielsweise profitiert die später genauer erklärte Website stark davon, auf einen zweiten Core ausgelargert werden zu können.
+
+Siehe Tabelle~\ref{table:esp32} für einen Vergleich der beiden MicroController anhand der für dieses Projekt relevanten Faktoren.
+
+
+\begin{table}[!ht]
+\centering	
+\begin{tabular}{lcc}
+	& ESP-8266 & ESP-32 \\ 
+	\midrule[3pt]
+	Cores & single core & dual core \\ 
+	\midrule
+	Max Frequenz & 160 MHz & 240 MHz \\ 
+	\midrule 
+	\textbf{GPI} & \textbf{17 (11 nutzbar)} & \textbf{36 (30 nutzbar)} \\ 
+	\midrule
+	SRAM & 160 KB & 520 KB \\ 
+	\midrule
+	ADC Auflösung & 10 bit & 12 bit \\ 
+	\midrule
+	Stromverbrauch & 80 mA & 260 mA \\ 
+	\midrule
+	Preis (aus China) & \EUR{2} & \EUR{4} \\ 
+\end{tabular} 
+\caption{Vorteile des ESP-32} 
+\label{table:esp32}
+\end{table} 
+
 
 \section{User-Interface}
 \subsection{Java (obsolet)}
@@ -45,7 +100,7 @@ Eine Einschränkung ist die Limitierung auf eine gleichzeitige Verbindung zu dem
 	\label{bild:webvalues}
 \end{figure}
 
-In der Weboberfläche (siehe Abbildung~\ref{bild:webvalues}) sind ebenfalls noch jegliche Messwerte hinterlegt, die das Fahrzeug sammelt.\par
+In der Weboberfläche (Abb.~\ref{bild:webvalues}) sind ebenfalls noch jegliche Messwerte hinterlegt, die das Fahrzeug sammelt.\par
 
 Diese sind:\par
 
@@ -63,7 +118,7 @@ Diese sind:\par
 Für die Wahl des Controllers ist eine auswählbare Liste aller angeschlossenen Controller am Ende der Seite vorhanden. Falls der Nutzer keinen Controller besitzt oder angeschlossen hat, kann durch das Abwählen der Checkbox auf die Steuerung per WASD, sowie die Pfeiltasten gewechselt werden.\par
 
 \subsection{Protokoll}
-Zum Übertragen wurde ein binäres Protokoll ausgewählt, um die Datenrate gering zu halten, sowie die Verarbeitung auf dem Microcontroller zu vereinfachen.\par
+Zum Übertragen wurde ein binäres Protokoll (Tabelle~\ref{table:protokoll}) entwickelt, um die Datenrate gering zu halten, sowie die Verarbeitung auf dem Microcontroller zu vereinfachen.\par
 
 Da durch Websockets bereits ein Integrierter Frame geschickt wird, muss nicht bei jeder Nachricht die Länge und Anfangs- und Endbyte mitgeschickt werden, wie es sonst bei raw Sockets nötig gewesen wäre.\par
 
@@ -93,11 +148,33 @@ Um die Anzahl an Nachrichten zu verringern, wurden die Batteriespannung und Wert
 	\hline 
 \end{tabular}} 
 \caption{Binäres Protokoll} 
+\label{table:protokoll}
 \end{table} 
 
 
 
 \section{Steuerung per (XBox) Controller}
+Wie bereits in der Dokumentation der Weboberfläche erwähnt, wird die Steuerung primär per Spiele Controller gelöst, beispielsweise einen XBox-Controller von Microsoft.
+Diese Entscheidung ist in der erhöhten Mobilität motiviert. 
+
+Mit einer Stuerung per WASD bzw. per Pfeiltasten sind nur binäre Zustände messbar, gedrückt oder nicht gedrückt, volle Geschwindigkeit oder Stillstand.
+Im Vergleich dazu erlauben uns die JoySticks des Controllers durch unterschiedlich stare Auslenkung die Geschwindigkeit sehr variabel zu bestimmen.
+
+Da hierbei ebenfalls der JoyStick in jegliche Richtungen bewegt werden kann, können ebenfalls die Mecanum Räder so angesteuert werden, dass sie in genau diese Richtung fahren.
+
+Jedoch sind hiermit nur zwei der drei Freiheitsgrade unserer Fahrzeugs abgedeckt. Um Rotationen um die eigene Achse mit variabler Geschwindigkeit zu steuern, wird die Eingabe des linken und des rechten JoySticks mit folgenden Formelen überlagert.
+
+\bigskip
+Sei hier $controlSide$ Auslenkung des linken Sticks in X Richtung (nach rechts), 
+$controlFront$ Auslenkung des linken Sticks in Y Richtung (nach vorne) und 
+$controlTurn$ Auslenkung des rechten Sticks in X Richtung (nach rechts), 
+
+\begin{align}
+	\phi = atan2(controlSide, controlFront)\\
+	vd = min(\sqrt{controlFront^2 + controlSide^2}, 1023) - \frac{controlTurn}{2}\\
+	vphi = \frac{controlTurn}{2}
+\end{align}
+
 
 \section{PLA vs. TPU}
 
