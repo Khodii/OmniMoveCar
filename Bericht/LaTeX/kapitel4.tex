@@ -36,7 +36,8 @@ $V_\theta =$ gewünschte Rotationsgeschwindigkeit $[-1, 1]$\\
 \end{align} 
 \captionof{figure}{Formeln für individuellen Motoren \cite{link:mecanum}}
 
-Bei den in diesem Praktikum verwendeten Rädern handelt es sich um eine Modifierung der STL Dateien von Jonah Innoart von dem Internetportal Thingiverse \cite{link:mecanum44}.
+Bei den in diesem Praktikum verwendeten Rädern handelt es sich um eine Modifierung der STL Dateien von Jonah Innoart von dem Internetportal Thingiverse \cite{link:mecanum44}. 
+In das Zentrum des Rädes wurde mithilfe einer Boolean Operation von Blender3D eine Führung für die Getriebe geschnitten, sodass diese in das Rad eingeschoben werden können.
 
 \section{Planetengetriebe}
 
@@ -98,11 +99,13 @@ Siehe Tabelle~\ref{table:esp32} für einen Vergleich der beiden MicroController 
 
 
 \section{User-Interface}
+Eine passende, nutzerfreundliche und optisch ansprechende UI hatte für das Projekt TEGGLA von Anfang an eine hohe Priorität. Es wurden zwei verschiedene UIs für das Projekt entwickelt, welche nachfolgend detailliert beschrieben werden. 
+
 \subsection{Java (obsolet)}
 Das erste Konzept für eine passende UI wurde mit Java entwickelt. 
 Java (und das Framework Java Swing) bieten grundsätzlich einige Möglichkeiten Benutzeroberflächen zu bauen und da Java einer der meistgenutzten Technologien ist, haben wir uns vorerst dafür entschieden.
 
-Die Java UI besteht aus zwei Fenstern, welche vorerst die Verbindung zum Teggla sicherstellen und anschließend die Steuerung und Kommunikation ermöglicht. 
+Die Java UI besteht aus zwei Fenstern, welche vorerst die Verbindung zum TEGGLA sicherstellen und anschließend die Steuerung und Kommunikation ermöglicht. 
 
 \begin{figure}[!ht]
 	\centering
@@ -112,7 +115,7 @@ Die Java UI besteht aus zwei Fenstern, welche vorerst die Verbindung zum Teggla 
 \end{figure}
 
 
-Im ersten Fenster (Abb.~\ref{bild:java1}) müssen in die Textfelder „IP Adresse“ und „PORT“ die passenden Daten eingegeben werden um anschließend mit dem „Connect“ Button eine Verbindung zum Teggla aufzubauen. 
+Im ersten Fenster (Abb.~\ref{bild:java1}) müssen in die Textfelder „IP Adresse“ und „PORT“ die passenden Daten eingegeben werden um anschließend mit dem „Connect“ Button eine Verbindung zum TEGGLA aufzubauen. 
 Falls das nicht gelungen ist, bekommt der Nutzer eine Fehlermeldung als Pop-Up und muss die Daten erneut eingeben. 
 Im Erfolgsfall erscheint eine kurze Erfolgsmeldung und es öffnet sich das zweite Fenster.
 
@@ -124,7 +127,7 @@ Im Erfolgsfall erscheint eine kurze Erfolgsmeldung und es öffnet sich das zweit
 \end{figure}
 
 Im zweiten Fenster (Abb.~\ref{bild:java2}) werden alle wichtigen Daten für die Steuerung
-und Kommunikation des Teggla angezeigt, nämlich Geschwindigkeit und Akkustand.
+und Kommunikation des TEGGLA angezeigt, nämlich Geschwindigkeit und Akkustand.
 
 Die Entwicklung des zweiten Fensters ist noch nicht ganz fertig gewesen, als Java
 durch die Verwendung der neuen UI mit JavaScript / HTML5 abgelöst wurde. Daher
@@ -247,21 +250,21 @@ $controlTurn$ Auslenkung des rechten Sticks in X Richtung (nach rechts),
 \section{PLA vs. TPU}
 
 \section{Eierhalter}					
-Der Leichtbau Anspruch lässt sich bei allen Komponenten des Teggla wiederfinden, sogar beim Eierhalter. 
+Der Leichtbau Anspruch lässt sich bei allen Komponenten des TEGGLA wiederfinden, sogar beim Eierhalter. 
 Dieser wurde aus mehreren einzelnen Bauteilen erstellt, um mit möglichst wenig Gewicht die größte Stabilität für das Ei zu erreichen. 
 Es wurde vorerst das Fundament des Eihalters gedruckt und anschließend mit 8 Eihalter Segmenten verbunden. 
-Somit kann das zu transportierende Ei schnell und sicher auf dem Teggla verwahrt werden. 
+Somit kann das zu transportierende Ei schnell und sicher auf dem TEGGLA verwahrt werden. 
 
-Zusätzlich befindet sich der Eierhalter genau im Schwerpunkt des Fahrzeugs, um sicherzustellen dass die aufgenommene Last gleichmäßig verteilt werden kann und die omnidirektionale Fahrweise des Teggla nicht beeinträchtigt werden kann.
+Zusätzlich befindet sich der Eierhalter genau im Schwerpunkt des Fahrzeugs, um sicherzustellen dass die aufgenommene Last gleichmäßig verteilt werden kann und die omnidirektionale Fahrweise des TEGGLA nicht beeinträchtigt werden kann.
 
 
 
 \section{Leichtbau}	
 
-Bei der Konstruktion des Teggla wurde auf die Verwendung von massiven und schweren Bauteilen komplett verzichtet, wodurch das geringe Gesamtgewicht des Fahrzeugs (ca. 500 Gramm) erreicht worden ist. 
+Bei der Konstruktion des TEGGLA wurde auf die Verwendung von massiven und schweren Bauteilen komplett verzichtet, wodurch das geringe Gesamtgewicht des Fahrzeugs (ca. 500 Gramm) erreicht worden ist. 
 Dabei sind die schwersten Bauteile die Elektronikbauteile, auf die kein Einfluss genommen werden kann, wie die Motoren (je 36g), die H-Brücken (je 25g) sowie dem Akku (62g). 
 
-Um ein omnidirektionales Fahren zu ermöglichen, benötigt der Teggla vier Motoren und zwei H-Brücken, welches das Gewicht des Fahrzeugs im Vergleich zu konventionellen Fahrzeugen erhöht. 
+Um ein omnidirektionales Fahren zu ermöglichen, benötigt der TEGGLA vier Motoren und zwei H-Brücken, welches das Gewicht des Fahrzeugs im Vergleich zu konventionellen Fahrzeugen erhöht. 
 Die Leichtbau Anforderung ist daher in gewisser Maßen in Konflikt mit einer innovativen Idee, schnellem Fahren und vor allem dem omnidirektionalen Fahren. 
 
 Durch die Verwendung einer elastischen Federung konnte auf ein Gehäuse für den Schutz der Elektronik verzichtet werden und zusätzlich können die dadurch entstandenen Hohlräume für technische Bauteile und Verbindungskabel genutzt werden.    
