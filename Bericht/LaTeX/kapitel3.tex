@@ -2,7 +2,7 @@
 Nachdem das Lastenheft abgegeben wurde war der nächste Meilenstein der Abschluss der Konzeptphase, zu dem eine kurze Präsentation über Gesamt- und Teilfunktionen, Lösungsprinzipien, Morphologischer Kasten gehalten werden sollte. Außerdem sollte die Präsentation pro Gruppenmitglied ein vorläufiges Konzept mit Freihandskizze enthalten. 
 
 \section{Entwürfe}
-Da die Entscheidung für das finale Konzept sehr früh gefallen ist, wurde sich darauf geeinigt, dass zwei Gruppenmitglieder dieses Konzept bearbeiten, dafür aber viel tiefer ins Detail gehen. 
+Da die Entscheidung für das finale Konzept sehr früh gefallen ist, wurde sich darauf geeinigt, dass zwei Gruppenmitglieder dieses Konzept bearbeiten, und dabei viel tiefer ins Detail gehen. 
 Die übrigen zwei Gruppenmitglieder haben jeweils eine eigene Idee behandelt, blieben dabei aber deutlich oberflächlicher. 
 
 Insgesamt sind dabei die drei im Folgenden vorgestellte Konzepte entwickelt worden.
@@ -11,16 +11,16 @@ Insgesamt sind dabei die drei im Folgenden vorgestellte Konzepte entwickelt word
 Das Konzept des (S)Eggways (Abb.~\ref{bild:seggway}) ist, wie der Name schon verrät, inspiriert durch die immer populärer werdende Fortbewegungsart des Segways. 
 Dieses Konzept würde viele Vorteile mit sich bringen: Das Gesamtgewicht des Seggways ist relativ gering, da es keine massiven Bauteile gibt und technische Bauteile wie das Breadboard gleichzeitig mehrere Zwecke erfüllen (Stabilisierung und Verbindung). 
 
-Zusätzlich könnte der Seggway einen sicheren Ei Transport durch eine passende Regelung sicherstellen, da diese ermöglicht, dass auch bei starken Steigungen und unebenen Strecken immer das Gleichgewicht beibehalten beziehungsweise wiederhergestellt werden kann. 
+Zusätzlich könnte der Seggway einen sicheren Ei-Transport durch eine passende Regelung sicherstellen, da diese ermöglicht, dass auch bei starken Steigungen und unebenen Strecken immer das Gleichgewicht beibehalten beziehungsweise wiederhergestellt werden kann. 
 Das gelingt durch das Prinzip des inversen Pendels. 
 
 Die Steuerung des Fahrzeugs erfolgt über das eingezeichnete Bluetooth-Modul, welches die erhaltenen Daten an den Arduino weitergibt. 
-Der Arduino verarbeitet die Daten und steuert anschließend (falls nötig) die zwei Stepper Motoren an. 
+Der Arduino verarbeitet die Daten und steuert anschließend (falls nötig) die zwei Stepper-Motoren an. 
 
-Die Stepper Motoren sind für diese Anwendung ideal geeignet und können auch direkt ohne Getriebe mit den zwei Reifen verbunden werden. 
-Das Gyroscope dient dem Messen von Geschwindigkeit, Beschleunigung und aktuellem Winkel. 
+Die Stepper-Motoren sind für diese Anwendung ideal geeignet und können auch direkt ohne Getriebe mit den zwei Reifen verbunden werden. 
+Das Gyroskop dient dem Messen von Geschwindigkeit, Beschleunigung und aktuellem Winkel. 
 
-Der Eierhalter ist genau so konzipiert wie in dem realisierten TEGGLA Modell, nämlich mehrere einzelne Elemente um möglichst wenig Gewicht mit möglichst viel Stabilität zu verbinden.
+Der Eierhalter ist genau so konzipiert wie in dem realisierten TEGGLA Modell, nämlich werden mehrere einzelne Segmente verbunden um möglichst wenig Gewicht mit möglichst viel Stabilität zu verbinden.
 
 \begin{figure}[!ht]
 	\centering
@@ -62,18 +62,18 @@ Alle restlichen Bauteile wie die Stangen, Ebenen und Reifen könnten problemlos 
 \subsection{Weggchair}
 Beim Weggchair ist die Namensgebung leider ein wenig misslungen. 
 Der Rest vom Konzept wäre mit den vom Lehrstuhl bereitgestellten Materialien recht leicht zu realisieren gewesen.
-Deswegen wäre es der Plan B gewesen, falls unser präferiertes Konzept nicht finalisiert werden kann. 
+Deswegen wäre es der Plan B gewesen, falls das präferierte Konzept nicht realisiert werden kann. 
 
 Das Konzept orientiert sich, wie der Name andeuten soll, recht nahe an einem Rollstuhl. 
 Die gesamte Elektronik befindet sich in einer Zwischenebene unter der ``Sitzfläche''. 
 Gelenkt wird der Weggchair indem sich beide Motoren verschieden schnell drehen. 
 
 Wie in der Skizze (Abb.~\ref{bild:weggchair}) zu sehen, ist das ``Stützrad'' eher eine ``Stützkugel'', die in alle Richtungen über den Boden gleiten kann. 
-Statt einer Kugel wäre auch eine oder zwei drehbar gelagerte Rollen denkbar gewesen, ähnlich wie bei einem Einkaufswagen oder natürlich dem Original. 
+Statt einer Kugel wären auch eine oder zwei drehbar gelagerte Rollen denkbar gewesen, ähnlich wie bei einem Einkaufswagen oder natürlich dem originalen Rollstuhl. 
 
-Da die verwendeten DC-Motoren unter Volllast über 7000 Umdrehungen schaffen, dafür aber weniger Drehmoment haben wäre, wie in der finalen Idee, ein Planetengetriebe innerhalb der großen Räder zum Einsatz gekommen. 
+Da die verwendeten DC-Motoren unter Volllast über 7000 Umdrehungen schaffen, dafür aber weniger Drehmoment haben, wäre -- wie in der finalen Idee -- ein Planetengetriebe innerhalb der großen Räder zum Einsatz gekommen. 
 
-Das Ei wäre wäre beim Weggchair an der Stelle befestigt, wo normalerweise der Rollstuhlfahrer sitzt. Dafür wäre eine Federung und Halterung an dieser Stelle gewesen. Vermutlich wäre ein mit Watte oder einem ähnlichen elastischen, polsternden Material ausgestatteter Eierbecher zum Einsatz gekommen.
+Das Ei wäre beim Weggchair an der Stelle befestigt, wo normalerweise der Rollstuhlfahrer sitzt. Dafür wäre eine Federung und Halterung an dieser Stelle gewesen. Vermutlich wäre ein mit Watte oder einem ähnlichen elastischen, polsternden Material ausgestatteter Eierbecher zum Einsatz gekommen.
 
 \begin{figure}[!ht]
 	\centering
@@ -90,10 +90,10 @@ Das besondere Feature beim TEGGLA sind die omnidirektionalen Räder, auch als Me
 Diese drei Freiheitsgrade lassen sich auch beliebig kombinieren. 
 Dadurch ist in der Ebene jede denkbare Richtung befahrbar. Dazu sind allerdings vier Motoren notwendig. 
 
-Ergo wächst die Elektronikteileliste wie folgt: Für die zwei Extramotoren wird eine zusätzliche H-Brücke benötigt. 
+Daher wächst die Elektronikteileliste wie folgt: Für die zwei Extramotoren wird eine zusätzliche H-Brücke benötigt. 
 Leider hat das bereitgestellte ESP-8266 nicht genug Pins für die zusätzliche Elektronik, weswegen zum ESP-32 upgegraded werden musste. 
 
-Es folgen noch viel mehr Details, aber um die folgenden Kapitel zu verstehen muss noch gesagt werden, dass der TEGGLA in der Entwicklungsphase noch Omni-Move hieß. Beide Namen sind im Folgenden also synonym. 
+Es folgen noch viel mehr Details, aber um die folgenden Kapitel zu verstehen, muss noch gesagt werden, dass der TEGGLA in der Entwicklungsphase noch Omni-Move hieß. Beide Namen sind im Folgenden also synonym. 
 
 \begin{figure}[!ht]
 	\centering
@@ -115,18 +115,18 @@ Der Seggway bräuchte, um sich aufrecht zu halten auf jeden Fall Step-Motoren st
 
 Der Weggchair würde, wie oben angemerkt, mit den vom Lehrstuhl bereitgestellten Materialien auskommen. Für die Übersetzung wäre ein Planetengetriebe im Rad zuständig. 
 
-Der TEGGLA braucht leider ein ESP-32, da das ESP-8266 zu wenig Anschlüsse hat. Das Highlight, die Räder, sind bei diesem Konzept die Mecanum-Wheels. Als Energiespeicher kommt ein zweizelliger LiPo in Kombination mit einem BMS (Battery Management System) zum Einsatz. Hier ist der Einsatz des Spiele Controllers besonders wichtig, da damit alle drei Achsen (X-Achse, Y-Achse und Rotation) analog gesteuert werden können. Für die Sicherheit des Eies sorgt eine Federung aus TPU. Zum TEGGLA werden alle Teile und Entscheidungen in diesem Bericht noch näher beleuchtet. 
+Der TEGGLA braucht ein ESP-32, da das ESP-8266 zu wenig Anschlüsse hat. Das Highlight, die Räder, sind bei diesem Konzept die Mecanum-Wheels. Als Energiespeicher kommt ein zweizelliger LiPo in Kombination mit einem BMS (Battery Management System) zum Einsatz. Hier ist der Einsatz des Spiele Controllers besonders wichtig, da damit alle drei Achsen (X-Achse, Y-Achse und Rotation) analog gesteuert werden können. Für die Sicherheit des Eies sorgt eine Federung aus TPU. Zum TEGGLA werden alle Teile und Entscheidungen in diesem Bericht noch näher beleuchtet. 
 
 
 
 \section{Online Bestellungen}
 Um das Fahrzeug nach dem Praktikum behalten zu können, war eine Voraussetzung, dass nur Teile verbaut werden, die nicht Eigentum des Lehrstuhls sind.
 Aus diesem Grund wurden die nötigen Bauteile bei unterschiedlichen Onlineshops herausgesucht und bestellt.
-Hierbei fiel die Entscheidung auf Pollin, einem deutschen Elektronik Händler und AliExpress, einem chinesischen Großhändler.
+Hierbei fiel die Entscheidung auf Pollin, einem deutschen Elektronik-Händler und AliExpress, einem chinesischen Großhändler.
 In der ursprünglichen Planung wurden die Kosten pro Fahrzeug auf circa \EUR{20} -- \EUR{25} überschlagen.
 In der finalen Bestellung beliefen sich die Kosten auf insgesamt etwa \EUR{32}.
 
-Da die Bauteile in Sammelbestellungen für insgesamt 4 Fahrzeuge getätigt wurden, verteilen sich die Versandkosten auf die Fahrzeuge, wodurch sich er Preis nach unten hin anpasst. 
+Da die Bauteile in Sammelbestellungen für insgesamt 4 Fahrzeuge getätigt wurden, verteilten sich die Versandkosten auf die Fahrzeuge, wodurch sich der Preis nach unten hin anpasste. 
 
 Siehe Tabelle~\ref{table:Kosten} für eine genaue Aufteilung der Kosten.
 \begin{table}[!ht]
@@ -172,13 +172,13 @@ Siehe Tabelle~\ref{table:Kosten} für eine genaue Aufteilung der Kosten.
 \end{table} 
 
 \section{Verwendete Technologien}
-Sodass alle Teammitglieder an dem Projekt arbeiten können, musste sich vor dem Beginn auf die Software geeinigt werden, die verwendet wird. 
+Damit alle Teammitglieder an dem Projekt arbeiten können, musste sich vor dem Beginn auf die Software geeinigt werden, die verwendet wird. 
 Diese Entscheidungsfindung wird in diesem Kapitel genauer betrachtet.
 
 \subsection{Git}
-Zu Beginn des Projekts war bereits klar, dass eine Datenversionskontrolle für alle Projektdateien benötigt werden wird.
-Durch verschiede Vorerfahrungen iel die Entscheidung sehr leicht. Git löst genau diese Aufgaben perfekt. Das Projekt wurde in einem privaten Repository auf Github gehostet. 
-Die Wahl der graphischen oberflächliche für Git war jedem Gruppenmitglied selbst überlassen. Vereinzelt wurde hier auf ``Git Extensions'' gestetzt, wobei meist eher ``GitKraken'' (Abb.~\ref{bild:gitkraken}) benutzt wurde, aufgrund der übersichtlichen graphischen Oberfläche.
+Zu Beginn des Projekts war bereits klar, dass eine Datenversionskontrolle für alle Projektdateien benötigt wird.
+Durch verschiede Vorerfahrungen fiel die Entscheidung sehr leicht. Git löst genau diese Aufgaben perfekt. Das Projekt wurde in einem privaten Repository auf Github gehostet. 
+Die Wahl der graphischen oberflächliche für Git war jedem Gruppenmitglied selbst überlassen. Vereinzelt wurde hier auf ``Git Extensions'' gesetzt, wobei meist eher ``GitKraken'' (Abb.~\ref{bild:gitkraken}) benutzt wurde, aufgrund der übersichtlichen graphischen Oberfläche.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{bilder/CreoParametrics.png}
@@ -189,8 +189,8 @@ Die Wahl der graphischen oberflächliche für Git war jedem Gruppenmitglied selb
 \subsection{Creo}
 Bei der CAD-Software standen mehrere unterschiedliche Programme unterschiedlicher Hersteller zur Auswahl.
 Diese waren ``Catia'' von Dassault Systemes, ``Sketchup'' von Trimble Inc., ``Creo Parametrics'' von PTC Inc., ``Blender'' von Blender Foundation, ``OpenSCAD'' (Opensource Programm) und ``FreeCAD'' (ebenfalls Opensource).
-Nach längerem Abwägen viel die Entscheidung auf das Programm Creo Parametrics (Abb.~\ref{bild:gitkraken}), da dieses vergleichbar einfach zu bedienen ist, aber trotzdem einen sehr großen Funktionsumfang bieten kann.
-Des weiteren bietet Creo eine gute 3D-Maus Unterstützung, was das Modellieren deutlich vereinfachte.
+Nach längerem Abwägen fiel die Entscheidung auf das Programm Creo Parametrics (Abb.~\ref{bild:gitkraken}), da dieses vergleichbar einfach zu bedienen ist, aber trotzdem einen sehr großen Funktionsumfang bieten kann.
+Des Weiteren bietet Creo eine gute 3D-Maus Unterstützung, was das Modellieren deutlich vereinfacht.
 Trotz des großen Funktionsumfangs reichten die Möglichkeiten, die Creo bietet, nicht immer aus, weshalb in Einzelfällen auf andere CAD-Programme zurückgegriffen wurde. Diese werden allerdings an den betroffenen Stellen extra erwähnt. 
 \begin{figure}[!ht]
 	\centering
@@ -200,9 +200,9 @@ Trotz des großen Funktionsumfangs reichten die Möglichkeiten, die Creo bietet,
 \end{figure}
 
 \subsection{PlatformIO}
-Die Wahl der Entwicklungsumgebung fiel auf Visual Studio Code mit PlatformIO, anstelle von der in der Vorlesung vorgestelleten Arduino IDE.
+Die Wahl der Entwicklungsumgebung fiel auf Visual Studio Code mit PlatformIO, anstelle der in der Vorlesung vorgestelleten Arduino IDE.
 
-Mit der extremen Erweiterbarkeit von VSCode ist hier die Programmierung einfacher und fehlerfreier durchzuführen, da in Arduino IDE nur bedingtes Syntax-checking vorhanden ist.
+Mit der umfangreichen Erweiterbarkeit von VSCode ist hier die Programmierung einfacher und fehlerfreier durchzuführen, da in Arduino IDE nur bedingtes Syntax-checking vorhanden ist.
 
-Durch PlatformIO stellt sich Einbingen von externen Bibliotheken ebenfalls als Leichtigkeit heraus.
-Desweiteren ist hier die Unterstützung von einer Vielzahl von MicroControllern bereits integriert.
+Durch PlatformIO stellt sich das Einbringen von externen Bibliotheken ebenfalls als Leichtigkeit heraus.
+Des Weiteren ist hier die Unterstützung von einer Vielzahl von MicroControllern bereits integriert.

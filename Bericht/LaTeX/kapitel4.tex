@@ -1,6 +1,6 @@
 \chapter{Entwicklung der Schlüsselelemente}
 \section{Übersicht des gesamten Modells}
-Wie in Abbildung \ref{bild:tegglaoverview} erkennt besteht aus vielen Einzelteilen. 
+Wie in Abbildung \ref{bild:tegglaoverview} erkenntm, besteht das Fahrzeug aus vielen Einzelteilen. 
 Auf die wichtigsten Komponenten, die in der Stückliste (Tabelle \ref{table:tegglaoverview}) genannt werden, wird in den folgenden Kapiteln genauer eingegangen.
 \begin{figure}[!ht]
 	\centering
@@ -24,7 +24,7 @@ Auf die wichtigsten Komponenten, die in der Stückliste (Tabelle \ref{table:tegg
 	Akku Halterung         & 2 \\ \midrule
 	Eihalterung Base       & 1 \\ \midrule
 	Eihalter Segmente      & 8 \\ \midrule
-	Mecanum Räder          & 4
+	Mecanum-Räder          & 4
 \end{tabular} 
 \caption{Stückliste der TEGGLA-Komponenten} 
 \label{table:tegglaoverview}
@@ -40,27 +40,27 @@ Auf die wichtigsten Komponenten, die in der Stückliste (Tabelle \ref{table:tegg
 	\label{bild:schaltpaln}
 \end{figure}
 Der Schaltplan (Abb~\ref{bild:schaltpaln}) zeigt eine grobe Skizze der Verkabelung des TEGGLA Fahrzeuges. Der 2S Lipo Akku wird hierbei durch die beiden Einzellenakkus dargestellt.
-Der Hauptschalter, ein Dreipositionenschalter, dient zum Ein-, Ausschalten, sowie um das Fahrzeug in den Lademodus zu versetzen. 
+Der Hauptschalter, ein Dreipositionenschalter, dient zum Ein- und Ausschalten, sowie um das Fahrzeug in den Lademodus zu versetzen. 
 Die linke der beiden H-Brücken dient neben der Motoransteuerung auch zur Spannungsregulierung für das ESP. 
-Das ESP32 ist die zentrale Steuereinheit und steuert mit je sechs digitalen Pins die H-Brücken an und kann so die Motordrehrichtung so wie die Geschwindigkeit der Motoren steuern.
-Das ESP32 komuniziert auch via dem I2C Bus mit dem Gyroskop und versorgt dieses mit der 3.3V Spannungsversorgung.
+Das ESP32 ist die zentrale Steuereinheit und steuert mit je sechs digitalen Pins die H-Brücken an und kann so die Motordrehrichtung sowie die Geschwindigkeit der Motoren steuern.
+Das ESP32 kommuniziert auch via dem I2C Bus mit dem Gyroskop und versorgt dieses mit der 3.3V Spannungsversorgung.
 Die Widerstände am Ausgang des BMS, auf welches im folgenden Abschnitt eingegangen wird, bilden einen 3:1 Spannungsteiler.
 Dieser wird benötigt, da das ESP32 einen maximalen Spannungseingang von 3.3V verträgt, am BMS jedoch bis zu 9V anliegen können. Durch diesen Spannungsteiler ist es über den Analog-Digital-Wandler in dem ESP32 möglich, den Akkustand in 4095 Schritten auszulesen.
 Hierduch wird dem User ein Feedback gegeben, wie lange die Akkuladung noch ausreicht.
 
 \section{BMS und Laden}
 Um einem Akkuschaden vorzubeugen, sollte ein User doch einmal übersehen, dass der Akku des Fahrzeugs leer ist, wurde ein BMS (Battery Management System) verbaut.
-Dieses verhindert, durch rechtzeitiges Abschalten, ein Über- und Tiefenentladen des Akkus. 
-Um das Fahrzeug wieder aufladen zu können, wurde ein externes Netzeil gekauft, welches über einen XT60 Stecker an das Fahrzeig angeschlossen werden kann.
+Dieses verhindert durch rechtzeitiges Abschalten ein Über- und Tiefenentladen des Akkus. 
+Um das Fahrzeug wieder aufladen zu können, wurde ein externes Netzteil gekauft, welches über einen XT60 Stecker an das Fahrzeig angeschlossen werden kann.
 Sobald der Hauptschalter in die Ladeposition gebracht wird, beginnt das Fahrzeug nun den internen Akku zu laden, bis das BMS bei geladenem Akku den Ladevorgang vollautomatisch beendet.
 
 \section{Mecanum}
 Als besonderes Merkmal des TEGGLA fallen sofort die besonderen Räder auf. Hierbei handelt es sich um sogenannte Mecanum-Räder. 
 
-Hierbei handelt es sich von Bengt Ilon 1972 erfundene Räder, die es dem Fahrzeug erlauben sich in drei Freiheitsgraden zu bewegen.
+Hierbei handelt es sich um von Bengt Ilon 1972 erfundene Räder, die es dem Fahrzeug erlauben sich in drei Freiheitsgraden zu bewegen.
 
 Dies wird ermöglicht durch die um 45\degree{} gedrehten Rollen auf den Rädern, sodass diese wie ein X aussehen.
-Durch unterschiedliche Drehrichtung und Drehgeschwindigkeit der Motoren kann das Fahrzeug in jegliche Richtungen innerhalb der Ebene beweget werden. (vgl. Abb~\ref{bild:mecanum})
+Durch unterschiedliche Drehrichtung und Drehgeschwindigkeit der Motoren kann das Fahrzeug in jegliche Richtungen innerhalb der Ebene bewegt werden. (vgl. Abb~\ref{bild:mecanum})
 
 \begin{figure}[!ht]
 	\centering
@@ -69,7 +69,7 @@ Durch unterschiedliche Drehrichtung und Drehgeschwindigkeit der Motoren kann das
 	\label{bild:mecanum}
 \end{figure}
 
-Die jeweiligen zu Motorgeschwindigkeiten lassen sich hierbei durch Formeln~\ref{eq:mec1}--\ref{eq:mec2} berechnen.\\
+Die jeweiligen Motorgeschwindigkeiten lassen sich hierbei durch Formeln~\ref{eq:mec1}--\ref{eq:mec2} berechnen.\\
 
 $V_x =$ Motorgeschwindigkeit des x-ten Rads im Uhrzeigersinn (beginnend vorderes linkes Rad)\\
 $V_d =$ gewünschte Roboter Geschwindigkeit $[-1, 1]$\\
@@ -83,14 +83,15 @@ $V_\theta =$ gewünschte Rotationsgeschwindigkeit $[-1, 1]$\\
 	V_3 = V_d\cos{(\theta_d+\frac{\pi}{4})} + V_\theta\\
 	V_4 = V_d\sin{(\theta_d+\frac{\pi}{4})} - V_\theta \label{eq:mec2}
 \end{align} 
-\captionof{figure}{Formeln für individuellen Motoren \cite{link:mecanum}}
+\captionof{figure}{Formeln für die individuellen Motoren \cite{link:mecanum}}
+\bigskip
 
 Bei den in diesem Praktikum verwendeten Rädern handelt es sich um eine Modifizerung der STL Dateien von Jonah Innoart von dem Internetportal Thingiverse \cite{link:mecanum44}. 
 In das Zentrum des Rädes wurde mithilfe einer Boolean Operation von Blender3D eine Führung für die Getriebe geschnitten, sodass diese in das Rad eingeschoben werden können.
 
 \section{Planetengetriebe}
 
-Bereits in der 2. Woche des Projekts sind die ersten Entwürfe für die Planetengetriebe entstanden und bestanden aus zwei 3D-Modellen, dem Getriebe (Abb~\ref{bild:gearversion1-2}) und dem Rad die von der Onlineplatform ``Thingiverse'' bezogen wurden.
+Bereits in der 2. Woche des Projekts sind die ersten Entwürfe für die Planetengetriebe entstanden und bestanden aus zwei 3D-Modellen, dem Getriebe (Abb~\ref{bild:gearversion1-2}) und dem Rad die beide von der Onlineplatform ``Thingiverse'' bezogen wurden.
 Diese wurden in Blender zu einem Bauteil zusammenfügt (Abb~\ref{bild:gearversion1-1}). 
 
 Nach einem erfolgreichen Testdruck stellte sich allerdings raus, dass das Getriebe zu viel Reibung hatte, sodass es nicht anlaufen konnte.
@@ -102,10 +103,10 @@ Nach einem erfolgreichen Testdruck stellte sich allerdings raus, dass das Getrie
 		\caption{Version 1 des Planetengetriebes}
 		\label{bild:gearversion1-1}
 	\end{subfigure}
-	%
+	\hspace{0.1\textwidth}%
 	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{bilder/GetriebeVersion1-2.jpg}
-		\caption{Orginal des verwendet Planetengetriebes \cite{link:planetgear1}}
+		\caption{Orginal des verwendeten Planetengetriebes \cite{link:planetgear1}}
 		\label{bild:gearversion1-2}
 	\end{subfigure}
 \end{figure}
@@ -235,7 +236,7 @@ Für die Achsen der Planeten dienen hier 1.5mm, die auf der Innenseite eingekleb
 
 
 \section{ESP-32 vs. ESP-8266}
-Bei dem vom Lehrstuhl gestellten ESP-8266 handelt es sich um ein WiFi-fähigen Microcontroller der chinesischen Firma ``espressif''.
+Bei dem vom Lehrstuhl gestellten ESP-8266 handelt es sich um einen WiFi-fähigen Microcontroller der chinesischen Firma ``espressif''.
 Dieser besitzt 17 GPIO Pins, wovon jedoch lediglich 11 Pins nutzbar sind, da 6 an den externen SPI Flash angeschlossen sind.
 Da dies wie in Tabelle~\ref{table:pins} aufgezeigt nicht für unsere Zwecke reicht, musste auf den leistungsstärkeren ESP-32 ausgewichen werden.
 
@@ -260,9 +261,9 @@ Da dies wie in Tabelle~\ref{table:pins} aufgezeigt nicht für unsere Zwecke reic
 \label{table:pins}
 \end{table} 
 
-Obwohl die Anzahl der Pins das ausschlaggebenede Argument für einen Austausch des MicroControllers war, bringt dieser natürlich weitere Vorteile mit sich.
+Obwohl die Anzahl der Pins das ausschlaggebende Argument für einen Austausch des MicroControllers war, bringt dieser natürlich weitere Vorteile mit sich.
 
-Beispielsweise profitiert die später genauer erklärte Website stark davon, auf einen zweiten Core ausgelargert werden zu können.
+Beispielsweise profitiert die später genauer erklärte Website stark davon, auf einen zweiten Core ausgelagert werden zu können.
 
 Siehe Tabelle~\ref{table:esp32} für einen Vergleich der beiden MicroController anhand der für dieses Projekt relevanten Faktoren.
 
@@ -296,9 +297,9 @@ Eine passende, nutzerfreundliche und optisch ansprechende UI hatte für das Proj
 
 \subsection{Java (obsolet)}
 Das erste Konzept für eine passende UI wurde mit Java entwickelt. 
-Java (und das Framework Java Swing) bieten grundsätzlich einige Möglichkeiten Benutzeroberflächen zu bauen und da Java eine der meistgenutzten Technologien ist, haben wir uns vorerst dafür entschieden.
+Java (und das Framework Java Swing) bieten grundsätzlich einige Möglichkeiten Benutzeroberflächen zu bauen und da Java eine der meistgenutzten Programmiersprachen ist, haben wir uns vorerst dafür entschieden.
 
-Die Java UI besteht aus zwei Fenstern, welche vorerst die Verbindung zum TEGGLA sicherstellen und anschließend die Steuerung und Kommunikation ermöglicht. 
+Die Java UI besteht aus zwei Fenstern, welche vorerst die Verbindung zum TEGGLA sicherstellen und anschließend die Steuerung und Kommunikation ermöglichten.
 
 \begin{figure}[!ht]
 	\centering
@@ -308,7 +309,7 @@ Die Java UI besteht aus zwei Fenstern, welche vorerst die Verbindung zum TEGGLA 
 \end{figure}
 
 
-Im ersten Fenster (Abb.~\ref{bild:java1}) müssen in die Textfelder „IP Adresse“ und „PORT“ die passenden Daten eingegeben werden um anschließend mit dem „Connect“ Button eine Verbindung zum TEGGLA aufzubauen. 
+Im ersten Fenster (Abb.~\ref{bild:java1}) müssen in die Textfelder „IP Adresse“ und „PORT“ die passenden Daten eingegeben werden, um anschließend mit dem „Connect“ Button eine Verbindung zum TEGGLA aufzubauen. 
 Falls das nicht gelungen ist, bekommt der Nutzer eine Fehlermeldung als Pop-Up und muss die Daten erneut eingeben. 
 Im Erfolgsfall erscheint eine kurze Erfolgsmeldung und es öffnet sich das zweite Fenster.
 
@@ -322,7 +323,7 @@ Im Erfolgsfall erscheint eine kurze Erfolgsmeldung und es öffnet sich das zweit
 Im zweiten Fenster (Abb.~\ref{bild:java2}) werden alle wichtigen Daten für die Steuerung
 und Kommunikation des TEGGLA angezeigt, nämlich Geschwindigkeit und Akkustand.
 
-Die Entwicklung des zweiten Fensters ist noch nicht ganz fertig gewesen, als Java
+Die Entwicklung des zweiten Fensters war noch nicht ganz abgeschlossen, als Java
 durch die Verwendung der neuen UI mit JavaScript / HTML5 abgelöst wurde. Daher
 wäre dieses Fenster noch durch die Visualisierung der Motoransteuerung und –
 auslastung ergänzt worden.\\
@@ -335,7 +336,7 @@ Der zugehörige Quellcode ist im Anhang des Berichts und kann bei Interesse dahe
 
 \subsection{HTML5 und Controller-Anbindung}
 
-Das Java Programm wurde aus mehreren Gründen zugunsten einer auf HTML5, sowie JavaScript basierten Weboberfläche ersetzt:\par
+Das Java Programm wurde aus mehreren Gründen zugunsten einer auf HTML5 sowie JavaScript basierten Weboberfläche ersetzt:\par
 
 \begin{itemize}
 	\item Native und einheitliche Unterstützung für Controller unterschiedlichster Marken in HTML5\par
@@ -343,16 +344,17 @@ Das Java Programm wurde aus mehreren Gründen zugunsten einer auf HTML5, sowie J
 	\item Unabhängig von Java Laufzeitumgebung, sowie Verfügbarkeit des Programms.\\
 	(Hierbei muss nur ein Browser auf dem PC installiert sein.)\par
 	
-	\item Einfache Übertragung der Daten per WebSockets anstatt von ``ra''  Sockets, ohne ein eigenes ``Frame'' um die Daten bauen zu müssen
+	\item Einfache Übertragung der Daten per WebSockets anstatt von ``raw''  Sockets, ohne ein eigenes ``Frame'' um die Daten bauen zu müssen
 \end{itemize}\par
 
 
 \vspace{\baselineskip}
-Dies lässt sich sehr leicht durch die ESPAsyncWebServer Library für den ESP32 lösen. \par
+Die Erstellung der Website lässt sich sehr leicht durch die ESPAsyncWebServer Library für den ESP32 lösen. \par
 
 Diese hostet direkt auf dem ESP32 einen WebServer der sowohl HTML5, JS, als auch CSS bereitstellen kann. Als Speicherort für diese Dateien wird das sogenannte Dateisystem SPIFFS verwendet, welches den Flashspeicher des ESP32 als Dateisystem benutzt, wie es beispielsweise aus Windows bekannt ist.\par
 
-Eine Einschränkung ist die Limitierung auf eine gleichzeitige Verbindung zu dem Server. Dies wurde empirisch herausgefunden und somit konnte nicht sicher gesagt werden, ob es sich hier um eine Einschränkung aufgrund von mangelnder Rechenleistung handelt oder ob die Library nicht mehr unterstützt. Als Lösung dieses Problems, ist nun die Anzahl der Verbindungen die der WiFi Accesspoint akzeptiert, auf eins gesetzt.\par
+Eine Einschränkung ist die Limitierung auf eine gleichzeitige Verbindung zu dem Server. 
+Dies wurde empirisch herausgefunden und somit konnte nicht sicher gesagt werden, ob es sich hier um eine Einschränkung aufgrund mangelnder Rechenleistung handelt oder ob die Library nicht mehr gleichzeitige Verbindungen unterstützt. Als Lösung dieses Problems, wurde nun die Anzahl der Verbindungen, die der WiFi Accesspoint akzeptiert, auf eins gesetzt.\par
 
 
 \vspace{\baselineskip}
@@ -384,7 +386,7 @@ Für die Wahl des Controllers ist eine auswählbare Liste aller angeschlossenen 
 \subsection{Protokoll}
 Zum Übertragen wurde ein binäres Protokoll (Tabelle~\ref{table:protokoll}) entwickelt, um die Datenrate gering zu halten, sowie die Verarbeitung auf dem Microcontroller zu vereinfachen.\par
 
-Da durch Websockets bereits ein Integrierter Frame geschickt wird, muss nicht bei jeder Nachricht die Länge und Anfangs- und Endbyte mitgeschickt werden, wie es sonst bei raw Sockets nötig gewesen wäre.\par
+Da durch Websockets bereits ein Integrierter Frame geschickt wird, muss nicht bei jeder Nachricht die Länge sowie Anfangs- und Endbyte mitgeschickt werden, wie es sonst bei raw Sockets nötig gewesen wäre.\par
 
 Hierbei wird jeder Wert als Int16 geschickt, um ein ausreichend großes Spektrum bei geringer Datenrate zu gewährleisten. \par
 
@@ -418,15 +420,15 @@ Um die Anzahl an Nachrichten zu verringern, wurden die Batteriespannung und Wert
 
 
 \section{Steuerung per (XBox) Controller}
-Wie bereits in der Dokumentation der Weboberfläche erwähnt, wird die Steuerung primär per Spiele Controller gelöst, beispielsweise einen XBox-Controller von Microsoft.
+Wie bereits in der Dokumentation der Weboberfläche erwähnt, wird die Steuerung primär per Spiele Controller gelöst, beispielsweise einem XBox-Controller von Microsoft.
 Diese Entscheidung ist in der erhöhten Mobilität motiviert. 
 
-Mit einer Stuerung per WASD bzw. per Pfeiltasten sind nur binäre Zustände messbar, gedrückt oder nicht gedrückt, volle Geschwindigkeit oder Stillstand.
+Mit einer Steurung per WASD bzw. per Pfeiltasten sind nur binäre Zustände messbar, gedrückt oder nicht gedrückt, volle Geschwindigkeit oder Stillstand.
 Im Vergleich dazu erlauben uns die JoySticks des Controllers durch unterschiedlich starke Auslenkung die Geschwindigkeit sehr variabel zu bestimmen.
 
-Da hierbei ebenfalls der JoyStick in jegliche Richtungen bewegt werden kann, können ebenfalls die Mecanum Räder so angesteuert werden, dass sie in genau diese Richtung fahren.
+Da hierbei ebenfalls der JoyStick in jegliche Richtungen bewegt werden kann, können ebenfalls die Mecanum-Räder so angesteuert werden, dass sie in genau diese Richtung fahren.
 
-Jedoch sind hiermit nur zwei der drei Freiheitsgrade unserer Fahrzeugs abgedeckt. Um Rotationen um die eigene Achse mit variabler Geschwindigkeit zu steuern, wird die Eingabe des linken und des rechten JoySticks mit folgenden Formelen überlagert.
+Jedoch sind hiermit nur zwei der drei Freiheitsgrade unseres Fahrzeugs abgedeckt. Um Rotationen um die eigene Achse mit variabler Geschwindigkeit zu steuern, wird die Eingabe des linken und des rechten JoySticks mit folgenden Formelen überlagert.
 
 \bigskip
 Sei hier $controlSide$ Auslenkung des linken Sticks in X Richtung (nach rechts), 
@@ -446,36 +448,36 @@ PLA steht für Polyactide, TPU steht für thermoplastisches Polyurethan.
 In diesem Kapitel wird auf die Unterschiede zwischen TPU und PLA eingegangen. 
 
 PLA hat im Vergleich ein höheres E-Modul, was zu einer höheren Zugfestigkeit und Steifigkeit führt. 
-Auch in Sachen Verarbeitung ist PLA deutlich freundlicher als TPU. 
+Auch in Sachen Verarbeitung ist PLA deutlich einfacher als TPU. 
 Im Gegensatz zu TPU ist der Druckprozess mit PLA problemlos. 
 Darüber hinaus ist TPU ein bisschen teurer als PLA. 
 
 Warum also TPU? TPU ist im Vergleich zu PLA viel flexibler und elastischer. 
 Deswegen fiel die Wahl beim Rohstoff für die Sigmas und die Motorhalterungen auf TPU. 
-Acht Sigmas verbinden die zwei ``Motorhalterunghalterungen'' mit dem Hauptträger. 
+Acht Sigmas verbinden die zwei Motorträger mit dem Hauptträger. 
 Sie dienen hier quasi als Federung für die beiden ``Achsen''. 
-Die Motorhalterungen sind das Bindeglied zwischen Motor und Motorenhalterunghalterung. 
+Die Motorhalterungen sind das Bindeglied zwischen Motor und Motorträger. 
 Es ist naheliegend, eine Federung und eine Befestigung für die Motoren aus einem elastischen Material zu drucken, auch wenn man mit einigen Nachteilen leben muss.
 
 Um ein ansprechendes Design zu erhalten und um die Unterscheidung der Materialien zu erleichtern, wurde für den Robter, sowie in den Skizzen, für PLA die Farbe schwarz verwendet, für TPU die Farbe weiß.
 
 
 \section{Eierhalter}					
-Der Leichtbau Anspruch lässt sich bei allen Komponenten des TEGGLA wiederfinden, sogar beim Eierhalter. 
+Der Leichtbau-Anspruch lässt sich bei allen Komponenten des TEGGLA wiederfinden, sogar beim Eierhalter. 
 Dieser wurde aus mehreren einzelnen Bauteilen erstellt, um mit möglichst wenig Gewicht die größte Stabilität für das Ei zu erreichen. 
-Es wurde vorerst das Fundament des Eihalters gedruckt und anschließend mit 8 Eihalter Segmenten verbunden. 
+Es wurde vorerst das Fundament des Eihalters gedruckt und anschließend mit 8 Eihalter-Segmenten verbunden. 
 Somit kann das zu transportierende Ei schnell und sicher auf dem TEGGLA verwahrt werden. 
 
-Zusätzlich befindet sich der Eierhalter genau im Schwerpunkt des Fahrzeugs, um sicherzustellen dass die aufgenommene Last gleichmäßig verteilt werden kann und die omnidirektionale Fahrweise des TEGGLA nicht beeinträchtigt werden kann.
+Zusätzlich befindet sich der Eierhalter genau im Schwerpunkt des Fahrzeugs, um sicherzustellen, dass die aufgenommene Last gleichmäßig verteilt werden kann und die omnidirektionale Fahrweise des TEGGLA nicht beeinträchtigt werden kann.
 
 
 
 \section{Leichtbau}	
 
 Bei der Konstruktion des TEGGLA wurde auf die Verwendung von massiven und schweren Bauteilen komplett verzichtet, wodurch das geringe Gesamtgewicht des Fahrzeugs (ca. 500 Gramm) erreicht worden ist. 
-Dabei sind die schwersten Bauteile die Elektronikbauteile, auf die kein Einfluss genommen werden kann, wie die Motoren (je 36g), die H-Brücken (je 25g) sowie dem Akku (62g). 
+Dabei sind die schwersten Bauteile die Elektronikbauteile, auf die kein Einfluss genommen werden kann, wie die Motoren (je 36g), die H-Brücken (je 25g) sowie der Akku (62g). 
 
 Um ein omnidirektionales Fahren zu ermöglichen, benötigt der TEGGLA vier Motoren und zwei H-Brücken, welches das Gewicht des Fahrzeugs im Vergleich zu konventionellen Fahrzeugen erhöht. 
-Die Leichtbau Anforderung ist daher in gewisser Maßen in Konflikt mit einer innovativen Idee, schnellem Fahren und vor allem dem omnidirektionalen Fahren. 
+Die Leichtbau Anforderung ist daher in gewisser Weise in Konflikt mit einer innovativen Idee, schnellem Fahren und vor allem dem omnidirektionalen Fahren. 
 
-Durch die Verwendung einer elastischen Federung konnte auf ein Gehäuse für den Schutz der Elektronik verzichtet werden und zusätzlich können die dadurch entstandenen Hohlräume für technische Bauteile und Verbindungskabel genutzt werden.    
+Durch die Verwendung einer elastischen Federung konnte auf ein Gehäuse für den Schutz der Elektronik verzichtet werden und zusätzlich konnten die dadurch entstandenen Hohlräume für technische Bauteile und Verbindungskabel genutzt werden.    
