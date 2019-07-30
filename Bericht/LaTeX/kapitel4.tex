@@ -14,17 +14,17 @@ Auf die wichtigsten Komponenten, die in der Stückliste (Tabelle \ref{table:tegg
 \begin{tabular}{lr}
 	Bezeichnung & Anzahl \\ 
 	\midrule[3pt] 
-	4x PWM & Motor Enable \\ 
-	\midrule 
-	8x Output & Motor Richtung \\ 
-	\midrule 
-	2x I$^2$C & Gyroskop \\ 
-	\midrule 
-	1x ADC & Batteriespannung \\ 
-	\midrule
-	\midrule 
-	\multicolumn{2}{c}{15 Pins} \\ 
-	 
+	Hauptträger            & 1 \\ \midrule
+	Motorträger            & 2 \\ \midrule
+	Motorhalterung oben    & 4 \\ \midrule
+	Motorhalterung unten   & 4 \\ \midrule
+	Innenfelge und Felge   & 4 \\ \midrule
+	Sigma                  & 8 \\ \midrule
+	H-Brücken Halterung    & 4 \\ \midrule
+	Akku Halterung         & 2 \\ \midrule
+	Eihalterung Base       & 1 \\ \midrule
+	Eihalter Segmente      & 8 \\ \midrule
+	Mecanum Räder          & 4
 \end{tabular} 
 \caption{Stückliste der TEGGLA-Komponenten} 
 \label{table:tegglaoverview}
@@ -89,71 +89,87 @@ Bei den in diesem Praktikum verwendeten Rädern handelt es sich um eine Modifier
 In das Zentrum des Rädes wurde mithilfe einer Boolean Operation von Blender3D eine Führung für die Getriebe geschnitten, sodass diese in das Rad eingeschoben werden können.
 
 \section{Planetengetriebe}
+
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion1-1.png}
-	\caption{Version 1 des Planetengetriebes}
-	\label{bild:gearversion1-1}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{bilder/GetriebeVersion1-1.png}
+		\caption{Version 1 des Planetengetriebes}
+		\label{bild:gearversion1-1}
+	\end{subfigure}
+	%
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{bilder/GetriebeVersion1-2.jpg}
+		\caption{Orginal des verwendet Planetengetriebes \cite{link:planetgear1}}
+		\label{bild:gearversion1-2}
+	\end{subfigure}
 \end{figure}
+
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion1-2.jpg}
-	\caption{Orginal des verwendet Planetengetriebes \cite{link:planetgear1}}
-	\label{bild:gearversion1-2}
-\end{figure}
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion2.jpg}
+	\includegraphics[width=0.7\textwidth]{bilder/GetriebeVersion2.jpg}
 	\caption{OpenSCAN zum Erstellen von Planetengetrieben}
 	\label{bild:gearversion2}
 \end{figure}
+
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion3-1.png}
-	\caption{Version 2 des Planetengetriebes}
-	\label{bild:gearversion3-1}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=0.5\textwidth]{bilder/GetriebeVersion3-1.png}
+		\caption{Version 2 des Planetengetriebes}
+		\label{bild:gearversion3-1}
+	\end{subfigure}
+	%
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{bilder/GetriebeVersion3-2.png}
+		\caption{Version 3 des Planetengetriebes}
+		\label{bild:gearversion3-2}
+	\end{subfigure}
 \end{figure}
+
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion3-2.png}
-	\caption{Version 3 des Planetengetriebes}
-	\label{bild:gearversion3-2}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{bilder/GetriebeVersion4-1.png}
+		\caption{Version 4 des Planetengetriebes}
+		\label{bild:gearversion4-1}
+	\end{subfigure}
+	%
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{bilder/GetriebeVersion4-2.png}
+		\caption{Version 5 des Planetengetriebes}
+		\label{bild:gearversion4-2}
+	\end{subfigure}
 \end{figure}
+
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion4-1.png}
-	\caption{Version 4 des Planetengetriebes}
-	\label{bild:gearversion4-1}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{bilder/GetriebeVersion4-3.png}
+		\caption{Version 6 des Planetengetriebes}
+		\label{bild:gearversion4-3}
+	\end{subfigure}
+	%
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{bilder/GetriebeVersion4-4.png}
+		\caption{Version 7 des Planetengetriebes}
+		\label{bild:gearversion4-4}
+	\end{subfigure}
 \end{figure}
+
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion4-2.png}
-	\caption{Version 5 des Planetengetriebes}
-	\label{bild:gearversion4-2}
-\end{figure}
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion4-3.png}
-	\caption{Version 6 des Planetengetriebes}
-	\label{bild:gearversion4-3}
-\end{figure}
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion4-4.png}
-	\caption{Version 7 des Planetengetriebes}
-	\label{bild:gearversion4-4}
-\end{figure}
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion5-1.jpg}
-	\caption{Version 8 des Planetengetriebes \cite{link:planetgear5-1}}
-	\label{bild:gearversion5-1}
-\end{figure}
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=\textwidth]{bilder/GetriebeVersion5-2.jpg}
-	\caption{Version 9 des Planetengetriebes \cite{link:planetgear5-2}}
-	\label{bild:gearversion5-2}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{bilder/GetriebeVersion5-1.jpg}
+		\caption{Version 8 des Planetengetriebes \cite{link:planetgear5-1}}
+		\label{bild:gearversion5-1}
+	\end{subfigure}
+	%
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{bilder/GetriebeVersion5-2.jpg}
+		\caption{Version 9 des Planetengetriebes \cite{link:planetgear5-2}}
+		\label{bild:gearversion5-2}
+	\end{subfigure}
 \end{figure}
 
 \section{ESP-32 vs. ESP-8266}
@@ -363,6 +379,24 @@ $controlTurn$ Auslenkung des rechten Sticks in X Richtung (nach rechts),
 
 
 \section{PLA vs. TPU}
+Der Großteil der Teile für den TEGGLA wurde mit PLA Filament gedruckt. 
+PLA steht für Polyactide, TPU steht für thermoplastisches Polyurethan. 
+In diesem Kapitel wird auf die Unterschiede zwischen TPU und PLA eingegangen. 
+
+PLA hat im Vergleich ein höheres E-Modul, was zu einer höheren Zugfestigkeit und Steifigkeit führt. 
+Auch in Sachen Verarbeitung ist PLA deutlich freundlicher als TPU. 
+Im Gegensatz zu TPU ist der Druckprozess mit PLA problemlos. 
+Darüber hinaus ist TPU ein bisschen teurer als PLA. 
+
+Warum also TPU? TPU ist im Vergleich zu PLA viel flexibler und elastischer. 
+Deswegen viel die Wahl beim Rohstoff für die Sigmas und die Motorhalterungen auf TPU. 
+Acht Sigmas verbinden die zwei ``Motorhalterunghalterungen'' mit dem Hauptträger. 
+Sie dienen hier quasi als Federung für die beiden ``Achsen''. 
+Die Motorhalterungen sind das Bindeglied zwischen Motor und Motorenhalterunghalterung. 
+Es ist naheliegend, eine Federung und eine Befestigung für die Motoren aus einem elastischen Material zu drucken, auch wenn man mit einigen Nachteilen leben muss.
+
+Um ein ansprechendes Design zu erhalten und um die Unterscheidung der Materialien zu erleichtern, wurde für den Robter, sowie in den Skizzen, für PLA die Farbe schwarz verwendet, für TPU die Farbe weiß.
+
 
 \section{Eierhalter}					
 Der Leichtbau Anspruch lässt sich bei allen Komponenten des TEGGLA wiederfinden, sogar beim Eierhalter. 
