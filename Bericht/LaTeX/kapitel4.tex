@@ -1,6 +1,6 @@
 \chapter{Entwicklung der Schlüsselelemente}
 \section{Übersicht des gesamten Modells}
-Wie in Abbildung \ref{bild:tegglaoverview} erkenntm, besteht das Fahrzeug aus vielen Einzelteilen. 
+Wie in Abbildung \ref{bild:tegglaoverview} zu erkennen, besteht das Fahrzeug aus vielen Einzelteilen. 
 Auf die wichtigsten Komponenten, die in der Stückliste (Tabelle \ref{table:tegglaoverview}) genannt werden, wird in den folgenden Kapiteln genauer eingegangen.
 \begin{figure}[!ht]
 	\centering
@@ -42,8 +42,10 @@ Auf die wichtigsten Komponenten, die in der Stückliste (Tabelle \ref{table:tegg
 Der Schaltplan (Abb~\ref{bild:schaltpaln}) zeigt eine grobe Skizze der Verkabelung des TEGGLA Fahrzeuges. Der 2S Lipo Akku wird hierbei durch die beiden Einzellenakkus dargestellt.
 Der Hauptschalter, ein Dreipositionenschalter, dient zum Ein- und Ausschalten, sowie um das Fahrzeug in den Lademodus zu versetzen. 
 Die linke der beiden H-Brücken dient neben der Motoransteuerung auch zur Spannungsregulierung für das ESP. 
+
 Das ESP32 ist die zentrale Steuereinheit und steuert mit je sechs digitalen Pins die H-Brücken an und kann so die Motordrehrichtung sowie die Geschwindigkeit der Motoren steuern.
 Das ESP32 kommuniziert auch via dem I2C Bus mit dem Gyroskop und versorgt dieses mit der 3.3V Spannungsversorgung.
+
 Die Widerstände am Ausgang des BMS, auf welches im folgenden Abschnitt eingegangen wird, bilden einen 3:1 Spannungsteiler.
 Dieser wird benötigt, da das ESP32 einen maximalen Spannungseingang von 3.3V verträgt, am BMS jedoch bis zu 9V anliegen können. Durch diesen Spannungsteiler ist es über den Analog-Digital-Wandler in dem ESP32 möglich, den Akkustand in 4095 Schritten auszulesen.
 Hierduch wird dem User ein Feedback gegeben, wie lange die Akkuladung noch ausreicht.
@@ -55,8 +57,7 @@ Um das Fahrzeug wieder aufladen zu können, wurde ein externes Netzteil gekauft,
 Sobald der Hauptschalter in die Ladeposition gebracht wird, beginnt das Fahrzeug nun den internen Akku zu laden, bis das BMS bei geladenem Akku den Ladevorgang vollautomatisch beendet.
 
 \section{Mecanum}
-Als besonderes Merkmal des TEGGLA fallen sofort die besonderen Räder auf. Hierbei handelt es sich um sogenannte Mecanum-Räder. 
-
+Als besonderes Merkmal des TEGGLA fallen sofort die besonderen Räder auf, die sogenannten Mecanum-Räder. 
 Hierbei handelt es sich um von Bengt Ilon 1972 erfundene Räder, die es dem Fahrzeug erlauben sich in drei Freiheitsgraden zu bewegen.
 
 Dies wird ermöglicht durch die um 45\degree{} gedrehten Rollen auf den Rädern, sodass diese wie ein X aussehen.
@@ -87,11 +88,12 @@ $V_\theta =$ gewünschte Rotationsgeschwindigkeit $[-1, 1]$\\
 \bigskip
 
 Bei den in diesem Praktikum verwendeten Rädern handelt es sich um eine Modifizerung der STL Dateien von Jonah Innoart von dem Internetportal Thingiverse \cite{link:mecanum44}. 
-In das Zentrum des Rädes wurde mithilfe einer Boolean Operation von Blender3D eine Führung für die Getriebe geschnitten, sodass diese in das Rad eingeschoben werden können.
+In das Zentrum des Rades wurde mithilfe einer Boolean Operation von Blender3D eine Führung für die Getriebe geschnitten, sodass diese in das Rad eingeschoben werden können.
 
 \section{Planetengetriebe}
 
-Bereits in der 2. Woche des Projekts sind die ersten Entwürfe für die Planetengetriebe entstanden und bestanden aus zwei 3D-Modellen, dem Getriebe (Abb~\ref{bild:gearversion1-2}) und dem Rad die beide von der Onlineplatform ``Thingiverse'' bezogen wurden.
+Bereits in der 2. Woche des Projekts sind die ersten Entwürfe für die Planetengetriebe entstanden.
+Dieser setzte sich aus zwei 3D-Modellen zusammen, dem Getriebe (Abb~\ref{bild:gearversion1-2}) und dem Rad, die beide von der Onlineplatform ``Thingiverse'' bezogen wurden.
 Diese wurden in Blender zu einem Bauteil zusammenfügt (Abb~\ref{bild:gearversion1-1}). 
 
 Nach einem erfolgreichen Testdruck stellte sich allerdings raus, dass das Getriebe zu viel Reibung hatte, sodass es nicht anlaufen konnte.
@@ -113,7 +115,7 @@ Nach einem erfolgreichen Testdruck stellte sich allerdings raus, dass das Getrie
 
 Um der Reibung entgegen wirken zu können, wurden im nächsten Schritt mit dem CAD Programm ``OpenSCAD'' (Abb~\ref{bild:gearversion2}) eigene Planetengetriebe erstellt.
 Hierbei lassen sich vielerlei Parameter einstellen, beispielsweise Größe, Toleranzen, Zahnzahl, Planetenzahl, etc.
-Dies ermöglicht frei mit der Übersetzung sowie den bruckbaren Toleranzen zu testen um das bestmögliche Getriebe zu bekommen.
+Dies ermöglicht frei mit der Übersetzung sowie den druckbaren Toleranzen zu testen um das bestmögliche Getriebe zu bekommen.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{bilder/GetriebeVersion2.jpg}
@@ -124,10 +126,10 @@ Dies ermöglicht frei mit der Übersetzung sowie den bruckbaren Toleranzen zu te
 Durch die Funktionsweise von Additiver Fertigung lassen sich V-förmig verzahnte Getriebe als eine Einheit drucken.
 Dies wäre mit konventionellen Fertigungsprozessen nicht möglich.
 Da jedoch aufgrund von mangelnder Genauigkeit des 3D Druckers die Toleranzen so hoch gewählt werden müssen, 
-sodass sich die Zahne nicht verschmelzen, führt dies zu zu viel Spiel in dem Getriebe.
+sodass sich die Zahne nicht verschmelzen, führt dies zu viel Spiel in dem Getriebe.
 
 Um jedoch das Getriebe weiterhin platzsparend in das Rad zu senken, wurde hier ebenfalls mit geradverzahnten Getrieben (Abb.~\ref{bild:getrgerade}) getestet.
-Hierbei entsteht jeodch das Problem der fixierung der Planeten. Es entstand somit der Plan eine Gegenfelge zu benutzten um alle Teile zu halten.
+Hierbei entsteht jedoch das Problem der Fixierung der Planeten. Es entstand somit der Plan eine Gegenfelge zu Benutzten um alle Teile zu halten.
 
 \begin{figure}[!ht]
 	\centering
@@ -147,13 +149,14 @@ Hierbei entsteht jeodch das Problem der fixierung der Planeten. Es entstand somi
 \end{figure}
 
 Weiterhin gab es noch das Problematik der zu niedrigen Übersetzungen. 
-Hier hat es einige Iterationen gedauert bis eine Übersetzung von Über 1:4 erreicht werden konnte.
+Hier hat es einige Iterationen gedauert bis eine Übersetzung von über 1:4 erreicht werden konnte.
 
-Probleme die hier aufgetreten sind beispielsweise zu kleine Zähne (Abb.~\ref{bild:gearversion4-1}), sodass diese nicht mehr ineinander greifen konnten.
+Probleme die hier aufgetreten sind, sind beispielsweise zu kleine Zähne (Abb.~\ref{bild:gearversion4-1}), sodass diese nicht mehr ineinander greifen konnten.
 
 Desweiteren hängt die mögliche Übersetzung auch von der Anzahl der Planeten ab. 
 Sind zu viele Planeten im Ring (Abb.~\ref{bild:gearversion4-3}) überschneiden sie sich, und man muss somit auf weniger Planeten (Abb.~\ref{bild:gearversion4-2}) zurückgreifen, was die Stabilität beeinträchtigt.
-Hierbei lässt sich auch der Kraftwinkel der Zähne einstellen, Ist der Winkel zu niedrig (Abb.~\ref{bild:gearversion4-4}) rutschen die Zähne einfacher durch, verhaken sich jedoch nicht so stark.
+Hierbei lässt sich auch der Kraftwinkel der Zähne einstellen. 
+Ist der Winkel zu niedrig (Abb.~\ref{bild:gearversion4-4}) rutschen die Zähne einfacher durch, verhaken sich jedoch nicht so stark.
 
 \begin{figure}[!ht]
 	\centering
@@ -185,10 +188,10 @@ Hierbei lässt sich auch der Kraftwinkel der Zähne einstellen, Ist der Winkel z
 	\caption{Iterationen der Getriebe}
 \end{figure}
 
-Da Versuche mit höhreren Übersetzungen als 1:4 nie Erfolg hatten, wurden ebenfalls mehrstufige Getriebe (Abb.~\label{bild:compgetr}) getestet, sogenannten ``Composite Gear Sets''.
+Da Versuche mit höheren Übersetzungen als 1:4 nie Erfolg hatten, wurden ebenfalls mehrstufige Getriebe (Abb.~\label{bild:compgetr}) getestet, sogenannten ``Composite Gear Sets''.
 Hierbei sind Übersetzungen von über 1:66 möglich, was für diese Anwendung perfekt wäre. 
-Selbst bei mehrfachen Testdrucken der Zweistufigen Getriebe gelangt es nicht, ein lauffähiges Getriebe mit ausreichendem Wirkungsgrad zu erreichen.
-Es gelang bei einigen Getrieben sie per Hand mit einiger Gewalt zu drehen, jedoch hatten die Motoren nicht genung Moment um überhaupt aus dem Stillstand los zu drehen.
+Selbst bei mehrfachen Testdrucken der Zweistufigen Getriebe gelang es nicht, ein lauffähiges Getriebe mit ausreichendem Wirkungsgrad zu erreichen.
+Es gelang bei einigen Getrieben sie per Hand mit einiger Gewalt zu drehen, jedoch hatten die Motoren nicht genung Moment um überhaupt aus dem Stillstand loszudrehen.
 
 \begin{figure}[!ht]
 	\centering
@@ -207,7 +210,7 @@ Es gelang bei einigen Getrieben sie per Hand mit einiger Gewalt zu drehen, jedoc
 	\label{bild:compgetr}
 \end{figure}
 
-Aus diesen Gründen wurde sich letzendlich auf einstufige Getriebe mit einer Übersetzung von $1:4.14$ geeinigt.
+Aus diesen Gründen wurde sich letztendlich auf einstufige Getriebe mit einer Übersetzung von $1:4.14$ geeinigt.
 Obwohl dies zwar nicht ausreichend ist, um die Motoren von einer Lastdrehzahl von bis zu 6000 rpm auf eine lenkbare Geschwindigkeit zu übersetzen,
 wurde hier ebenfalls mit bedacht, dass weitere Steurung durch Software mithilfe der H-Brücken möglich ist.
 
@@ -421,14 +424,14 @@ Um die Anzahl an Nachrichten zu verringern, wurden die Batteriespannung und Wert
 
 \section{Steuerung per (XBox) Controller}
 Wie bereits in der Dokumentation der Weboberfläche erwähnt, wird die Steuerung primär per Spiele Controller gelöst, beispielsweise einem XBox-Controller von Microsoft.
-Diese Entscheidung ist in der erhöhten Mobilität motiviert. 
+Diese Entscheidung ist durch die erhöhte Mobilität motiviert. 
 
 Mit einer Steurung per WASD bzw. per Pfeiltasten sind nur binäre Zustände messbar, gedrückt oder nicht gedrückt, volle Geschwindigkeit oder Stillstand.
 Im Vergleich dazu erlauben uns die JoySticks des Controllers durch unterschiedlich starke Auslenkung die Geschwindigkeit sehr variabel zu bestimmen.
 
 Da hierbei ebenfalls der JoyStick in jegliche Richtungen bewegt werden kann, können ebenfalls die Mecanum-Räder so angesteuert werden, dass sie in genau diese Richtung fahren.
 
-Jedoch sind hiermit nur zwei der drei Freiheitsgrade unseres Fahrzeugs abgedeckt. Um Rotationen um die eigene Achse mit variabler Geschwindigkeit zu steuern, wird die Eingabe des linken und des rechten JoySticks mit folgenden Formelen überlagert.
+Jedoch sind hiermit nur zwei der drei Freiheitsgrade unseres Fahrzeugs abgedeckt. Um Rotationen um die eigene Achse mit variabler Geschwindigkeit zu steuern, wird die Eingabe des linken und des rechten JoySticks mit folgenden Formeln überlagert.
 
 \bigskip
 Sei hier $controlSide$ Auslenkung des linken Sticks in X Richtung (nach rechts), 

@@ -48,7 +48,6 @@ Beispielsweise kann durch das Integrieren der Beschleunigung, welche vom Gyrosco
 Eine weitere softwarenahe Verbesserung des TEGGLA wäre das Beheben von Verbindungsproblemen. 
 Bei dem Testen des fertigen Fahrzeugs kam es teilweise zu Verbindungsabbrüchen zum WLAN des TEGGLA. 
 Dadurch konnte das Fahrzeug natürlich nicht mehr gesteuert werden und zusätzlich wurde der letzte erhaltene Befehl dauerhaft ausgeführt. 
-
 Dieses Verbindungsproblem kann durch zwei Schritte verbessert werden: Vorerst sollte der Code so angepasst werden, dass bei einem Verbindungsabbruch kein Befehl mehr ausgeführt wird und der TEGGLA somit keine unkontrollierten Bewegungen durchführt. 
 Anschließend können automatische Reconnects implementiert werden, welche bei einem Verbindungsabbruch in kleinen Zeitabständen versuchen, die Verbindung automatisch wiederherzustellen. 
 Dadurch kann die Zeit ohne Verbindung mit dem TEGGLA minimiert werden.
