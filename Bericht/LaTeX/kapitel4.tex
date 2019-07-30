@@ -2,8 +2,26 @@
 \section{Übersicht des gesamten Modells}
 
 \section{Schaltplan}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{bilder/schaltplan.png}
+	\caption{Schaltplan (gezeichnet mit Fritzing)}
+	\label{bild:schaltpaln}
+\end{figure}
+Der Schaltplan (Abb~\ref{bild:schaltpaln}) zeigt eine grobe Skizze der Verkabelung des TEGGLA Fahrzeuges. Der 2S Lipo Akku wird hierbei durch die beiden Einzellenakkus dargestellt.
+Der Hauptschalter, ein Dreipositiionenschalter, dient zum Ein-, Ausschalten, sowie um das Fahrzeug in den Lademodus zu versetzen. 
+Die linke der beiden H-Brücken dient neben der Motoransteuerung auch zur Spannungsregulierung für das ESP. 
+Das ESP32 ist die zentrale Steuereinheit und steuert mit je sechs digitalen Pins die H-Brücken an und kann so die Motordrehrichtung so wie die Geschwindigkeit der Motoren steuern.
+Das ESP32 komuniziert auch via dem I2C Bus mit dem Gyroskop und versorgt dieses mit der 3.3V Spannungsversorgung.
+Die Widerstände am Ausgang des BMS, auf welches im folgenden Abschnitt eingegangen wird, bilden einen 3:1 Spannungsteiler.
+Dieser wird benötigt, da das ESP32 einen maximalen Spannungseingang von 3.3V verträgt, am BMS jedoch bis zu 9V anliegen können. Durch diesen Spannungsteiler ist es über den Analog-Digital-Wandler in dem ESP32 möglich, den Akkustand in 4095 Schritten auszulesen.
+Hierduch wird dem User ein Feedback gegeben, wie lange die Akkuladung noch ausreicht.
 
 \section{BMS und Laden}
+Um einem Akkuschaden vorzubeugen, sollte ein User doch einmal übersehen, dass der Akku des Fahrzeugs leer ist, wurde ein BMS (Battery Management System) verbaut.
+Dieses verhindert, durch rechtzeitiges Abschalten, ein Über- und Tiefenentladen des Akkus. 
+Um das Fahrzeug wieder aufladen zu können, wurde ein externes Netzeil gekauft, welches über einen XT60 Stecker an das Fahrzeig angeschlossen werden kann.
+Sobald der Hauptschalter in die Ladeposition gebracht wird, beginnt das Fahrzeug nun den internen Akku zu laden, bis das BMS bei geladenem Akku den Ladevorgang vollautomatisch beendet.
 
 \section{Mecanum}
 Als besonderes Merkmal des TEGGLA fallen sofort die besonderen Räder auf. Hierbei handelt es sich um sogenannte Mecanum-Räder. 
