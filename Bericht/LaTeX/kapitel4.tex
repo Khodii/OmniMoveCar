@@ -85,13 +85,15 @@ $V_\theta =$ gewünschte Rotationsgeschwindigkeit $[-1, 1]$\\
 \end{align} 
 \captionof{figure}{Formeln für individuellen Motoren \cite{link:mecanum}}
 
-Bei den in diesem Praktikum verwendeten Rädern handelt es sich um eine Modifierung der STL Dateien von Jonah Innoart von dem Internetportal Thingiverse \cite{link:mecanum44}. 
+Bei den in diesem Praktikum verwendeten Rädern handelt es sich um eine Modifizerung der STL Dateien von Jonah Innoart von dem Internetportal Thingiverse \cite{link:mecanum44}. 
 In das Zentrum des Rädes wurde mithilfe einer Boolean Operation von Blender3D eine Führung für die Getriebe geschnitten, sodass diese in das Rad eingeschoben werden können.
 
 \section{Planetengetriebe}
 
-Bereits in der 2. Woche des Projekts sind die ersten Entwürfe für die Planetengetriebe entstanden und bestanden aus zwei 3D-Modellen, dem Getriebe (Abb~\ref{bild:gearversion1-2}) und dem Rad, die von der Onlineplatform ``Thingiverse'' bezogen wurden
-und in Blender zu einem Bauteil zusammengabaut wurden (Abb~\ref{bild:gearversion1-1}). Nach einem erfolgreichen Testdruck stellte sich allerdings raus, dass das Getriebe zu viel Reibung hatte, sodass es nicht anlaufen konnte.
+Bereits in der 2. Woche des Projekts sind die ersten Entwürfe für die Planetengetriebe entstanden und bestanden aus zwei 3D-Modellen, dem Getriebe (Abb~\ref{bild:gearversion1-2}) und dem Rad die von der Onlineplatform ``Thingiverse'' bezogen wurden.
+Diese wurden in Blender zu einem Bauteil zusammenfügt (Abb~\ref{bild:gearversion1-1}). 
+
+Nach einem erfolgreichen Testdruck stellte sich allerdings raus, dass das Getriebe zu viel Reibung hatte, sodass es nicht anlaufen konnte.
 
 \begin{figure}[!ht]
 	\centering
@@ -109,13 +111,22 @@ und in Blender zu einem Bauteil zusammengabaut wurden (Abb~\ref{bild:gearversion
 \end{figure}
 
 Um der Reibung entgegen wirken zu können, wurden im nächsten Schritt mit dem CAD Programm ``OpenSCAD'' (Abb~\ref{bild:gearversion2}) eigene Planetengetriebe erstellt.
-
+Hierbei lassen sich vielerlei Parameter einstellen, beispielsweise Größe, Toleranzen, Zahnzahl, Planetenzahl, etc.
+Dies ermöglicht frei mit der Übersetzung sowie den bruckbaren Toleranzen zu testen um das bestmögliche Getriebe zu bekommen.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{bilder/GetriebeVersion2.jpg}
 	\caption{OpenSCAN zum Erstellen von Planetengetrieben}
 	\label{bild:gearversion2}
 \end{figure}
+
+Durch die Funktionsweise von Additiver Fertigung lassen sich V-förmig verzahnte Getriebe als eine Einheit drucken.
+Dies wäre mit konventionellen Fertigungsprozessen nicht möglich.
+Da jedoch aufgrund von mangelnder Genauigkeit des 3D Druckers die Toleranzen so hoch gewählt werden müssen, 
+sodass sich die Zahne nicht verschmelzen, führt dies zu zu viel Spiel in dem Getriebe.
+
+Um jedoch das Getriebe weiterhin platzsparend in das Rad zu senken, wurde hier ebenfalls mit geradverzahnten Getrieben (Abb.~\ref{bild:getrgerade}) getestet.
+Hierbei entsteht jeodch das Problem der fixierung der Planeten. Es entstand somit der Plan eine Gegenfelge zu benutzten um alle Teile zu halten.
 
 \begin{figure}[!ht]
 	\centering
@@ -131,7 +142,17 @@ Um der Reibung entgegen wirken zu können, wurden im nächsten Schritt mit dem C
 		\label{bild:gearversion3-2}
 	\end{subfigure}
 	\caption{Im Rad integrierte Getriebe}
+	\label{bild:getrgerade}
 \end{figure}
+
+Weiterhin gab es noch das Problematik der zu niedrigen Übersetzungen. 
+Hier hat es einige Iterationen gedauert bis eine Übersetzung von Über 1:4 erreicht werden konnte.
+
+Probleme die hier aufgetreten sind beispielsweise zu kleine Zähne (Abb.~\ref{bild:gearversion4-1}), sodass diese nicht mehr ineinander greifen konnten.
+
+Desweiteren hängt die mögliche Übersetzung auch von der Anzahl der Planeten ab. 
+Sind zu viele Planeten im Ring (Abb.~\ref{bild:gearversion4-3}) überschneiden sie sich, und man muss somit auf weniger Planeten (Abb.~\ref{bild:gearversion4-2}) zurückgreifen, was die Stabilität beeinträchtigt.
+Hierbei lässt sich auch der Kraftwinkel der Zähne einstellen, Ist der Winkel zu niedrig (Abb.~\ref{bild:gearversion4-4}) rutschen die Zähne einfacher durch, verhaken sich jedoch nicht so stark.
 
 \begin{figure}[!ht]
 	\centering
@@ -163,6 +184,11 @@ Um der Reibung entgegen wirken zu können, wurden im nächsten Schritt mit dem C
 	\caption{Iterationen der Getriebe}
 \end{figure}
 
+Da Versuche mit höhreren Übersetzungen als 1:4 nie Erfolg hatten, wurden ebenfalls mehrstufige Getriebe (Abb.~\label{bild:compgetr}) getestet, sogenannten ``Composite Gear Sets''.
+Hierbei sind Übersetzungen von über 1:66 möglich, was für diese Anwendung perfekt wäre. 
+Selbst bei mehrfachen Testdrucken der Zweistufigen Getriebe gelangt es nicht, ein lauffähiges Getriebe mit ausreichendem Wirkungsgrad zu erreichen.
+Es gelang bei einigen Getrieben sie per Hand mit einiger Gewalt zu drehen, jedoch hatten die Motoren nicht genung Moment um überhaupt aus dem Stillstand los zu drehen.
+
 \begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[b]{0.4\textwidth}
@@ -177,20 +203,32 @@ Um der Reibung entgegen wirken zu können, wurden im nächsten Schritt mit dem C
 		\label{bild:gearversion5-2}
 	\end{subfigure}
 	\caption{Mehrstufige Getriebe}
+	\label{bild:compgetr}
 \end{figure}
+
+Aus diesen Gründen wurde sich letzendlich auf einstufige Getriebe mit einer Übersetzung von $1:4.14$ geeinigt.
+Obwohl dies zwar nicht ausreichend ist, um die Motoren von einer Lastdrehzahl von bis zu 6000 rpm auf eine lenkbare Geschwindigkeit zu übersetzen,
+wurde hier ebenfalls mit bedacht, dass weitere Steurung durch Software mithilfe der H-Brücken möglich ist.
+
+Dies führt zu dem finalen Design (Abb.~\ref{bild:currGetr}). 
+Aufgrund der geringeren Reibung wurde sich hierbei für eine Geradverzahnung entschieden.
+Der 14mm lange Ring ist an einer Seite offen, sodass er aufgebogen werden kann um ihn um den Käfig (Abb.~\ref{bild:currKaefig}) zu schließen.
+Bei dem Käfig handelt es sich um eine Verbindung der Innenfelge, die auf den Motor aufgesteckt wird mit der Außenfelge.
+Der Käfig erfüllt ebenfalls den Zweck die Planeten an ihrem Platz zu halten, sowie zusätzliche Stabilität der Achsen zu gewährleisten.
+Für die Achsen der Planeten dienen hier 1.5mm, die auf der Innenseite eingeklebt sind.
 
 \begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{bilder/currGetr.png}
 		\caption{Finale Version des Planetengetriebes}
-		\label{bild:gearversion5-1}
+		\label{bild:currGetr}
 	\end{subfigure}
 	\hspace{0.1\textwidth}%
 	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{bilder/currKaefig.png}
 		\caption{Finale Version des Käfigs}
-		\label{bild:gearversion5-2}
+		\label{bild:currKaefig}
 	\end{subfigure}
 	\caption{Finale Getriebebaugruppe}
 \end{figure}
@@ -258,7 +296,7 @@ Eine passende, nutzerfreundliche und optisch ansprechende UI hatte für das Proj
 
 \subsection{Java (obsolet)}
 Das erste Konzept für eine passende UI wurde mit Java entwickelt. 
-Java (und das Framework Java Swing) bieten grundsätzlich einige Möglichkeiten Benutzeroberflächen zu bauen und da Java einer der meistgenutzten Technologien ist, haben wir uns vorerst dafür entschieden.
+Java (und das Framework Java Swing) bieten grundsätzlich einige Möglichkeiten Benutzeroberflächen zu bauen und da Java eine der meistgenutzten Technologien ist, haben wir uns vorerst dafür entschieden.
 
 Die Java UI besteht aus zwei Fenstern, welche vorerst die Verbindung zum TEGGLA sicherstellen und anschließend die Steuerung und Kommunikation ermöglicht. 
 
@@ -384,7 +422,7 @@ Wie bereits in der Dokumentation der Weboberfläche erwähnt, wird die Steuerung
 Diese Entscheidung ist in der erhöhten Mobilität motiviert. 
 
 Mit einer Stuerung per WASD bzw. per Pfeiltasten sind nur binäre Zustände messbar, gedrückt oder nicht gedrückt, volle Geschwindigkeit oder Stillstand.
-Im Vergleich dazu erlauben uns die JoySticks des Controllers durch unterschiedlich stare Auslenkung die Geschwindigkeit sehr variabel zu bestimmen.
+Im Vergleich dazu erlauben uns die JoySticks des Controllers durch unterschiedlich starke Auslenkung die Geschwindigkeit sehr variabel zu bestimmen.
 
 Da hierbei ebenfalls der JoyStick in jegliche Richtungen bewegt werden kann, können ebenfalls die Mecanum Räder so angesteuert werden, dass sie in genau diese Richtung fahren.
 
@@ -413,7 +451,7 @@ Im Gegensatz zu TPU ist der Druckprozess mit PLA problemlos.
 Darüber hinaus ist TPU ein bisschen teurer als PLA. 
 
 Warum also TPU? TPU ist im Vergleich zu PLA viel flexibler und elastischer. 
-Deswegen viel die Wahl beim Rohstoff für die Sigmas und die Motorhalterungen auf TPU. 
+Deswegen fiel die Wahl beim Rohstoff für die Sigmas und die Motorhalterungen auf TPU. 
 Acht Sigmas verbinden die zwei ``Motorhalterunghalterungen'' mit dem Hauptträger. 
 Sie dienen hier quasi als Federung für die beiden ``Achsen''. 
 Die Motorhalterungen sind das Bindeglied zwischen Motor und Motorenhalterunghalterung. 

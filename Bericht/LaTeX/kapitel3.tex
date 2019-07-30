@@ -1,4 +1,6 @@
 \chapter{Planung}
+Nachdem das Lastenheft abgegeben wurde war der nächste Meilenstein der Abschluss der Konzeptphase, zu dem eine kurze Präsentation über Gesamt- und Teilfunktionen, Lösungsprinzipien, Morphologischer Kasten gehalten werden sollte. Außerdem sollte die Präsentation pro Gruppenmitglied ein vorläufiges Konzept mit Freihandskizze enthalten. 
+
 \section{Entwürfe}
 Da die Entscheidung für das finale Konzept sehr früh gefallen ist, wurde sich darauf geeinigt, dass zwei Gruppenmitglieder dieses Konzept bearbeiten, dafür aber viel tiefer ins Detail gehen. 
 Die übrigen zwei Gruppenmitglieder haben jeweils eine eigene Idee behandelt, blieben dabei aber deutlich oberflächlicher. 
@@ -84,7 +86,7 @@ Das Ei wäre wäre beim Weggchair an der Stelle befestigt, wo normalerweise der 
 \subsection{TEGGLA}
 Da sich die nächsten drei Kapitel nur mit dem finalen Konzept auseinandersetzen, wird an dieser Stelle nur ganz kurz auf das Konzept des TEGGLA (Abb.~\ref{bild:tegglaskizze}) eingegangen, damit die nachfolgenden Kapitel nachvollziehbar sind. 
 
-Das besondere Feature beim TEGGLA sind die omnidirektionalen Räder, auch Mecanum bezeichnet, die neben dem normalen Vorwärtsfahren auch Seitwärtsbewegungen und Rotation zulassen. 
+Das besondere Feature beim TEGGLA sind die omnidirektionalen Räder, auch als Mecanum bezeichnet, die neben dem normalen Vorwärtsfahren auch Seitwärtsbewegungen und Rotation zulassen. 
 Diese drei Freiheitsgrade lassen sich auch beliebig kombinieren. 
 Dadurch ist in der Ebene jede denkbare Richtung befahrbar. Dazu sind allerdings vier Motoren notwendig. 
 
@@ -113,13 +115,13 @@ Der Seggway bräuchte, um sich aufrecht zu halten auf jeden Fall Step-Motoren st
 
 Der Weggchair würde, wie oben angemerkt, mit den vom Lehrstuhl bereitgestellten Materialien auskommen. Für die Übersetzung wäre ein Planetengetriebe im Rad zuständig. 
 
-Der TEGGLA braucht, leider ein ESP-32, da das ESP-8266 zu wenig Anschlüsse hat. Das Highlight, die Räder, sind bei diesem Konzept die Mecanum-Wheels. Als Energiespeicher kommt ein zweizelliger LiPo in Kombination mit einem BMS (Battery Management System) zum Einsatz. Hier ist der Einsatz des Spiele Controllers besonders wichtig, da damit alle drei Achsen (X-Achse, Y-Achse und Rotation) analog gesteuert werden können. Für die Sicherheit des Eies sorgt eine Federung aus TPU. Zum TEGGLA werden alle Teile und Entscheidungen in diesem Bericht noch näher beleuchtet. 
+Der TEGGLA braucht leider ein ESP-32, da das ESP-8266 zu wenig Anschlüsse hat. Das Highlight, die Räder, sind bei diesem Konzept die Mecanum-Wheels. Als Energiespeicher kommt ein zweizelliger LiPo in Kombination mit einem BMS (Battery Management System) zum Einsatz. Hier ist der Einsatz des Spiele Controllers besonders wichtig, da damit alle drei Achsen (X-Achse, Y-Achse und Rotation) analog gesteuert werden können. Für die Sicherheit des Eies sorgt eine Federung aus TPU. Zum TEGGLA werden alle Teile und Entscheidungen in diesem Bericht noch näher beleuchtet. 
 
 
 
 \section{Online Bestellungen}
 Um das Fahrzeug nach dem Praktikum behalten zu können, war eine Voraussetzung, dass nur Teile verbaut werden, die nicht Eigentum des Lehrstuhls sind.
-Aus diesem wurden die nötigen Bauteile bei unterschiedlichen Onlineshops herausgesucht und bestellt.
+Aus diesem Grund wurden die nötigen Bauteile bei unterschiedlichen Onlineshops herausgesucht und bestellt.
 Hierbei fiel die Entscheidung auf Pollin, einem deutschen Elektronik Händler und AliExpress, einem chinesischen Großhändler.
 In der ursprünglichen Planung wurden die Kosten pro Fahrzeug auf circa \EUR{20} -- \EUR{25} überschlagen.
 In der finalen Bestellung beliefen sich die Kosten auf insgesamt etwa \EUR{32}.
@@ -175,7 +177,7 @@ Diese Entscheidungsfindung wird in diesem Kapitel genauer betrachtet.
 
 \subsection{Git}
 Zu Beginn des Projekts war bereits klar, dass eine Datenversionskontrolle für alle Projektdateien benötigt werden wird.
-Durch verschiede Vorerfahrungen viel die Entscheidung sehr leicht. Git löst genau diese Aufgaben perfekt. Das Projekt wurde in einem privaten Repository auf Github gehostet. 
+Durch verschiede Vorerfahrungen iel die Entscheidung sehr leicht. Git löst genau diese Aufgaben perfekt. Das Projekt wurde in einem privaten Repository auf Github gehostet. 
 Die Wahl der graphischen oberflächliche für Git war jedem Gruppenmitglied selbst überlassen. Vereinzelt wurde hier auf ``Git Extensions'' gestetzt, wobei meist eher ``GitKraken'' (Abb.~\ref{bild:gitkraken}) benutzt wurde, aufgrund der übersichtlichen graphischen Oberfläche.
 \begin{figure}[!ht]
 	\centering
