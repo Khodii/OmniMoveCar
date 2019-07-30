@@ -10,8 +10,6 @@
 // Replace with your network credentials
 const char *ssid = "ESP32-OmniMove";
 const char *password = "123456789";
-// const char* ssid     = "moto g(6) 2970";
-// const char* password = "428d1382abf1";
 
 // const byte DNS_PORT = 53;
 const IPAddress apIP = IPAddress(192, 168, 4, 1);

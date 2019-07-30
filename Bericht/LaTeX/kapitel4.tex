@@ -6,6 +6,37 @@
 \section{BMS und Laden}
 
 \section{Mecanum}
+Als besonderes Merkmal des TEGGLA fallen sofort die besonderen Räder auf. Hierbei handelt es sich um sogenannte Mecanum-Räder. 
+
+Hierbei handelt es sich von Bengt Ilon 1972 erfundene Räder, die es dem Fahrzeug erlauben sich in drei Freiheitsgraden zu bewegen.
+
+Dies wird ermöglicht durch die um 45\degree{} gedrehten Rollen auf den Rädern, sodass diese wie ein X aussehen.
+Durch unterschiedliche Drehrichtung und Drehgeschwindigkeit der Motoren kann das Fahrzeug in jegliche Richtungen innerhalb der Ebene beweget werden. (vgl. Abb~\ref{bild:mecanum})
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{bilder/mecanum.jpg}
+	\caption{Freiheitsgrade von Mecanum \cite{link:mecanum}}
+	\label{bild:mecanum}
+\end{figure}
+
+Die jeweiligen zu Motorgeschwindigkeiten lassen sich hierbei durch Formeln~\ref{eq:mec1}--\ref{eq:mec2} berechnen.\\
+
+$V_x =$ Motorgeschwindigkeit des x-ten Rads im Uhrzeigersinn (beginnend vorderes linkes Rad)\\
+$V_d =$ gewünschte Roboter Geschwindigkeit $[-1, 1]$\\
+$\theta_d =$ gewünschter Winkel $[0, 2\pi]$\\
+$V_\theta =$ gewünschte Rotationsgeschwindigkeit $[-1, 1]$\\
+
+
+\begin{align}
+	V_1 = V_d\sin{(\theta_d+\frac{\pi}{4})} + V_\theta \label{eq:mec1}\\
+	V_2 = V_d\cos{(\theta_d+\frac{\pi}{4})} - V_\theta\\
+	V_3 = V_d\cos{(\theta_d+\frac{\pi}{4})} + V_\theta\\
+	V_4 = V_d\sin{(\theta_d+\frac{\pi}{4})} - V_\theta \label{eq:mec2}
+\end{align} 
+\captionof{figure}{Formeln für individuellen Motoren \cite{link:mecanum}}
+
+Bei den in diesem Praktikum verwendeten Rädern handelt es sich um eine Modifierung der Mecanum von Jonah Innoart von dem Internetportal Thingiverse \cite{link:mecanum44}.
 
 \section{Planetengetriebe}
 
